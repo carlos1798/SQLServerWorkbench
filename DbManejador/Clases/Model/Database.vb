@@ -1,6 +1,6 @@
 ﻿Public Class Database
     Private _Nombre As String
-    Private _Tablas() As List(Of Tabla)
+    Private _Tablas As New List(Of Tabla)
     Private _Servidor As Servidor
 
     Public Sub New()
@@ -10,7 +10,7 @@
         Me.Nombre = nombre
     End Sub
 
-    Public Sub New(servidor As Servidor, tablas() As List(Of Tabla), nombre As String)
+    Public Sub New(servidor As Servidor, tablas As List(Of Tabla), nombre As String)
         Me.Servidor = servidor
         Me.Tablas = tablas
         Me.Nombre = nombre
@@ -25,11 +25,11 @@
         End Set
     End Property
 
-    Public Property Tablas As List(Of Tabla)()
+    Public Property Tablas As List(Of Tabla)
         Get
             Return _Tablas
         End Get
-        Set(value As List(Of Tabla)())
+        Set(value As List(Of Tabla))
             _Tablas = value
         End Set
     End Property

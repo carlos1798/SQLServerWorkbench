@@ -26,7 +26,8 @@ Public Class DatabaseDAO
 
     Public Function FindAll() As List(Of Database) Implements IDAO(Of Database).FindAll
         Dim listaDatabases As New List(Of Database)
-        Dim SqlQuery As String = $"SELECT name FROM sys.databases when name not in('master','model','msdb','tempdb')"
+        Dim SqlQuery As String = $"SELECT name FROM sys.databases"
+        'when name not in('master','model','msdb','tempdb')"
         Try
             conectar()
             Dim comandoSql As New SqlCommand(SqlQuery, conexion)

@@ -87,10 +87,24 @@ Public Class Servidor
         Dim conexion As String
         If tipoLogin = TipoAutentificacion.WINDOWS Then
             conexion = $"Data Source={nombreServidor} ;Initial Catalog=master;Integrated Security=True"
+
+
         Else
             conexion = $"Server={nombreServidor} ;Database=master;User Id={usuario};Password={contrasena};"
         End If
         Return conexion
     End Function
+    Public Function modificarConexionString(dbName As String) As String
+        Dim conexion As String
+        If tipoLogin = TipoAutentificacion.WINDOWS Then
+            conexion = $"Data Source={nombreServidor} ;Initial Catalog={dbName};Integrated Security=True"
+            My.Settings.ConnectionString = conexion
+        Else
+            conexion = $"Server={nombreServidor} ;Database=master;User Id={dbName};Password={contrasena};"
+            My.Settings.ConnectionString = conexion
+        End If
+        Return conexion
+    End Function
+
 
 End Class

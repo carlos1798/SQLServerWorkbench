@@ -11,6 +11,7 @@ Public Class TablaDAO
     Public Function FindAll() As List(Of Tabla) Implements IDAO(Of Tabla).FindAll
         Throw New NotImplementedException()
     End Function
+
     ''' <summary>
     ''' Devuelve una lista de Objetos tabla solo con el nombre cargado
     ''' </summary>
@@ -34,13 +35,13 @@ Public Class TablaDAO
             End If
             comandoSql.Dispose()
             comandoSql = Nothing
+            lectorResultado.Close()
+            lectorResultado = Nothing
+            Return listaTablas
         Catch _Exception As Exception
             Console.WriteLine(_Exception.Message)
+
             Return Nothing
         End Try
-        conexion.Close()
-
-
-
     End Function
 End Class

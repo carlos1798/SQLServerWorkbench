@@ -12,6 +12,7 @@ Public Class Login
     'Se almacenaran todos los servidores que se van añadiendo en la sesion
     Dim registo As New Registro
     Dim listaservidores = registo.getServidores()
+    Dim listaDatabases As New List(Of Database)
 
     Private Sub Aceptar_Click(sender As Object, e As EventArgs) Handles Aceptar.Click
         Dim servidor As Servidor = recuperarDatosForm()
@@ -19,15 +20,33 @@ Public Class Login
 
 
 
+
         Try
             If servidor.checkExistenciaServidor() Then 'Sabemos que esta en alcance el servidor
                 Using DatabaseDAO As New DatabaseDAO()
-                    My.Settings.ConnectionString = servidor.crearConexionString()
-
-                    DatabaseDAO.FindAll()
-
-
+                    listaDatabases = DatabaseDAO.FindAll()
                 End Using
+                For Each Database In listaDatabases
+                    servidor.modificarConexionString(Database.Nombre)
+
+                    Using TablaDAO As New TablaDAO()
+                        Database.Tablas = TablaDAO.LightFindAll()
+                    End Using
+
+                Next
+                For Each Database In listaDatabases
+                    servidor.modificarConexionString(Database.Nombre)
+                    For Each tabla In Database.Tablas
+
+                        Using ColumnaDAO As New ColumnaDAO()
+                            tabla.Columnas = ColumnaDAO.GetColumnas(tabla.NombreTabla)
+                        End Using
+
+                    Next
+                Next
+
+
+
 
                 MessageBox.Show("Conectado")
                 registo.saveServidor(servidor) 'Lo guardamos

@@ -11,6 +11,7 @@ Public Class ColumnaDAO
     Public Function FindAll() As List(Of Columna) Implements IDAO(Of Columna).FindAll
         Throw New NotImplementedException()
     End Function
+
     ''' <summary>
     ''' Devuelve todas las columnas de una tabla determinada
     ''' </summary>
@@ -24,7 +25,6 @@ Public Class ColumnaDAO
         Dim isNullable As Boolean = False
         Dim isIdentity As Boolean = False
         Dim listaIdentity As New List(Of String)
-        listaIdentity = checkIdentity(nombreTabla)
         Try
 
             conectar()
@@ -73,18 +73,50 @@ Public Class ColumnaDAO
                     tipoDato = Nothing
                 Loop
             End If
-            comandoSql.Dispose()
-            comandoSql = Nothing
+
         Catch _Exception As Exception
             Console.WriteLine(_Exception.Message)
             Return Nothing
         End Try
         conexion.Close()
 
+        listaIdentity = checkIdentity(nombreTabla)
+
+
+
         Return resultado
     End Function
 
+    Public Function checkIdentity(nombreTabla As String)
+        Dim listaColumnas As List(Of String) = New List(Of String)
+        Dim SqlQuery As String = $"SELECT name, is_identity FROM sys.columns WHERE object_id = OBJECT_ID('{nombreTabla}') AND is_identity= 1"
+        Dim nombre As String
+        Try
 
+            conectar()
+            Dim comandoSql As New SqlCommand(SqlQuery, conexion)
+            Dim lectorResultado As SqlDataReader = comandoSql.ExecuteReader
+            Dim adaptador = New SqlDataAdapter(comandoSql)
+            If lectorResultado.HasRows Then
+                Do While lectorResultado.Read()
+                    Try
+                        nombre = lectorResultado("name").ToString
+                        listaColumnas.Add(nombre)
+                    Catch ex As Exception
+
+                    End Try
+                Loop
+            End If
+            comandoSql.Dispose()
+            comandoSql = Nothing
+        Catch _Exception As Exception
+            Console.WriteLine(_Exception.Message)
+            cerrarConexion()
+            Return Nothing
+        End Try
+        Return listaColumnas
     End Function
+
+
 
 End Class

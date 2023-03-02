@@ -28,4 +28,5 @@
         Me.Nombre = nomb
     End Sub
 
+
 End Class

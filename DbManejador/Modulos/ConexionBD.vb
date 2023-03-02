@@ -20,7 +20,6 @@ Public MustInherit Class ConexionBD
         Try
 
             conexion.Open()
-            MessageBox.Show("Conectado")
         Catch ex As Exception
             Console.WriteLine(ex.Message)
         End Try
@@ -174,6 +173,10 @@ Public MustInherit Class ConexionBD
             End If
             comandoSql.Dispose()
             comandoSql = Nothing
+            lectorResultado.Close()
+            lectorResultado = Nothing
+            Return resultado
+
         Catch _Exception As Exception
             Console.WriteLine(_Exception.Message)
             Return Nothing
@@ -186,7 +189,7 @@ Public MustInherit Class ConexionBD
     Function generarTabla(nombre As String) As Tabla
         Dim tabla As New Tabla With {
         .nombreTabla = nombre,
-        .totFilas = NumeroRegistros(nombre),
+        .TotFilas = NumeroRegistros(nombre),
         .columnas = GetColumnas(nombre)}    '    '   Me.indexes = getIndexes(nombre)---->Devuelve la lista de indices
 
         '    '   Me.restricciones = getRestricciones(nombre) ----> Devuelve las restricciones de la tabla
