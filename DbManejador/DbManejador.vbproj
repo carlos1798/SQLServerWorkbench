@@ -73,17 +73,34 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.vb">
+    <Compile Include="Clases\DAO\ColumnaDAO.vb" />
+    <Compile Include="Clases\DAO\DatabaseDAO.vb" />
+    <Compile Include="Clases\DAO\IDAO.vb" />
+    <Compile Include="Clases\DAO\ServidorDAO.vb" />
+    <Compile Include="Clases\DAO\TablaDAO.vb" />
+    <Compile Include="Clases\Model\Columna.vb" />
+    <Compile Include="Clases\Model\Database.vb" />
+    <Compile Include="Clases\Model\Indice.vb" />
+    <Compile Include="Clases\Model\Procedimiento.vb" />
+    <Compile Include="Clases\Model\Restriccion.vb" />
+    <Compile Include="Clases\Model\Servidor.vb" />
+    <Compile Include="Clases\Model\Servidores.vb" />
+    <Compile Include="Clases\Model\Tabla.vb" />
+    <Compile Include="Clases\Model\Tipo.vb" />
+    <Compile Include="Forms\Login.designer.vb">
+      <DependentUpon>Login.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Login.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.vb">
-      <DependentUpon>Form1.vb</DependentUpon>
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Modulos\ConexionBD.vb" />
+    <Compile Include="Modulos\GeneradorSQL.vb" />
+    <Compile Include="Modulos\Registro.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
       <DependentUpon>Application.myapp</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="My Project\Resources.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -97,6 +114,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Forms\Login.resx">
+      <DependentUpon>Login.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
@@ -115,6 +135,9 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Clases\IO\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
