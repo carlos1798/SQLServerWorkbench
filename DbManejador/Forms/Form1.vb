@@ -29,6 +29,9 @@
         Next
 
         For Each db In listaDatabases
+            Dim asd As New BDSelector(db.Nombre)
+            FlowLayoutPanel1.Controls.Add(asd)
+
 
             If db.Nombre = "GESTIONSQL" Then
                 For Each tabla In db.Tablas
@@ -44,8 +47,17 @@
 
 
 
+
+
         ' Agregue cualquier inicialización después de la llamada a InitializeComponent().
 
     End Sub
 
+    Private Sub BdSelector1_Load(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub FlowLayoutPanel1_Paint(sender As Object, e As PaintEventArgs) Handles FlowLayoutPanel1.Paint
+
+    End Sub
 End Class

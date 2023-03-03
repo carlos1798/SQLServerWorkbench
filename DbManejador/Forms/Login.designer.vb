@@ -33,32 +33,33 @@ Partial Class Login
         Me.Aceptar = New System.Windows.Forms.Button()
         Me.Cancelar = New System.Windows.Forms.Button()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
+        Me.Panel1 = New System.Windows.Forms.Panel()
         Me.SuspendLayout()
         '
         'nombreServidorLabel
         '
         Me.nombreServidorLabel.AutoSize = True
-        Me.nombreServidorLabel.Location = New System.Drawing.Point(12, 95)
+        Me.nombreServidorLabel.Location = New System.Drawing.Point(320, 286)
         Me.nombreServidorLabel.Name = "nombreServidorLabel"
-        Me.nombreServidorLabel.Size = New System.Drawing.Size(118, 15)
+        Me.nombreServidorLabel.Size = New System.Drawing.Size(104, 13)
         Me.nombreServidorLabel.TabIndex = 0
         Me.nombreServidorLabel.Text = "Nombre del servidor:"
         '
         'autenticacionLabel
         '
         Me.autenticacionLabel.AutoSize = True
-        Me.autenticacionLabel.Location = New System.Drawing.Point(12, 137)
+        Me.autenticacionLabel.Location = New System.Drawing.Point(320, 328)
         Me.autenticacionLabel.Name = "autenticacionLabel"
-        Me.autenticacionLabel.Size = New System.Drawing.Size(81, 15)
+        Me.autenticacionLabel.Size = New System.Drawing.Size(72, 13)
         Me.autenticacionLabel.TabIndex = 1
         Me.autenticacionLabel.Text = "Autenticacion"
         '
         'nomServidor
         '
         Me.nomServidor.FormattingEnabled = True
-        Me.nomServidor.Location = New System.Drawing.Point(194, 92)
+        Me.nomServidor.Location = New System.Drawing.Point(502, 283)
         Me.nomServidor.Name = "nomServidor"
-        Me.nomServidor.Size = New System.Drawing.Size(274, 23)
+        Me.nomServidor.Size = New System.Drawing.Size(274, 21)
         Me.nomServidor.TabIndex = 2
         '
         'Autenticacion
@@ -66,48 +67,48 @@ Partial Class Login
         Me.Autenticacion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.Autenticacion.FormattingEnabled = True
         Me.Autenticacion.Items.AddRange(New Object() {"Autentificacion de Windows", "Autentificacion de SQL Server"})
-        Me.Autenticacion.Location = New System.Drawing.Point(194, 134)
+        Me.Autenticacion.Location = New System.Drawing.Point(502, 325)
         Me.Autenticacion.Name = "Autenticacion"
-        Me.Autenticacion.Size = New System.Drawing.Size(274, 23)
+        Me.Autenticacion.Size = New System.Drawing.Size(274, 21)
         Me.Autenticacion.TabIndex = 3
         '
         'Username_label
         '
         Me.Username_label.AutoSize = True
-        Me.Username_label.Location = New System.Drawing.Point(39, 174)
+        Me.Username_label.Location = New System.Drawing.Point(347, 365)
         Me.Username_label.Name = "Username_label"
-        Me.Username_label.Size = New System.Drawing.Size(94, 15)
+        Me.Username_label.Size = New System.Drawing.Size(83, 13)
         Me.Username_label.TabIndex = 4
         Me.Username_label.Text = "Nombre Usuario"
         '
         'Contrasena_pass
         '
         Me.Contrasena_pass.AutoSize = True
-        Me.Contrasena_pass.Location = New System.Drawing.Point(39, 208)
+        Me.Contrasena_pass.Location = New System.Drawing.Point(347, 399)
         Me.Contrasena_pass.Name = "Contrasena_pass"
-        Me.Contrasena_pass.Size = New System.Drawing.Size(67, 15)
+        Me.Contrasena_pass.Size = New System.Drawing.Size(61, 13)
         Me.Contrasena_pass.TabIndex = 5
         Me.Contrasena_pass.Text = "Contraseña"
         '
         'usrComboBox
         '
         Me.usrComboBox.FormattingEnabled = True
-        Me.usrComboBox.Location = New System.Drawing.Point(241, 174)
+        Me.usrComboBox.Location = New System.Drawing.Point(549, 365)
         Me.usrComboBox.Name = "usrComboBox"
-        Me.usrComboBox.Size = New System.Drawing.Size(227, 23)
+        Me.usrComboBox.Size = New System.Drawing.Size(227, 21)
         Me.usrComboBox.TabIndex = 6
         '
         'passwdTextBox
         '
-        Me.passwdTextBox.Location = New System.Drawing.Point(241, 212)
+        Me.passwdTextBox.Location = New System.Drawing.Point(549, 403)
         Me.passwdTextBox.Name = "passwdTextBox"
         Me.passwdTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-        Me.passwdTextBox.Size = New System.Drawing.Size(226, 23)
+        Me.passwdTextBox.Size = New System.Drawing.Size(226, 20)
         Me.passwdTextBox.TabIndex = 7
         '
         'Aceptar
         '
-        Me.Aceptar.Location = New System.Drawing.Point(392, 251)
+        Me.Aceptar.Location = New System.Drawing.Point(700, 442)
         Me.Aceptar.Name = "Aceptar"
         Me.Aceptar.Size = New System.Drawing.Size(75, 33)
         Me.Aceptar.TabIndex = 8
@@ -116,7 +117,7 @@ Partial Class Login
         '
         'Cancelar
         '
-        Me.Cancelar.Location = New System.Drawing.Point(294, 251)
+        Me.Cancelar.Location = New System.Drawing.Point(602, 442)
         Me.Cancelar.Name = "Cancelar"
         Me.Cancelar.Size = New System.Drawing.Size(75, 33)
         Me.Cancelar.TabIndex = 9
@@ -127,11 +128,21 @@ Partial Class Login
         '
         Me.OpenFileDialog1.FileName = "OpenFileDialog1"
         '
+        'Panel1
+        '
+        Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.Panel1.Location = New System.Drawing.Point(1, 1)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(243, 526)
+        Me.Panel1.TabIndex = 10
+        '
         'Login
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit
+        Me.BackColor = System.Drawing.Color.White
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(499, 296)
+        Me.ClientSize = New System.Drawing.Size(863, 525)
+        Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Cancelar)
         Me.Controls.Add(Me.Aceptar)
         Me.Controls.Add(Me.passwdTextBox)
@@ -160,4 +171,5 @@ Partial Class Login
     Friend WithEvents Aceptar As Button
     Friend WithEvents Cancelar As Button
     Friend WithEvents OpenFileDialog1 As OpenFileDialog
+    Friend WithEvents Panel1 As Panel
 End Class

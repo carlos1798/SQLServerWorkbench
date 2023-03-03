@@ -98,6 +98,18 @@
     <Compile Include="Clases\Model\Servidores.vb" />
     <Compile Include="Clases\Model\Tabla.vb" />
     <Compile Include="Clases\Model\Tipo.vb" />
+    <Compile Include="Forms\Componentes\BDSelector.Designer.vb">
+      <DependentUpon>BDSelector.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Componentes\BDSelector.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Componentes\UserControl1.Designer.vb">
+      <DependentUpon>UserControl1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Componentes\UserControl1.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Forms\Form1.Designer.vb">
       <DependentUpon>Form1.vb</DependentUpon>
     </Compile>
@@ -131,6 +143,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Forms\Componentes\BDSelector.resx">
+      <DependentUpon>BDSelector.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Componentes\UserControl1.resx">
+      <DependentUpon>UserControl1.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
     </EmbeddedResource>
