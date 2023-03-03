@@ -4,20 +4,20 @@ Imports System.Xml.Serialization
 
 Public Class Registro
 
-    Dim userName As String = My.User.Name.ToString
-    Dim trimUsername As String = userName.Remove(0, userName.LastIndexOf("\") + 1)
+    ReadOnly userName As String = My.User.Name.ToString
+    ReadOnly trimUsername As String = userName.Remove(0, userName.LastIndexOf("\") + 1)
     Dim filepath As String = $"C:\Users\{trimUsername}\Documents\"
-    Dim xmlPath As String = $"{filepath}\DatosServidor.xml"
+    ReadOnly xmlPath As String = $"{filepath}\DatosServidor.xml"
     Public Sub New()
     End Sub
 #Region "Servidor"
     'La idea buena seria generar un json y leerlo 
     'Parseamos un archivo para ver si se ha ejecutado 
-    Public Function checkServerLog() As Boolean
-        'TODO: Comprobar si existe el log de servidores en el usuario
+    'Public Function checkServerLog() As Boolean
+    '    'TODO: Comprobar si existe el log de servidores en el usuario
 
-    End Function
-    Public Function getServidores() As Servidores
+    'End Function
+    Public Function GetServidores() As Servidores
 
         'Para que esto funcione hay que meter una clase que sea lista de servidores y que deserialize eso en el objeto lista y de ahi ya tienes los objetos 
 
@@ -33,14 +33,14 @@ Public Class Registro
 
 
         Catch ex As Exception
-            Return filedata
+            Return fileData
         End Try
         'TODO: Lista que devuelva los servidores almacenados
     End Function
-    Public Sub saveServidor(servidor As Servidor)
+    Public Sub SaveServidor(servidor As Servidor)
         'TODO: Para arreglar que salga bien tengo que leer el xml y sobrescribilo 
 
-        Dim listaServidores = getServidores()
+        Dim listaServidores = GetServidores()
 
 
         listaServidores.listaServidores.Add(servidor)
@@ -81,14 +81,21 @@ Public Class Registro
         Dim fs As New FileStream(path, FileMode.OpenOrCreate, FileAccess.Read, FileShare.None)
         Dim sr As New StreamReader(fs)
 
-        Dim contenidoArchivo As String
-        While sr.EndOfStream = False
-            contenidoArchivo = sr.ReadLine()
-        End While
+        Dim contenidoArchivo As String = ""
+        Dim nombreFichero As String = ""
+        Try
+            While sr.EndOfStream = False
+                contenidoArchivo = sr.ReadLine()
+            End While
 
-        Dim nombreFichero As String
-        nombreFichero = contenidoArchivo.Substring(contenidoArchivo.LastIndexOf(" ") + 1)
-        sr.Close()
+            If Not contenidoArchivo = Nothing Then
+                nombreFichero = contenidoArchivo.Substring(contenidoArchivo.LastIndexOf(" ") + 1)
+            End If
+
+            sr.Close()
+        Catch ex As Exception
+
+        End Try
         Return nombreFichero
     End Function
 
@@ -113,7 +120,7 @@ Public Class Registro
         End Using
     End Sub
 
-    Public Sub insertarSentencia(nombreFichero As String, sentencia As String)
+    Public Sub InsertarSentencia(nombreFichero As String, sentencia As String)
         Dim path = $"{filepath}{nombreFichero}.sql"
         Dim fs As New FileStream(path, FileMode.Append, FileAccess.Write, FileShare.ReadWrite)
         Dim sw As New StreamWriter(fs)
@@ -124,7 +131,7 @@ Public Class Registro
         fs.Close()
     End Sub
 
-    Public Function generarString(lista As List(Of String))
+    Public Function GenerarString(lista As List(Of String))
 
         Dim stringPrincipal As String = ""
         For Each item In lista

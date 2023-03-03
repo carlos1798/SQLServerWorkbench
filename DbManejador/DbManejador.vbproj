@@ -47,6 +47,16 @@
   <PropertyGroup>
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'DebubReleas|AnyCPU'">
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\DebubReleas\</OutputPath>
+    <DocumentationFile>DbManejador.xml</DocumentationFile>
+    <Optimize>true</Optimize>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -76,6 +86,7 @@
     <Compile Include="Clases\DAO\ColumnaDAO.vb" />
     <Compile Include="Clases\DAO\DatabaseDAO.vb" />
     <Compile Include="Clases\DAO\IDAO.vb" />
+    <Compile Include="Clases\DAO\IndiceDAO.vb" />
     <Compile Include="Clases\DAO\ServidorDAO.vb" />
     <Compile Include="Clases\DAO\TablaDAO.vb" />
     <Compile Include="Clases\Model\Columna.vb" />
@@ -87,6 +98,12 @@
     <Compile Include="Clases\Model\Servidores.vb" />
     <Compile Include="Clases\Model\Tabla.vb" />
     <Compile Include="Clases\Model\Tipo.vb" />
+    <Compile Include="Forms\Form1.Designer.vb">
+      <DependentUpon>Form1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form1.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\Login.designer.vb">
       <DependentUpon>Login.vb</DependentUpon>
     </Compile>
@@ -114,6 +131,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Forms\Form1.resx">
+      <DependentUpon>Form1.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Login.resx">
       <DependentUpon>Login.vb</DependentUpon>
     </EmbeddedResource>
@@ -129,6 +149,8 @@
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
     </None>
+    <None Include="My Project\DataSources\Tabla.datasource" />
+    <None Include="My Project\DataSources\TablaDAO.datasource" />
     <None Include="My Project\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <CustomToolNamespace>My</CustomToolNamespace>

@@ -5,51 +5,33 @@ Imports DbManejador.Servidor
 Public Class Login
 
     Dim nombreServidor As String = ""
-    Dim tipoautenticacion As TipoAutentificacion
+    Private ReadOnly tipoautenticacion As TipoAutentificacion
     Dim nombreUsuario As String = ""
     Dim contrasena As String = ""
 
     'Se almacenaran todos los servidores que se van añadiendo en la sesion
-    Dim registo As New Registro
-    Dim listaservidores = registo.getServidores()
+    Private ReadOnly registo As New Registro
+    ReadOnly listaservidores = registo.getServidores()
     Dim listaDatabases As New List(Of Database)
-
+    Public servidor As Servidor
     Private Sub Aceptar_Click(sender As Object, e As EventArgs) Handles Aceptar.Click
-        Dim servidor As Servidor = recuperarDatosForm()
-        Dim conexionString As String
 
 
 
+        servidor = RecuperarDatosForm()
+
+        servidor.ModificarConexionString("master")
 
         Try
-            If servidor.checkExistenciaServidor() Then 'Sabemos que esta en alcance el servidor
-                Using DatabaseDAO As New DatabaseDAO()
-                    listaDatabases = DatabaseDAO.FindAll()
-                End Using
-                For Each Database In listaDatabases
-                    servidor.modificarConexionString(Database.Nombre)
 
-                    Using TablaDAO As New TablaDAO()
-                        Database.Tablas = TablaDAO.LightFindAll()
-                    End Using
-
-                Next
-                For Each Database In listaDatabases
-                    servidor.modificarConexionString(Database.Nombre)
-                    For Each tabla In Database.Tablas
-
-                        Using ColumnaDAO As New ColumnaDAO()
-                            tabla.Columnas = ColumnaDAO.GetColumnas(tabla.NombreTabla)
-                        End Using
-
-                    Next
-                Next
+            If Servidor.checkExistenciaServidor() Then 'Sabemos que esta en alcance el servidor
 
 
+                Form1.Show()
 
 
                 MessageBox.Show("Conectado")
-                registo.saveServidor(servidor) 'Lo guardamos
+                registo.saveServidor(Servidor) 'Lo guardamos
 
 
 
@@ -70,10 +52,9 @@ Public Class Login
 
     Private Sub Cancelar_Click(sender As Object, e As EventArgs) Handles Cancelar.Click
         Me.Close()
-
     End Sub
 
-    Private Function recuperarDatosForm() As Servidor
+    Private Function RecuperarDatosForm() As Servidor
         nombreServidor = nomServidor.Text
         Select Case Autenticacion.SelectedIndex
             Case 0
@@ -95,7 +76,7 @@ Public Class Login
     End Function
 
     'Eliminamos la posibilidad de que se indtroduzca el nombre de usuario y contrasena si el metodo de Login es con la autentificacion de windows
-    Private Sub autenticacion_SelectedValueChanged(sender As Object, e As EventArgs) Handles Autenticacion.SelectedValueChanged
+    Private Sub Autenticacion_SelectedValueChanged(sender As Object, e As EventArgs) Handles Autenticacion.SelectedValueChanged
         If Autenticacion.SelectedItem = "autenticacion de Windows" Then
 
             Me.usrComboBox.Text = ""
@@ -109,7 +90,7 @@ Public Class Login
     End Sub
 
 
-    Private Sub nomServidor_Click(sender As Object, e As EventArgs) Handles nomServidor.Click
+    Private Sub NomServidor_Click(sender As Object, e As EventArgs) Handles nomServidor.Click
         If Not nomServidor.Items.Count = 0 Then nomServidor.Items.Clear()
 
         Me.nomServidor.TabIndex = listaservidores.listaServidores.Count
@@ -118,7 +99,7 @@ Public Class Login
         Next
     End Sub
 
-    Private Sub nomServidor_SelectedValueChanged(sender As Object, e As EventArgs) Handles nomServidor.SelectedValueChanged
+    Private Sub NomServidor_SelectedValueChanged(sender As Object, e As EventArgs) Handles nomServidor.SelectedValueChanged
         Dim servidorSeleccionado As New Servidor()
         For Each servidor As Servidor In listaservidores.listaServidores
             If nomServidor.SelectedItem.Equals(servidor.NombreServidor1) Then

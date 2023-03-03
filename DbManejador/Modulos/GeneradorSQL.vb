@@ -3,14 +3,14 @@
     Public Sub New()
     End Sub
 
-    Sub GenerarSql(nombreFichero As String, tablas As Tabla())
-        For Each tabla In tablas
+    'Sub GenerarSql(nombreFichero As String, tablas As Tabla())
+    '    For Each tabla In tablas
 
-        Next
+    '    Next
 
-    End Sub
+    'End Sub
 
-    Public Function tipoDatoToString(dato As Tipo)
+    Public Function TipoDatoToString(dato As Tipo)
         Dim tipoDatoString As String
         If dato.numeroCaracteres = Nothing Then
             tipoDatoString = $"{dato.tipoDato}"
@@ -20,15 +20,15 @@
         Return tipoDatoString
     End Function
 
-    Public Function crearTabla(tabla As Tabla)
+    Public Function CrearTabla(tabla As Tabla)
         Dim sentenciaCompleta As String
-        Dim iniCrearTabla As String = $"CREATE TABLE {tabla.nombreTabla}("
+        Dim iniCrearTabla As String = $"CREATE TABLE {tabla.NombreTabla}("
         sentenciaCompleta = iniCrearTabla + crearColumnas(tabla) + ")"
 
         Return sentenciaCompleta
     End Function
 
-    Function generarIdentity(isIdentity As Boolean)
+    Function GenerarIdentity(isIdentity As Boolean)
         Dim sentenciaIdentity As String
         If isIdentity Then
             sentenciaIdentity = "IDENTITY (1, 1)"
@@ -38,7 +38,7 @@
         Return sentenciaIdentity
     End Function
 
-    Function generarNulo(isNull As Boolean)
+    Function GenerarNulo(isNull As Boolean)
         Dim sentenciaNull As String
         If isNull Then
             sentenciaNull = "NULL"
@@ -49,26 +49,26 @@
 
     End Function
 
-    Public Function crearColumnas(tabla As Tabla)
+    Public Function CrearColumnas(tabla As Tabla)
         Dim addColumna As String
         Dim queryGeneral As String = Nothing
-        For Each columna In tabla.columnas
-            addColumna = $"{columna.Nombre} {tipoDatoToString(columna.tipoDato)} {generarIdentity(columna.isIdentity)} {generarNulo(columna.isNullable)},"
+        For Each columna In tabla.Columnas
+            addColumna = $"{columna.Nombre} {TipoDatoToString(columna.tipoDato)} {GenerarIdentity(columna.isIdentity)} {generarNulo(columna.isNullable)},"
             queryGeneral = queryGeneral + vbCr + addColumna
             addColumna = Nothing
         Next
         Return queryGeneral
     End Function
 
-    Public Function columnasIndices(indice As Indice)
-        Dim stringColumnas As String
+    Public Function ColumnasIndices(indice As Indice)
+        Dim stringColumnas As String = ""
 
         For Each columna In indice.Columnas
             If indice.Columnas.Last Is columna Then
 
-                stringColumnas = stringColumnas + $"[{columna.Nombre}]"
+                stringColumnas += $"[{columna.Nombre}]"
             Else
-                stringColumnas = stringColumnas + $"[{columna.Nombre}],"
+                stringColumnas += $"[{columna.Nombre}],"
 
             End If
 
@@ -76,8 +76,8 @@
         Return stringColumnas
     End Function
 
-    Public Function crearIndice(indice As Indice)
-        Dim addIndice As String = $"CREATE {indice.TipoIndice} INDEX {indice.Nombre} ON [dbo].[{indice.NombreTabla}]({columnasIndices(indice)}) WITH FILLFACTOR ={indice.FillFactor} ON [PRIMARY]"
+    Public Function CrearIndice(indice As Indice)
+        Dim addIndice As String = $"CREATE {indice.TipoIndice} INDEX {indice.Nombre} ON [dbo].[{indice.NombreTabla}]({ColumnasIndices(indice)}) WITH FILLFACTOR ={indice.FillFactor} ON [PRIMARY]"
         Return addIndice
     End Function
 

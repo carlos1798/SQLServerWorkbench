@@ -71,19 +71,18 @@ Public Class Servidor
     End Sub
     'Ejecutar funciones asincronas 
     '
-    Public Function checkExistenciaServidor()
+    Public Function CheckExistenciaServidor()
         Dim exito As Boolean = False
         Dim ping As New Ping()
         Try
             Dim respuesta = ping.Send(Me.nombreServidor, 1000)
-            'Dim respuesta = ping.Send(Me.nombreServidor, 1000)
             exito = True
         Catch ex As Exception
             Debug.Write(ex.Message)
         End Try
         Return exito
     End Function
-    Public Function crearConexionString() As String
+    Public Function CrearConexionString() As String
         Dim conexion As String
         If tipoLogin = TipoAutentificacion.WINDOWS Then
             conexion = $"Data Source={nombreServidor} ;Initial Catalog=master;Integrated Security=True"
@@ -94,7 +93,7 @@ Public Class Servidor
         End If
         Return conexion
     End Function
-    Public Function modificarConexionString(dbName As String) As String
+    Public Function ModificarConexionString(dbName As String) As String
         Dim conexion As String
         If tipoLogin = TipoAutentificacion.WINDOWS Then
             conexion = $"Data Source={nombreServidor} ;Initial Catalog={dbName};Integrated Security=True"

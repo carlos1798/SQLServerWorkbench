@@ -18,12 +18,12 @@ Public Class ColumnaDAO
     ''' <param name="nombreTabla"></param>
     ''' <returns></returns>
     Public Function LightFindAll(nombreTabla As String) As List(Of Columna)
-        Dim resultado As List(Of Columna) = New List(Of Columna)
+        Dim resultado As New List(Of Columna)
         Dim columnaAux As New Columna()
         Dim SqlQuery As String = $"SELECT COLUMN_NAME,ORDINAL_POSITION,DATA_TYPE,CHARACTER_MAXIMUM_LENGTH,COLUMN_DEFAULT,IS_NULLABLE FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME ='{nombreTabla}'"
         Dim tdato As New Tipo()
         Dim isNullable As Boolean = False
-        Dim isIdentity As Boolean = False
+        Dim isIdentity As Boolean
         Dim listaIdentity As New List(Of String)
         Try
 
@@ -53,13 +53,20 @@ Public Class ColumnaDAO
 
                     End If
 
-                    Try
-                        defecto = lectorResultado("COLUMN_DEFAULT")
+                    If Not IsDBNull(lectorResultado("CHARACTER_MAXIMUM_LENGTH")) Then
+
                         tdato.numeroCaracteres = CInt(lectorResultado("CHARACTER_MAXIMUM_LENGTH").ToString)
-                    Catch ex As Exception
+                    Else
+
                         tdato.numeroCaracteres = Nothing
+
+                    End If
+
+                    If Not IsDBNull(lectorResultado("COLUMN_DEFAULT")) Then
+                        defecto = lectorResultado("COLUMN_DEFAULT")
+                    Else
                         defecto = Nothing
-                    End Try
+                    End If
 
                     resultado.Add(New Columna With {
                         .Nombre = nombre,
@@ -79,16 +86,12 @@ Public Class ColumnaDAO
             Return Nothing
         End Try
         conexion.Close()
-
-        listaIdentity = checkIdentity(nombreTabla)
-
-
-
+        checkIdentity(nombreTabla)
         Return resultado
     End Function
 
-    Public Function checkIdentity(nombreTabla As String)
-        Dim listaColumnas As List(Of String) = New List(Of String)
+    Public Function CheckIdentity(nombreTabla As String)
+        Dim listaColumnas As New List(Of String)
         Dim SqlQuery As String = $"SELECT name, is_identity FROM sys.columns WHERE object_id = OBJECT_ID('{nombreTabla}') AND is_identity= 1"
         Dim nombre As String
         Try
@@ -109,6 +112,8 @@ Public Class ColumnaDAO
             End If
             comandoSql.Dispose()
             comandoSql = Nothing
+            lectorResultado.Close()
+            lectorResultado = Nothing
         Catch _Exception As Exception
             Console.WriteLine(_Exception.Message)
             cerrarConexion()
