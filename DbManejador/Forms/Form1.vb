@@ -4,6 +4,7 @@
 
     Public Sub New()
 
+
         ' Esta llamada es exigida por el diseñador.
         InitializeComponent()
         Using DatabaseDAO As New DatabaseDAO()
@@ -35,16 +36,13 @@
 
             If db.Nombre = "GESTIONSQL" Then
                 For Each tabla In db.Tablas
+                    DataGridView1.Rows.Add(tabla.NombreTabla, tabla.Indices.Count, tabla.Columnas.Count, tabla.TotFilas)
 
-                    Dim bs As New BindingSource()
 
-                    TablaBindingSource.Add(tabla)
                 Next
 
             End If
         Next
-        DataGridView1.DataSource = TablaBindingSource()
-
 
 
 
@@ -60,4 +58,5 @@
     Private Sub FlowLayoutPanel1_Paint(sender As Object, e As PaintEventArgs) Handles FlowLayoutPanel1.Paint
 
     End Sub
+
 End Class

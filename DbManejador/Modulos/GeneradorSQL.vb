@@ -20,13 +20,6 @@
         Return tipoDatoString
     End Function
 
-    Public Function CrearTabla(tabla As Tabla)
-        Dim sentenciaCompleta As String
-        Dim iniCrearTabla As String = $"CREATE TABLE {tabla.NombreTabla}("
-        sentenciaCompleta = iniCrearTabla + crearColumnas(tabla) + ")"
-
-        Return sentenciaCompleta
-    End Function
 
     Function GenerarIdentity(isIdentity As Boolean)
         Dim sentenciaIdentity As String
@@ -49,16 +42,6 @@
 
     End Function
 
-    Public Function CrearColumnas(tabla As Tabla)
-        Dim addColumna As String
-        Dim queryGeneral As String = Nothing
-        For Each columna In tabla.Columnas
-            addColumna = $"{columna.Nombre} {TipoDatoToString(columna.tipoDato)} {GenerarIdentity(columna.isIdentity)} {generarNulo(columna.isNullable)},"
-            queryGeneral = queryGeneral + vbCr + addColumna
-            addColumna = Nothing
-        Next
-        Return queryGeneral
-    End Function
 
     Public Function ColumnasIndices(indice As Indice)
         Dim stringColumnas As String = ""

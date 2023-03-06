@@ -4,6 +4,7 @@ Imports System.Xml.Serialization
 
 Public Class Registro
 
+
     ReadOnly userName As String = My.User.Name.ToString
     ReadOnly trimUsername As String = userName.Remove(0, userName.LastIndexOf("\") + 1)
     Dim filepath As String = $"C:\Users\{trimUsername}\Documents\"

@@ -63,6 +63,7 @@
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -98,16 +99,16 @@
     <Compile Include="Clases\Model\Servidores.vb" />
     <Compile Include="Clases\Model\Tabla.vb" />
     <Compile Include="Clases\Model\Tipo.vb" />
+    <Compile Include="Clases\SQL\ColumnaSQL.vb" />
+    <Compile Include="Clases\SQL\DatabaseSQL.vb" />
+    <Compile Include="Clases\SQL\IndiceSQL.vb" />
+    <Compile Include="Clases\SQL\SQLBuilder.vb" />
+    <Compile Include="Clases\SQL\RestriccionSQL.vb" />
+    <Compile Include="Clases\SQL\TablaSQL.vb" />
     <Compile Include="Forms\Componentes\BDSelector.Designer.vb">
       <DependentUpon>BDSelector.vb</DependentUpon>
     </Compile>
     <Compile Include="Forms\Componentes\BDSelector.vb">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Forms\Componentes\UserControl1.Designer.vb">
-      <DependentUpon>UserControl1.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Componentes\UserControl1.vb">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Forms\Form1.Designer.vb">
@@ -146,9 +147,6 @@
     <EmbeddedResource Include="Forms\Componentes\BDSelector.resx">
       <DependentUpon>BDSelector.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Componentes\UserControl1.resx">
-      <DependentUpon>UserControl1.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
     </EmbeddedResource>
@@ -167,6 +165,8 @@
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
     </None>
+    <None Include="My Project\DataSources\Columna.datasource" />
+    <None Include="My Project\DataSources\Indice.datasource" />
     <None Include="My Project\DataSources\Tabla.datasource" />
     <None Include="My Project\DataSources\TablaDAO.datasource" />
     <None Include="My Project\Settings.settings">
@@ -176,8 +176,6 @@
     </None>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Clases\IO\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

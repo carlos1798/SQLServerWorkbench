@@ -22,87 +22,104 @@ Partial Class Form1
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
-        Me.TotFilasDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.NombreTablaDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.SentenciaSQLDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.TablaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.TablaDAOBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.TablaNombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.NumeroIndices = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.NumCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TotRegistros = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.TablaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.TablaDAOBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'DataGridView1
         '
-        Me.DataGridView1.AutoGenerateColumns = False
-        Me.DataGridView1.BackgroundColor = System.Drawing.Color.Gray
+        Me.DataGridView1.BackgroundColor = System.Drawing.Color.DarkGray
+        Me.DataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Desktop
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.TotFilasDataGridViewTextBoxColumn, Me.NombreTablaDataGridViewTextBoxColumn, Me.SentenciaSQLDataGridViewTextBoxColumn})
-        Me.DataGridView1.DataSource = Me.TablaBindingSource
-        Me.DataGridView1.GridColor = System.Drawing.SystemColors.ButtonShadow
-        Me.DataGridView1.Location = New System.Drawing.Point(544, 321)
+        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.TablaNombre, Me.NumeroIndices, Me.NumCol, Me.TotRegistros})
+        Me.DataGridView1.GridColor = System.Drawing.SystemColors.Control
+        Me.DataGridView1.Location = New System.Drawing.Point(277, 288)
         Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(707, 299)
+        Me.DataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Desktop
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlLightLight
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView1.RowHeadersDefaultCellStyle = DataGridViewCellStyle2
+        Me.DataGridView1.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.DataGridView1.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.White
+        Me.DataGridView1.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight
+        Me.DataGridView1.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black
+        Me.DataGridView1.Size = New System.Drawing.Size(965, 332)
         Me.DataGridView1.TabIndex = 0
         '
         'FlowLayoutPanel1
         '
-        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(0, 47)
+        Me.FlowLayoutPanel1.AutoScroll = True
+        Me.FlowLayoutPanel1.AutoScrollMargin = New System.Drawing.Size(1, 0)
+        Me.FlowLayoutPanel1.BackColor = System.Drawing.Color.Transparent
+        Me.FlowLayoutPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.FlowLayoutPanel1.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.FlowLayoutPanel1.ImeMode = System.Windows.Forms.ImeMode.Hiragana
+        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(12, 62)
         Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
-        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(222, 573)
+        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(259, 558)
         Me.FlowLayoutPanel1.TabIndex = 1
         '
-        'TotFilasDataGridViewTextBoxColumn
+        'TablaNombre
         '
-        Me.TotFilasDataGridViewTextBoxColumn.DataPropertyName = "TotFilas"
-        Me.TotFilasDataGridViewTextBoxColumn.HeaderText = "TotFilas"
-        Me.TotFilasDataGridViewTextBoxColumn.Name = "TotFilasDataGridViewTextBoxColumn"
+        Me.TablaNombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.TablaNombre.HeaderText = "Nombre de la tabla"
+        Me.TablaNombre.Name = "TablaNombre"
         '
-        'NombreTablaDataGridViewTextBoxColumn
+        'NumeroIndices
         '
-        Me.NombreTablaDataGridViewTextBoxColumn.DataPropertyName = "NombreTabla"
-        Me.NombreTablaDataGridViewTextBoxColumn.HeaderText = "NombreTabla"
-        Me.NombreTablaDataGridViewTextBoxColumn.Name = "NombreTablaDataGridViewTextBoxColumn"
+        Me.NumeroIndices.HeaderText = "Numero de Indices"
+        Me.NumeroIndices.Name = "NumeroIndices"
         '
-        'SentenciaSQLDataGridViewTextBoxColumn
+        'NumCol
         '
-        Me.SentenciaSQLDataGridViewTextBoxColumn.DataPropertyName = "SentenciaSQL"
-        Me.SentenciaSQLDataGridViewTextBoxColumn.HeaderText = "SentenciaSQL"
-        Me.SentenciaSQLDataGridViewTextBoxColumn.Name = "SentenciaSQLDataGridViewTextBoxColumn"
+        Me.NumCol.HeaderText = "Numero de Columnas"
+        Me.NumCol.Name = "NumCol"
         '
-        'TablaBindingSource
+        'TotRegistros
         '
-        Me.TablaBindingSource.DataSource = GetType(DbManejador.Tabla)
-        '
-        'TablaDAOBindingSource
-        '
-        Me.TablaDAOBindingSource.DataSource = GetType(DbManejador.TablaDAO)
+        Me.TotRegistros.HeaderText = "Total de registros"
+        Me.TotRegistros.Name = "TotRegistros"
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.SystemColors.WindowFrame
         Me.ClientSize = New System.Drawing.Size(1263, 632)
-        Me.Controls.Add(Me.FlowLayoutPanel1)
         Me.Controls.Add(Me.DataGridView1)
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Controls.Add(Me.FlowLayoutPanel1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Name = "Form1"
         Me.Text = "Form1"
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.TablaBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.TablaDAOBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
 
     Friend WithEvents DataGridView1 As DataGridView
-    Friend WithEvents TotFilasDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents NombreTablaDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents SentenciaSQLDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents TablaBindingSource As BindingSource
-    Friend WithEvents TablaDAOBindingSource As BindingSource
     Friend WithEvents FlowLayoutPanel1 As FlowLayoutPanel
+    Friend WithEvents TablaNombre As DataGridViewTextBoxColumn
+    Friend WithEvents NumeroIndices As DataGridViewTextBoxColumn
+    Friend WithEvents NumCol As DataGridViewTextBoxColumn
+    Friend WithEvents TotRegistros As DataGridViewTextBoxColumn
 End Class
