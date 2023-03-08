@@ -29,6 +29,7 @@
             addColumna = $"{columna.Nombre} {TipoDatoToString(columna.tipoDato)} {GenerarIdentity(columna.isIdentity)} {GenerarNulo(columna.isNullable)},"
             queryGeneral = queryGeneral + vbCr + addColumna
             addColumna = Nothing
+            'Faltan las restricciones
         Next
         Return queryGeneral
 

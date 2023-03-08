@@ -111,6 +111,12 @@
     <Compile Include="Forms\Componentes\BDSelector.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Forms\Componentes\Menu.Designer.vb">
+      <DependentUpon>Menu.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Componentes\Menu.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Forms\Form1.Designer.vb">
       <DependentUpon>Form1.vb</DependentUpon>
     </Compile>
@@ -121,6 +127,12 @@
       <DependentUpon>Login.vb</DependentUpon>
     </Compile>
     <Compile Include="Forms\Login.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Main.Designer.vb">
+      <DependentUpon>Main.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Main.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Modulos\ConexionBD.vb" />
@@ -147,11 +159,17 @@
     <EmbeddedResource Include="Forms\Componentes\BDSelector.resx">
       <DependentUpon>BDSelector.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Componentes\Menu.resx">
+      <DependentUpon>Menu.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Login.resx">
       <DependentUpon>Login.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Main.resx">
+      <DependentUpon>Main.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -176,6 +194,8 @@
     </None>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\Server.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

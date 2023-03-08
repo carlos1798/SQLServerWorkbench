@@ -8,7 +8,7 @@ Public Class DatabaseDAO
 
     Public Function FindAll() As List(Of Database) Implements IDAO(Of Database).FindAll
         Dim listaDatabases As New List(Of Database)
-        Dim SqlQuery As String = $"SELECT name FROM sys.databases "
+        Dim SqlQuery As String = $"SELECT name FROM sys.databases where name = 'GESTIONSQL' "
         'when name not in('master','model','msdb','tempdb')"
         Try
             conectar()
@@ -30,5 +30,6 @@ Public Class DatabaseDAO
 
     Public Function FindBy(name As Object) As Database Implements IDAO(Of Database).FindBy
         Throw New NotImplementedException()
+
     End Function
 End Class

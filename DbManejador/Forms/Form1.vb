@@ -1,4 +1,6 @@
-﻿Public Class Form1
+﻿Imports System.IO
+
+Public Class Form1
     Private listaDatabases As List(Of Database)
 
 
@@ -11,6 +13,7 @@
             listaDatabases = DatabaseDAO.FindAll()
         End Using
         For Each Database In listaDatabases
+            Database.Servidor = Login.servidor
             Login.servidor.ModificarConexionString(Database.Nombre)
 
             Using TablaDAO As New TablaDAO()
@@ -30,12 +33,14 @@
         Next
 
         For Each db In listaDatabases
-            Dim asd As New BDSelector(db.Nombre)
+            Dim asd As New BDSelector(db.Nombre, db.Servidor.NombreServidor1)
             FlowLayoutPanel1.Controls.Add(asd)
 
 
             If db.Nombre = "GESTIONSQL" Then
+
                 For Each tabla In db.Tablas
+
                     DataGridView1.Rows.Add(tabla.NombreTabla, tabla.Indices.Count, tabla.Columnas.Count, tabla.TotFilas)
 
 
@@ -43,7 +48,6 @@
 
             End If
         Next
-
 
 
 
@@ -59,4 +63,18 @@
 
     End Sub
 
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        SaveFileDialog1.Filter = "Sql files (*.sql)|*.sql|All files (*.*)|*.*"
+        SaveFileDialog1.ShowDialog()
+        '   If SaveFileDialog1.ShowDialog.OK Then
+
+        'Dim sw As StreamWriter = New StreamWriter(SaveFileDialog1.FileName)
+        ''If sw IsNot Nothing Then
+        'sw.Write(reg.generarString(lista))
+        '    End If
+
+        '    sw.Close()
+        '    MessageBox.Show("Tu archivo se a guardado de forma correcta")
+        'End If
+    End Sub
 End Class

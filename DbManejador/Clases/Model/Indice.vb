@@ -8,6 +8,43 @@
     Private _fragmentacion As Long
     Private _fillFactor As Integer
 
+#Region "Constructores"
+    Public Sub New(columnas As List(Of Columna))
+        _columnas = columnas
+    End Sub
+
+    Public Sub New(nombre As String, columnas As List(Of Columna), unico As Boolean, tipoIndice As String, autoCreado As Boolean)
+        Me.Nombre = nombre
+        Me.Columnas = columnas
+        Me.Unico = unico
+        Me.TipoIndice = tipoIndice
+        Me.AutoCreado = autoCreado
+    End Sub
+
+    Public Sub New()
+    End Sub
+
+    Public Sub New(nombre As String, columnas As List(Of Columna))
+        Me.Nombre = nombre
+        Me.Columnas = columnas
+    End Sub
+
+    Public Sub New(nombre As String, unico As Boolean, tipoIndice As String, autoCreado As Boolean, fragmentacion As Long, columnas As List(Of Columna))
+        Me.Nombre = nombre
+        Me.Unico = unico
+        Me.TipoIndice = tipoIndice
+        Me.AutoCreado = autoCreado
+        Me.Fragmentacion = fragmentacion
+        Me.Columnas = columnas
+    End Sub
+
+    Public Sub New(nombre As String, columnas As List(Of Columna), unico As Boolean, tipoIndice As String, autoCreado As Boolean, fragmentacion As Long)
+        Me.New(nombre, columnas, unico, tipoIndice, autoCreado)
+        _fragmentacion = fragmentacion
+    End Sub
+#End Region
+
+#Region "Getters y setters"
     Public Property Nombre As String
         Get
             Return _nombre
@@ -79,38 +116,7 @@
             _nombreTabla = value
         End Set
     End Property
+#End Region
 
-    Public Sub New(columnas As List(Of Columna))
-        _columnas = columnas
-    End Sub
 
-    Public Sub New(nombre As String, columnas As List(Of Columna), unico As Boolean, tipoIndice As String, autoCreado As Boolean)
-        Me.Nombre = nombre
-        Me.Columnas = columnas
-        Me.Unico = unico
-        Me.TipoIndice = tipoIndice
-        Me.AutoCreado = autoCreado
-    End Sub
-
-    Public Sub New()
-    End Sub
-
-    Public Sub New(nombre As String, columnas As List(Of Columna))
-        Me.Nombre = nombre
-        Me.Columnas = columnas
-    End Sub
-
-    Public Sub New(nombre As String, unico As Boolean, tipoIndice As String, autoCreado As Boolean, fragmentacion As Long, columnas As List(Of Columna))
-        Me.Nombre = nombre
-        Me.Unico = unico
-        Me.TipoIndice = tipoIndice
-        Me.AutoCreado = autoCreado
-        Me.Fragmentacion = fragmentacion
-        Me.Columnas = columnas
-    End Sub
-
-    Public Sub New(nombre As String, columnas As List(Of Columna), unico As Boolean, tipoIndice As String, autoCreado As Boolean, fragmentacion As Long)
-        Me.New(nombre, columnas, unico, tipoIndice, autoCreado)
-        _fragmentacion = fragmentacion
-    End Sub
 End Class
