@@ -10,7 +10,7 @@
 
         Dim sentenciaCompleta As String
         Dim iniCrearTabla As String = $"CREATE TABLE {Objeto.NombreTabla}("
-        sentenciaCompleta = iniCrearTabla + CrearColumnasTablasSQL(Objeto) + ")"
+        sentenciaCompleta = iniCrearTabla + CrearColumnasTablasSQL(Objeto) + ");"
 
         Return sentenciaCompleta
     End Function
@@ -26,7 +26,11 @@
         Dim addColumna As String
         Dim queryGeneral As String = ""
         For Each columna In tabla.Columnas
-            addColumna = $"{columna.Nombre} {TipoDatoToString(columna.tipoDato)} {GenerarIdentity(columna.isIdentity)} {GenerarNulo(columna.isNullable)},"
+            If tabla.Columnas.Last.Equals(columna) Then
+                addColumna = $"{columna.Nombre} {TipoDatoToString(columna.tipoDato)} {GenerarIdentity(columna.IsIdentity)} {GenerarNulo(columna.IsNullable)}"
+            Else
+                addColumna = $"{columna.Nombre} {TipoDatoToString(columna.tipoDato)} {GenerarIdentity(columna.IsIdentity)} {GenerarNulo(columna.IsNullable)},"
+            End If
             queryGeneral = queryGeneral + vbCr + addColumna
             addColumna = Nothing
             'Faltan las restricciones

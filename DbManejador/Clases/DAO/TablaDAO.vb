@@ -16,19 +16,20 @@ Public Class TablaDAO
     ''' Devuelve una lista de Objetos tabla solo con el nombre cargado
     ''' </summary>
     ''' <returns></returns>
+    'Falta anadir las restrcciones
     Public Function LightFindAll() As List(Of Tabla)
         Dim listaTablas As New List(Of Tabla)
         Dim SqlQuery As String = "SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES where TABLE_SCHEMA = 'dbo' and TABLE_TYPE = 'BASE TABLE'"
 
         Try
-            conectar()
+            Conectar()
             Dim comandoSql As New SqlCommand(SqlQuery, conexion)
             Dim lectorResultado As SqlDataReader = comandoSql.ExecuteReader
             Dim adaptador = New SqlDataAdapter(comandoSql)
             If lectorResultado.HasRows Then
                 Do While lectorResultado.Read()
                     listaTablas.Add(New Tabla With {
-                        .nombreTabla = lectorResultado("TABLE_NAME")
+                        .NombreTabla = lectorResultado("TABLE_NAME")
                         })
 
                 Loop

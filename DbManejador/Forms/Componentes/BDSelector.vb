@@ -5,9 +5,9 @@
         ' Esta llamada es exigida por el diseñador.
         InitializeComponent()
 
-        Label1.Text = nombreDB
+        Label4.Text = nombreDB
 
-        Label2.Text = nombreServidor
+        Label5.Text = nombreServidor
         ' Agregue cualquier inicialización después de la llamada a InitializeComponent().
 
     End Sub

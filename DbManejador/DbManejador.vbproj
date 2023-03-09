@@ -101,6 +101,7 @@
     <Compile Include="Clases\Model\Tipo.vb" />
     <Compile Include="Clases\SQL\ColumnaSQL.vb" />
     <Compile Include="Clases\SQL\DatabaseSQL.vb" />
+    <Compile Include="Clases\SQL\FragmentacionSQL.vb" />
     <Compile Include="Clases\SQL\IndiceSQL.vb" />
     <Compile Include="Clases\SQL\SQLBuilder.vb" />
     <Compile Include="Clases\SQL\RestriccionSQL.vb" />
@@ -173,9 +174,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -195,7 +196,37 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Server.png" />
+    <None Include="Resources\Save_02.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\File_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow-back-circle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save-outline.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\aperture.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\construct-sharp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\library.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add-circle-sharp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\server1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\server-sharp.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
