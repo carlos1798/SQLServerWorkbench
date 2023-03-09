@@ -59,21 +59,22 @@ Partial Class BDSelector
         '
         'Button2
         '
-        Me.Button2.BackColor = System.Drawing.Color.Transparent
-        Me.Button2.Location = New System.Drawing.Point(0, -2)
+        Me.Button2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.Button2.Location = New System.Drawing.Point(0, 0)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(234, 49)
+        Me.Button2.Size = New System.Drawing.Size(239, 49)
         Me.Button2.TabIndex = 2
         Me.Button2.UseVisualStyleBackColor = False
         '
         'BDSelector
         '
+        Me.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Button2)
         Me.Name = "BDSelector"
-        Me.Size = New System.Drawing.Size(246, 49)
+        Me.Size = New System.Drawing.Size(239, 49)
         Me.ResumeLayout(False)
 
     End Sub

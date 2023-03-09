@@ -118,6 +118,12 @@
     <Compile Include="Forms\Componentes\Menu.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Forms\Componentes\SerBDSeleccionados.Designer.vb">
+      <DependentUpon>SerBDSeleccionados.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Componentes\SerBDSeleccionados.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Forms\Form1.Designer.vb">
       <DependentUpon>Form1.vb</DependentUpon>
     </Compile>
@@ -162,6 +168,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Componentes\Menu.resx">
       <DependentUpon>Menu.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Componentes\SerBDSeleccionados.resx">
+      <DependentUpon>SerBDSeleccionados.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>

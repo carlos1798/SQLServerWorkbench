@@ -31,6 +31,7 @@ Partial Class Menu
         Me.IndicesPerdidosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButton5 = New System.Windows.Forms.ToolStripButton()
+        Me.SerBDSeleccionados1 = New DbManejador.SerBDSeleccionados()
         Me.ToolStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -42,7 +43,7 @@ Partial Class Menu
         Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripButton3, Me.ToolStripButton6, Me.ToolStripButton2, Me.ToolStripButton4, Me.ToolStripButton1, Me.ToolStripButton5})
         Me.ToolStrip1.Location = New System.Drawing.Point(0, 0)
         Me.ToolStrip1.Name = "ToolStrip1"
-        Me.ToolStrip1.Size = New System.Drawing.Size(634, 52)
+        Me.ToolStrip1.Size = New System.Drawing.Size(729, 52)
         Me.ToolStrip1.TabIndex = 0
         Me.ToolStrip1.Text = "ToolStrip1"
         '
@@ -64,7 +65,7 @@ Partial Class Menu
         Me.ToolStripButton6.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
         Me.ToolStripButton6.AutoToolTip = False
         Me.ToolStripButton6.CheckOnClick = True
-        Me.ToolStripButton6.Image = Global.DbManejador.My.Resources.aperture
+        Me.ToolStripButton6.Image = Global.DbManejador.My.Resources.Resources.aperture
         Me.ToolStripButton6.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripButton6.Margin = New System.Windows.Forms.Padding(0)
         Me.ToolStripButton6.Name = "ToolStripButton6"
@@ -135,13 +136,22 @@ Partial Class Menu
         Me.ToolStripButton5.Size = New System.Drawing.Size(54, 49)
         Me.ToolStripButton5.Text = "Atras"
         '
+        'SerBDSeleccionados1
+        '
+        Me.SerBDSeleccionados1.BackColor = System.Drawing.SystemColors.GradientActiveCaption
+        Me.SerBDSeleccionados1.Location = New System.Drawing.Point(61, 12)
+        Me.SerBDSeleccionados1.Name = "SerBDSeleccionados1"
+        Me.SerBDSeleccionados1.Size = New System.Drawing.Size(177, 36)
+        Me.SerBDSeleccionados1.TabIndex = 1
+        '
         'Menu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.Controls.Add(Me.SerBDSeleccionados1)
         Me.Controls.Add(Me.ToolStrip1)
         Me.Name = "Menu"
-        Me.Size = New System.Drawing.Size(634, 51)
+        Me.Size = New System.Drawing.Size(729, 51)
         Me.ToolStrip1.ResumeLayout(False)
         Me.ToolStrip1.PerformLayout()
         Me.ResumeLayout(False)
@@ -158,4 +168,5 @@ Partial Class Menu
     Friend WithEvents IndicesPerdidosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ToolStripButton5 As ToolStripButton
     Friend WithEvents ToolStripButton6 As ToolStripButton
+    Friend WithEvents SerBDSeleccionados1 As SerBDSeleccionados
 End Class
