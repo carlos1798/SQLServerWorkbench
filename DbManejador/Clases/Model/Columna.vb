@@ -94,7 +94,7 @@
 #End Region
 
 
-    Public Function CompariacionColumnas(columna_y As Columna)
+    Public Function ComparacionColumnas(columna_y As Columna)
         Dim Dif As New Dictionary(Of String, String)
         For Each propiedad In [GetType].GetProperties
             If propiedad.Equals("Restricciones") Then

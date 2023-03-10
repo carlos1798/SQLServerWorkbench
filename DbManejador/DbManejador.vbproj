@@ -124,6 +124,12 @@
     <Compile Include="Forms\Componentes\SerBDSeleccionados.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Forms\Componentes\InputText.Designer.vb">
+      <DependentUpon>InputText.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Componentes\InputText.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Forms\Form1.Designer.vb">
       <DependentUpon>Form1.vb</DependentUpon>
     </Compile>
@@ -165,6 +171,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Forms\Componentes\BDSelector.resx">
       <DependentUpon>BDSelector.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Componentes\InputText.resx">
+      <DependentUpon>InputText.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Componentes\Menu.resx">
       <DependentUpon>Menu.vb</DependentUpon>
@@ -236,6 +245,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\server-sharp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\layers.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\play-circle.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

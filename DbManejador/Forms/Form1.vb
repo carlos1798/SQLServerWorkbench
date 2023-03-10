@@ -5,6 +5,8 @@ Public Class Form1
     Dim reg As New Registro
     Public lista As New List(Of String)
     Dim tablaSql As New TablaSQL
+    Public bdseleccionada As String = ""
+    Public servidorSelec As String = ""
 
 
     Public Sub New()
@@ -36,28 +38,35 @@ Public Class Form1
         Next
 
         For Each db In listaDatabases
-            Dim asd As New BDSelector(db.Nombre, db.Servidor.NombreServidor1)
+            Dim asd As New BDSelector(db.Nombre, db.Servidor.NombreServidor1, db)
+            AddHandler asd.Eleccion, AddressOf seleccionServidor
+            AddHandler asd.EleccionBD, AddressOf seleccionarBD
             FlowLayoutPanel1.Controls.Add(asd)
 
 
-            If db.Nombre = "GESTIONSQL" Then
 
-                For Each tabla In db.Tablas
-
-                    DataGridView1.Rows.Add(tabla.NombreTabla, tabla.Indices.Count, tabla.Columnas.Count, tabla.TotFilas)
-
-
-                Next
-
-            End If
         Next
-
 
 
         ' Agregue cualquier inicialización después de la llamada a InitializeComponent().
 
     End Sub
+    Private Sub seleccionServidor(servidor As String, baseDatos As String)
+        Menu1.SerBDSeleccionados1.Label3.Text = servidor
+        Menu1.SerBDSeleccionados1.Label4.Text = baseDatos
+    End Sub
 
+    Private Sub seleccionarBD(basedatos As Database)
+        DataGridView1.Rows.Clear()
+
+        For Each tabla In basedatos.Tablas
+
+            DataGridView1.Rows.Add(tabla.NombreTabla, tabla.Indices.Count, tabla.Columnas.Count, tabla.TotFilas)
+        Next
+
+
+
+    End Sub
     Private Sub BdSelector1_Load(sender As Object, e As EventArgs)
 
     End Sub
@@ -66,26 +75,31 @@ Public Class Form1
 
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        For Each db In listaDatabases
-            If db.Nombre = "GESTIONSQL" Then
-                For Each tabla In db.Tablas
-                    lista.Add(tablaSql.Crear(tabla))
-                Next
+    'Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+    '    For Each db In listaDatabases
+    '        If db.Nombre = "GESTIONSQL" Then
+    '            For Each tabla In db.Tablas
+    '                lista.Add(tablaSql.Crear(tabla))
+    '            Next
 
-            End If
-        Next
-        SaveFileDialog1.Filter = "Sql files (*.sql)|*.sql|All files (*.*)|*.*"
-        SaveFileDialog1.ShowDialog()
-        If SaveFileDialog1.ShowDialog.OK Then
+    '        End If
+    '    Next
+    '    SaveFileDialog1.Filter = "Sql files (*.sql)|*.sql|All files (*.*)|*.*"
+    '    SaveFileDialog1.ShowDialog()
+    '    If SaveFileDialog1.ShowDialog.OK Then
 
-            Dim sw As StreamWriter = New StreamWriter(SaveFileDialog1.FileName)
-            If sw IsNot Nothing Then
-                sw.Write(reg.generarString(lista))
-            End If
+    '        Dim sw As StreamWriter = New StreamWriter(SaveFileDialog1.FileName)
+    '        If sw IsNot Nothing Then
+    '            sw.Write(reg.generarString(lista))
+    '        End If
 
-            sw.Close()
-            MessageBox.Show("Tu archivo se a guardado de forma correcta")
-        End If
+    '        sw.Close()
+    '        MessageBox.Show("Tu archivo se a guardado de forma correcta")
+    '    End If
+    'End Sub
+
+    Private Sub Menu1_Load(sender As Object, e As EventArgs) Handles Menu1.Load
+
     End Sub
+
 End Class

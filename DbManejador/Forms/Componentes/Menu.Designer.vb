@@ -23,6 +23,7 @@ Partial Class Menu
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
+        Me.SerBDSeleccionados1 = New DbManejador.SerBDSeleccionados()
         Me.ToolStripButton3 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButton6 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButton2 = New System.Windows.Forms.ToolStripButton()
@@ -31,7 +32,6 @@ Partial Class Menu
         Me.IndicesPerdidosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButton5 = New System.Windows.Forms.ToolStripButton()
-        Me.SerBDSeleccionados1 = New DbManejador.SerBDSeleccionados()
         Me.ToolStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -46,6 +46,14 @@ Partial Class Menu
         Me.ToolStrip1.Size = New System.Drawing.Size(729, 52)
         Me.ToolStrip1.TabIndex = 0
         Me.ToolStrip1.Text = "ToolStrip1"
+        '
+        'SerBDSeleccionados1
+        '
+        Me.SerBDSeleccionados1.BackColor = System.Drawing.SystemColors.GradientActiveCaption
+        Me.SerBDSeleccionados1.Location = New System.Drawing.Point(66, 12)
+        Me.SerBDSeleccionados1.Name = "SerBDSeleccionados1"
+        Me.SerBDSeleccionados1.Size = New System.Drawing.Size(177, 27)
+        Me.SerBDSeleccionados1.TabIndex = 1
         '
         'ToolStripButton3
         '
@@ -70,15 +78,15 @@ Partial Class Menu
         Me.ToolStripButton6.Margin = New System.Windows.Forms.Padding(0)
         Me.ToolStripButton6.Name = "ToolStripButton6"
         Me.ToolStripButton6.Overflow = System.Windows.Forms.ToolStripItemOverflow.Never
-        Me.ToolStripButton6.Size = New System.Drawing.Size(107, 52)
-        Me.ToolStripButton6.Text = "Fragmentacion"
+        Me.ToolStripButton6.Size = New System.Drawing.Size(104, 52)
+        Me.ToolStripButton6.Text = "Sincronizacion"
         '
         'ToolStripButton2
         '
         Me.ToolStripButton2.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
         Me.ToolStripButton2.AutoToolTip = False
         Me.ToolStripButton2.CheckOnClick = True
-        Me.ToolStripButton2.Image = Global.DbManejador.My.Resources.Resources.aperture
+        Me.ToolStripButton2.Image = Global.DbManejador.My.Resources.Resources.layers
         Me.ToolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripButton2.Margin = New System.Windows.Forms.Padding(0)
         Me.ToolStripButton2.Name = "ToolStripButton2"
@@ -135,14 +143,6 @@ Partial Class Menu
         Me.ToolStripButton5.Overflow = System.Windows.Forms.ToolStripItemOverflow.Never
         Me.ToolStripButton5.Size = New System.Drawing.Size(54, 49)
         Me.ToolStripButton5.Text = "Atras"
-        '
-        'SerBDSeleccionados1
-        '
-        Me.SerBDSeleccionados1.BackColor = System.Drawing.SystemColors.GradientActiveCaption
-        Me.SerBDSeleccionados1.Location = New System.Drawing.Point(61, 12)
-        Me.SerBDSeleccionados1.Name = "SerBDSeleccionados1"
-        Me.SerBDSeleccionados1.Size = New System.Drawing.Size(177, 36)
-        Me.SerBDSeleccionados1.TabIndex = 1
         '
         'Menu
         '
