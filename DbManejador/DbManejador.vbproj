@@ -99,6 +99,7 @@
     <Compile Include="Clases\Model\Servidores.vb" />
     <Compile Include="Clases\Model\Tabla.vb" />
     <Compile Include="Clases\Model\Tipo.vb" />
+    <Compile Include="Clases\Repositorio\SQLKeywordsRepo.vb" />
     <Compile Include="Clases\SQL\ColumnaSQL.vb" />
     <Compile Include="Clases\SQL\DatabaseSQL.vb" />
     <Compile Include="Clases\SQL\FragmentacionSQL.vb" />
