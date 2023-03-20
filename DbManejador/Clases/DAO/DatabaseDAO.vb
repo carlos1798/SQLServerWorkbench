@@ -20,7 +20,7 @@ Public Class DatabaseDAO
                     listaDatabases.Add(New Database With {
                                    .Nombre = lectorResultado("name")})
                 Loop
-            End If
+            End if 
         Catch ex As Exception
         End Try
         cerrarConexion()

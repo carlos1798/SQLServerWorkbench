@@ -27,7 +27,7 @@ Public Class Login
             If Servidor.checkExistenciaServidor() Then 'Sabemos que esta en alcance el servidor
 
 
-                Form1.Show()
+                Main.Show()
 
 
                 MessageBox.Show("Conectado")

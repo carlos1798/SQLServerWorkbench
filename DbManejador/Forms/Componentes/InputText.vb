@@ -1,6 +1,8 @@
 ﻿Imports System.Runtime.CompilerServices
 
 Public Class InputText
+    Dim lexer As New Lexer()
+
 
     'TODO: Pasarle el guardado sql a este textbox 
     'TODO: Crear un evento para cuando se pase el sql y que haga el parseo para resaltar las keywords
@@ -36,5 +38,10 @@ Public Class InputText
 
 
         End If
+    End Sub
+
+    Private Sub RichTextBox1_Validated(sender As Object, e As EventArgs) Handles RichTextBox1.Validated
+        lexer.EvalTokens(RichTextBox1.Text)
+
     End Sub
 End Class
