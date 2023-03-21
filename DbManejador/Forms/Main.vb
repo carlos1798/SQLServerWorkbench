@@ -82,7 +82,7 @@ Public Class Main
 
     'Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
     '    For Each db In listaDatabases
-    '        If db.Nombre = "GESTIONSQL" Then
+    '        If db.Nombre = "" Then
     '            For Each tabla In db.Tablas
     '                lista.Add(tablaSql.Crear(tabla))
     '            Next
