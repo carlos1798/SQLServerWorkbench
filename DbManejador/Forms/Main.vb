@@ -21,7 +21,7 @@ Public Class Main
             Database.Servidor = Login.servidor
             Login.servidor.ModificarConexionString(Database.Nombre)
 
-           Using TablaDAO As New TablaDAO()
+            Using TablaDAO As New TablaDAO()
                 Database.Tablas = TablaDAO.LightFindAll()
             End Using
         Next
@@ -102,9 +102,5 @@ Public Class Main
     '        MessageBox.Show("Tu archivo se a guardado de forma correcta")
     '    End If
     'End Sub
-
-    Private Sub Menu1_Load(sender As Object, e As EventArgs) Handles Menu1.Load
-
-    End Sub
 
 End Class

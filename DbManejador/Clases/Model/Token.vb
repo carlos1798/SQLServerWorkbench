@@ -15,12 +15,18 @@ Public Class Token
         'Regla: Si el char es igual se considera token de igualdad
     End Enum
 
+    Public Sub New(inicio As Integer, final As Integer, tipoToken As TipoToken)
+        Me.Inicio = inicio
+        Me.Final = final
+        Me.Tipo = tipoToken
+    End Sub
     Public Sub New(contenido As String, inicio As Integer, final As Integer, tipoToken As TipoToken)
         Me.Contenido = contenido
         Me.Inicio = inicio
         Me.Final = final
         Me.Tipo = tipoToken
     End Sub
+
 
 #Region "Getters y setters"
     Public Property Contenido As String

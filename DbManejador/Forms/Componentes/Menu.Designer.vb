@@ -23,15 +23,16 @@ Partial Class Menu
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
-        Me.SerBDSeleccionados1 = New DbManejador.SerBDSeleccionados()
-        Me.ToolStripButton3 = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripButton6 = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripButton2 = New System.Windows.Forms.ToolStripButton()
+        Me.Guardar = New System.Windows.Forms.ToolStripButton()
+        Me.Sincronizacion = New System.Windows.Forms.ToolStripButton()
+        Me.Fragmentacion = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButton4 = New System.Windows.Forms.ToolStripDropDownButton()
-        Me.IndicesSugeridoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.IndicesPerdidosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripButton5 = New System.Windows.Forms.ToolStripButton()
+        Me.IndexSug = New System.Windows.Forms.ToolStripMenuItem()
+        Me.IndexPer = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AddBD = New System.Windows.Forms.ToolStripButton()
+        Me.Atras = New System.Windows.Forms.ToolStripButton()
+        Me.SerBDSeleccionados1 = New DbManejador.SerBDSeleccionados()
+        Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
         Me.ToolStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -40,65 +41,57 @@ Partial Class Menu
         Me.ToolStrip1.BackColor = System.Drawing.SystemColors.GradientActiveCaption
         Me.ToolStrip1.CanOverflow = False
         Me.ToolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden
-        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripButton3, Me.ToolStripButton6, Me.ToolStripButton2, Me.ToolStripButton4, Me.ToolStripButton1, Me.ToolStripButton5})
+        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Guardar, Me.Sincronizacion, Me.Fragmentacion, Me.ToolStripButton4, Me.AddBD, Me.Atras})
         Me.ToolStrip1.Location = New System.Drawing.Point(0, 0)
         Me.ToolStrip1.Name = "ToolStrip1"
         Me.ToolStrip1.Size = New System.Drawing.Size(729, 52)
         Me.ToolStrip1.TabIndex = 0
         Me.ToolStrip1.Text = "ToolStrip1"
         '
-        'SerBDSeleccionados1
+        'Guardar
         '
-        Me.SerBDSeleccionados1.BackColor = System.Drawing.SystemColors.GradientActiveCaption
-        Me.SerBDSeleccionados1.Location = New System.Drawing.Point(66, 12)
-        Me.SerBDSeleccionados1.Name = "SerBDSeleccionados1"
-        Me.SerBDSeleccionados1.Size = New System.Drawing.Size(177, 27)
-        Me.SerBDSeleccionados1.TabIndex = 1
+        Me.Guardar.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
+        Me.Guardar.AutoToolTip = False
+        Me.Guardar.CheckOnClick = True
+        Me.Guardar.Image = Global.DbManejador.My.Resources.Resources.save
+        Me.Guardar.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.Guardar.Margin = New System.Windows.Forms.Padding(0)
+        Me.Guardar.Name = "Guardar"
+        Me.Guardar.Overflow = System.Windows.Forms.ToolStripItemOverflow.Never
+        Me.Guardar.Size = New System.Drawing.Size(69, 52)
+        Me.Guardar.Text = "Guardar"
         '
-        'ToolStripButton3
+        'Sincronizacion
         '
-        Me.ToolStripButton3.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
-        Me.ToolStripButton3.AutoToolTip = False
-        Me.ToolStripButton3.CheckOnClick = True
-        Me.ToolStripButton3.Image = Global.DbManejador.My.Resources.Resources.save
-        Me.ToolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButton3.Margin = New System.Windows.Forms.Padding(0)
-        Me.ToolStripButton3.Name = "ToolStripButton3"
-        Me.ToolStripButton3.Overflow = System.Windows.Forms.ToolStripItemOverflow.Never
-        Me.ToolStripButton3.Size = New System.Drawing.Size(69, 52)
-        Me.ToolStripButton3.Text = "Guardar"
+        Me.Sincronizacion.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
+        Me.Sincronizacion.AutoToolTip = False
+        Me.Sincronizacion.CheckOnClick = True
+        Me.Sincronizacion.Image = Global.DbManejador.My.Resources.Resources.aperture
+        Me.Sincronizacion.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.Sincronizacion.Margin = New System.Windows.Forms.Padding(0)
+        Me.Sincronizacion.Name = "Sincronizacion"
+        Me.Sincronizacion.Overflow = System.Windows.Forms.ToolStripItemOverflow.Never
+        Me.Sincronizacion.Size = New System.Drawing.Size(104, 52)
+        Me.Sincronizacion.Text = "Sincronizacion"
         '
-        'ToolStripButton6
+        'Fragmentacion
         '
-        Me.ToolStripButton6.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
-        Me.ToolStripButton6.AutoToolTip = False
-        Me.ToolStripButton6.CheckOnClick = True
-        Me.ToolStripButton6.Image = Global.DbManejador.My.Resources.Resources.aperture
-        Me.ToolStripButton6.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButton6.Margin = New System.Windows.Forms.Padding(0)
-        Me.ToolStripButton6.Name = "ToolStripButton6"
-        Me.ToolStripButton6.Overflow = System.Windows.Forms.ToolStripItemOverflow.Never
-        Me.ToolStripButton6.Size = New System.Drawing.Size(104, 52)
-        Me.ToolStripButton6.Text = "Sincronizacion"
-        '
-        'ToolStripButton2
-        '
-        Me.ToolStripButton2.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
-        Me.ToolStripButton2.AutoToolTip = False
-        Me.ToolStripButton2.CheckOnClick = True
-        Me.ToolStripButton2.Image = Global.DbManejador.My.Resources.Resources.layers
-        Me.ToolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButton2.Margin = New System.Windows.Forms.Padding(0)
-        Me.ToolStripButton2.Name = "ToolStripButton2"
-        Me.ToolStripButton2.Overflow = System.Windows.Forms.ToolStripItemOverflow.Never
-        Me.ToolStripButton2.Size = New System.Drawing.Size(107, 52)
-        Me.ToolStripButton2.Text = "Fragmentacion"
+        Me.Fragmentacion.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
+        Me.Fragmentacion.AutoToolTip = False
+        Me.Fragmentacion.CheckOnClick = True
+        Me.Fragmentacion.Image = Global.DbManejador.My.Resources.Resources.layers
+        Me.Fragmentacion.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.Fragmentacion.Margin = New System.Windows.Forms.Padding(0)
+        Me.Fragmentacion.Name = "Fragmentacion"
+        Me.Fragmentacion.Overflow = System.Windows.Forms.ToolStripItemOverflow.Never
+        Me.Fragmentacion.Size = New System.Drawing.Size(107, 52)
+        Me.Fragmentacion.Text = "Fragmentacion"
         '
         'ToolStripButton4
         '
         Me.ToolStripButton4.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
         Me.ToolStripButton4.AutoToolTip = False
-        Me.ToolStripButton4.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.IndicesSugeridoToolStripMenuItem, Me.IndicesPerdidosToolStripMenuItem})
+        Me.ToolStripButton4.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.IndexSug, Me.IndexPer})
         Me.ToolStripButton4.Image = Global.DbManejador.My.Resources.Resources.library
         Me.ToolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripButton4.Margin = New System.Windows.Forms.Padding(0)
@@ -107,42 +100,50 @@ Partial Class Menu
         Me.ToolStripButton4.Size = New System.Drawing.Size(73, 52)
         Me.ToolStripButton4.Text = "Indices"
         '
-        'IndicesSugeridoToolStripMenuItem
+        'IndexSug
         '
-        Me.IndicesSugeridoToolStripMenuItem.Name = "IndicesSugeridoToolStripMenuItem"
-        Me.IndicesSugeridoToolStripMenuItem.Size = New System.Drawing.Size(161, 22)
-        Me.IndicesSugeridoToolStripMenuItem.Text = "Indices Sugerido"
+        Me.IndexSug.Name = "IndexSug"
+        Me.IndexSug.Size = New System.Drawing.Size(161, 22)
+        Me.IndexSug.Text = "Indices Sugerido"
         '
-        'IndicesPerdidosToolStripMenuItem
+        'IndexPer
         '
-        Me.IndicesPerdidosToolStripMenuItem.Name = "IndicesPerdidosToolStripMenuItem"
-        Me.IndicesPerdidosToolStripMenuItem.Size = New System.Drawing.Size(161, 22)
-        Me.IndicesPerdidosToolStripMenuItem.Text = "Indices Perdidos"
+        Me.IndexPer.Name = "IndexPer"
+        Me.IndexPer.Size = New System.Drawing.Size(161, 22)
+        Me.IndexPer.Text = "Indices Perdidos"
         '
-        'ToolStripButton1
+        'AddBD
         '
-        Me.ToolStripButton1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
-        Me.ToolStripButton1.AutoToolTip = False
-        Me.ToolStripButton1.CheckOnClick = True
-        Me.ToolStripButton1.Image = Global.DbManejador.My.Resources.Resources.add_circle_sharp
-        Me.ToolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButton1.Margin = New System.Windows.Forms.Padding(0)
-        Me.ToolStripButton1.Name = "ToolStripButton1"
-        Me.ToolStripButton1.Overflow = System.Windows.Forms.ToolStripItemOverflow.Never
-        Me.ToolStripButton1.Size = New System.Drawing.Size(103, 52)
-        Me.ToolStripButton1.Text = "Añadir una BD"
+        Me.AddBD.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
+        Me.AddBD.AutoToolTip = False
+        Me.AddBD.CheckOnClick = True
+        Me.AddBD.Image = Global.DbManejador.My.Resources.Resources.add_circle_sharp
+        Me.AddBD.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.AddBD.Margin = New System.Windows.Forms.Padding(0)
+        Me.AddBD.Name = "AddBD"
+        Me.AddBD.Overflow = System.Windows.Forms.ToolStripItemOverflow.Never
+        Me.AddBD.Size = New System.Drawing.Size(103, 52)
+        Me.AddBD.Text = "Añadir una BD"
         '
-        'ToolStripButton5
+        'Atras
         '
-        Me.ToolStripButton5.AutoSize = False
-        Me.ToolStripButton5.AutoToolTip = False
-        Me.ToolStripButton5.Image = Global.DbManejador.My.Resources.Resources.arrow_back_circle
-        Me.ToolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButton5.Margin = New System.Windows.Forms.Padding(5, 1, 0, 2)
-        Me.ToolStripButton5.Name = "ToolStripButton5"
-        Me.ToolStripButton5.Overflow = System.Windows.Forms.ToolStripItemOverflow.Never
-        Me.ToolStripButton5.Size = New System.Drawing.Size(54, 49)
-        Me.ToolStripButton5.Text = "Atras"
+        Me.Atras.AutoSize = False
+        Me.Atras.AutoToolTip = False
+        Me.Atras.Image = Global.DbManejador.My.Resources.Resources.arrow_back_circle
+        Me.Atras.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.Atras.Margin = New System.Windows.Forms.Padding(5, 1, 0, 2)
+        Me.Atras.Name = "Atras"
+        Me.Atras.Overflow = System.Windows.Forms.ToolStripItemOverflow.Never
+        Me.Atras.Size = New System.Drawing.Size(54, 49)
+        Me.Atras.Text = "Atras"
+        '
+        'SerBDSeleccionados1
+        '
+        Me.SerBDSeleccionados1.BackColor = System.Drawing.SystemColors.GradientActiveCaption
+        Me.SerBDSeleccionados1.Location = New System.Drawing.Point(66, 12)
+        Me.SerBDSeleccionados1.Name = "SerBDSeleccionados1"
+        Me.SerBDSeleccionados1.Size = New System.Drawing.Size(177, 27)
+        Me.SerBDSeleccionados1.TabIndex = 1
         '
         'Menu
         '
@@ -160,13 +161,14 @@ Partial Class Menu
     End Sub
 
     Friend WithEvents ToolStrip1 As ToolStrip
-    Friend WithEvents ToolStripButton3 As ToolStripButton
-    Friend WithEvents ToolStripButton2 As ToolStripButton
-    Friend WithEvents ToolStripButton1 As ToolStripButton
+    Friend WithEvents Guardar As ToolStripButton
+    Friend WithEvents Fragmentacion As ToolStripButton
+    Friend WithEvents AddBD As ToolStripButton
     Friend WithEvents ToolStripButton4 As ToolStripDropDownButton
-    Friend WithEvents IndicesSugeridoToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents IndicesPerdidosToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ToolStripButton5 As ToolStripButton
-    Friend WithEvents ToolStripButton6 As ToolStripButton
+    Friend WithEvents IndexSug As ToolStripMenuItem
+    Friend WithEvents IndexPer As ToolStripMenuItem
+    Friend WithEvents Atras As ToolStripButton
+    Friend WithEvents Sincronizacion As ToolStripButton
     Friend WithEvents SerBDSeleccionados1 As SerBDSeleccionados
+    Friend WithEvents SaveFileDialog1 As SaveFileDialog
 End Class

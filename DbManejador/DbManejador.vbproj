@@ -112,6 +112,12 @@
     <Compile Include="Clases\SQL\SQLBuilder.vb" />
     <Compile Include="Clases\SQL\RestriccionSQL.vb" />
     <Compile Include="Clases\SQL\TablaSQL.vb" />
+    <Compile Include="Forms\AddBd.Designer.vb">
+      <DependentUpon>AddBd.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AddBd.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\Componentes\BDSelector.Designer.vb">
       <DependentUpon>BDSelector.vb</DependentUpon>
     </Compile>
