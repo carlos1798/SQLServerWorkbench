@@ -22,10 +22,20 @@ Partial Class BDSelector
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Button2 = New System.Windows.Forms.Button()
+        Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.GenerarSQLToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.EliminarDeLaListaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.GenerarLasTablasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.GenerarLosIndicesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.GenerarLosLoginsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.GenerarTodoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PropiedadesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ContextMenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label4
@@ -66,6 +76,56 @@ Partial Class BDSelector
         Me.Button2.TabIndex = 2
         Me.Button2.UseVisualStyleBackColor = False
         '
+        'ContextMenuStrip1
+        '
+        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.GenerarSQLToolStripMenuItem, Me.EliminarDeLaListaToolStripMenuItem, Me.PropiedadesToolStripMenuItem})
+        Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
+        Me.ContextMenuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(181, 92)
+        '
+        'GenerarSQLToolStripMenuItem
+        '
+        Me.GenerarSQLToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.GenerarLasTablasToolStripMenuItem, Me.GenerarLosIndicesToolStripMenuItem, Me.GenerarLosLoginsToolStripMenuItem, Me.GenerarTodoToolStripMenuItem})
+        Me.GenerarSQLToolStripMenuItem.Name = "GenerarSQLToolStripMenuItem"
+        Me.GenerarSQLToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.GenerarSQLToolStripMenuItem.Text = "Generar SQL"
+        '
+        'EliminarDeLaListaToolStripMenuItem
+        '
+        Me.EliminarDeLaListaToolStripMenuItem.Name = "EliminarDeLaListaToolStripMenuItem"
+        Me.EliminarDeLaListaToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.EliminarDeLaListaToolStripMenuItem.Text = "Eliminar de la lista"
+        '
+        'GenerarLasTablasToolStripMenuItem
+        '
+        Me.GenerarLasTablasToolStripMenuItem.Name = "GenerarLasTablasToolStripMenuItem"
+        Me.GenerarLasTablasToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.GenerarLasTablasToolStripMenuItem.Text = "Generar las tablas"
+        '
+        'GenerarLosIndicesToolStripMenuItem
+        '
+        Me.GenerarLosIndicesToolStripMenuItem.Name = "GenerarLosIndicesToolStripMenuItem"
+        Me.GenerarLosIndicesToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.GenerarLosIndicesToolStripMenuItem.Text = "Generar los indices"
+        '
+        'GenerarLosLoginsToolStripMenuItem
+        '
+        Me.GenerarLosLoginsToolStripMenuItem.Name = "GenerarLosLoginsToolStripMenuItem"
+        Me.GenerarLosLoginsToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.GenerarLosLoginsToolStripMenuItem.Text = "Generar los logins"
+        '
+        'GenerarTodoToolStripMenuItem
+        '
+        Me.GenerarTodoToolStripMenuItem.Name = "GenerarTodoToolStripMenuItem"
+        Me.GenerarTodoToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.GenerarTodoToolStripMenuItem.Text = "Generar todo"
+        '
+        'PropiedadesToolStripMenuItem
+        '
+        Me.PropiedadesToolStripMenuItem.Name = "PropiedadesToolStripMenuItem"
+        Me.PropiedadesToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.PropiedadesToolStripMenuItem.Text = "Propiedades"
+        '
         'BDSelector
         '
         Me.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
@@ -75,6 +135,7 @@ Partial Class BDSelector
         Me.Controls.Add(Me.Button2)
         Me.Name = "BDSelector"
         Me.Size = New System.Drawing.Size(239, 49)
+        Me.ContextMenuStrip1.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -87,4 +148,12 @@ Partial Class BDSelector
     Friend WithEvents Label5 As Label
     Friend WithEvents Panel2 As Panel
     Friend WithEvents Button2 As Button
+    Friend WithEvents ContextMenuStrip1 As ContextMenuStrip
+    Friend WithEvents GenerarSQLToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents GenerarLasTablasToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents GenerarLosIndicesToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents GenerarLosLoginsToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents GenerarTodoToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents EliminarDeLaListaToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents PropiedadesToolStripMenuItem As ToolStripMenuItem
 End Class

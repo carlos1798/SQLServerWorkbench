@@ -29,16 +29,16 @@ Public Class InputText
 
     Private Sub RichTextBox1_Validated(sender As Object, e As EventArgs) Handles RichTextBox1.Validated
         RichTextBox1.SelectAll()
-        RichTextBox1.SelectionColor = Color.Black
+        RichTextBox1.SelectionColor = Color.White
         Dim tokens As List(Of Token) = lexer.evToken(RichTextBox1.Text)
         For Each token In tokens
             RichTextBox1.Select(token.Inicio, token.Final - token.Inicio + 1)
-            RichTextBox1.SelectionColor = Color.Blue
+            RichTextBox1.SelectionColor = Color.DeepPink
             RichTextBox1.DeselectAll()
         Next
 
-        RichTextBox1.SelectionColor = Color.Black
-        RichTextBox1.ForeColor = Color.Black
+        RichTextBox1.SelectionColor = Color.White
+        RichTextBox1.ForeColor = Color.White
 
     End Sub
 End Class

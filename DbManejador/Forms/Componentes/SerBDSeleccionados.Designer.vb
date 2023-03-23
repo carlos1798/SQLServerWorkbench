@@ -49,7 +49,7 @@ Partial Class SerBDSeleccionados
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(58, 0)
+        Me.Label3.Location = New System.Drawing.Point(81, 16)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(0, 13)
         Me.Label3.TabIndex = 2
@@ -57,7 +57,7 @@ Partial Class SerBDSeleccionados
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(87, 13)
+        Me.Label4.Location = New System.Drawing.Point(52, 0)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(0, 13)
         Me.Label4.TabIndex = 3
