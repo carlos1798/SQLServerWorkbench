@@ -65,7 +65,7 @@ Public Class Main
             lista.Add(tablaSql.Crear(tabla))
         Next
         For Each tabla In lista
-            InputText1.RichTextBox1.Text += vbCrLf + tabla
+            InputText1.RichTextBox1.AppendText(vbCrLf + tabla)
         Next
 
 

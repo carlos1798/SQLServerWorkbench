@@ -229,7 +229,7 @@ Public Class SQLKeywordsRepo
 "DO",
 "DOMAIN",
 "DOUBLE",
-"DROP",
+"DROP",    'Asterisco
 "DUAL",
 "DUMMY",
 "DUMP",
