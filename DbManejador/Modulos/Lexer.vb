@@ -15,25 +15,6 @@ Public Class Lexer
     'Deberia devolver un diccionario con la palabra tokenizada 
     'El token tendria que tener el valor del string a tokenizar el index de donde empieza y el index de hasta donde deberia tokenizarse.
 
-    Public Sub EvalTokens(text As String) ' As Token()
-        Dim UpperText As String = text.ToUpper
-        For Each caracter In UpperText
-            If caracter.Equals("'") Then
-
-
-            ElseIf caracter.Equals("*") Or caracter.Equals("-") Or caracter.Equals("+") Or caracter.Equals("=") Or caracter.Equals("=") Then
-
-            Else 'Keyword
-
-
-
-
-            End If
-
-        Next
-
-
-    End Sub
     Public Function evToken(texto) As List(Of Token)
         Dim UpperText As String = texto.ToUpper()
         Dim tokens As New List(Of Token)()
@@ -51,7 +32,7 @@ Public Class Lexer
                 If finalPalabra = -1 Then
                     finalPalabra = UpperText.Length - 1
                 End If
-                tokens.Add(New Token(TipoToken.TOKEN_COMILLAS, inicioPalabra, finalPalabra))
+                tokens.Add(New Token(inicioPalabra, finalPalabra, TipoToken.TOKEN_COMILLAS))
                 index = finalPalabra + 1
             ElseIf c = "*"c Or c = "-"c Or c = "+"c Or c = "/"c Or c = "="c Then
                 ' Encontramos un operador
@@ -69,6 +50,8 @@ Public Class Lexer
                     ' Verificamos si la palabra es una palabra clave
                     If repoKeywords.keywords.Contains(palabra) Then
                         tokens.Add(New Token(palabra, inicioPalabra, finalPalabra, TipoToken.TOKEN_KEYWORD))
+                    Else
+                        index -= 1
 
                     End If
                 End If

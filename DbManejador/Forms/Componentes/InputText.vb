@@ -33,7 +33,12 @@ Public Class InputText
         Dim tokens As List(Of Token) = lexer.evToken(RichTextBox1.Text)
         For Each token In tokens
             RichTextBox1.Select(token.Inicio, token.Final - token.Inicio + 1)
-            RichTextBox1.SelectionColor = Color.DeepPink
+            If token.Tipo = Token.TipoToken.TOKEN_COMILLAS Then
+
+                RichTextBox1.SelectionColor = Color.LightGreen
+            Else
+                RichTextBox1.SelectionColor = Color.DeepPink
+            End If
             RichTextBox1.DeselectAll()
         Next
 
