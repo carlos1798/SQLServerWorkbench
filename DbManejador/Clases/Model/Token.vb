@@ -7,12 +7,10 @@ Public Class Token
     Private _final As Integer
     Private _tipo As TipoToken
     Public Enum TipoToken
-        TOKEN_KEYWORD '--> SQLKeywordsRepo
-        'Regla: Se aplica tokenizacion si la palabra coincide con una keyword o hay whitespace a los dos lados es decir _As_ y no si _AStilla
-        TOKEN_COMILLAS ' --> '
-        'Regla: Se aplica si se encuentra una comilla y se termina si encuentra otra, no se evaluara nada del contenido
-        TOKEN_OPERADORES '--> =,-,/,* 
-        'Regla: Si el char es igual se considera token de igualdad
+        TOKEN_KEYWORD
+        TOKEN_COMILLAS
+        TOKEN_OPERADORES
+        TOKEN_COMILLAS_SIMPLES
     End Enum
 
     Public Sub New(inicio As Integer, final As Integer, tipoToken As TipoToken)

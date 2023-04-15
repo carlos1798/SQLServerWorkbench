@@ -1,7 +1,7 @@
 ﻿Imports System.IO
 
 Public Class Main
-    Public listaDatabases As List(Of Database)
+    Private listaDatabases As List(Of Database)
     Dim reg As New Registro
     Public lista As New List(Of String)
     Dim tablaSql As New TablaSQL
@@ -11,19 +11,15 @@ Public Class Main
 
     Public Sub New()
 
-        Dim root As New TreeNode(Login.servidor.NombreServidor1)
 
         ' Esta llamada es exigida por el diseñador.
         InitializeComponent()
-
-        TreeView1.Nodes.Add(root)
         Using DatabaseDAO As New DatabaseDAO()
             listaDatabases = DatabaseDAO.FindAll()
         End Using
         For Each Database In listaDatabases
             Database.Servidor = Login.servidor
             Login.servidor.ModificarConexionString(Database.Nombre)
-            TreeView1.Nodes(0).Nodes.Add(New TreeNode(Database.Nombre))
 
             Using TablaDAO As New TablaDAO()
                 Database.Tablas = TablaDAO.LightFindAll()
@@ -45,21 +41,11 @@ Public Class Main
             Dim asd As New BDSelector(db.Nombre, db.Servidor.NombreServidor1, db)
             AddHandler asd.Eleccion, AddressOf seleccionServidor
             AddHandler asd.EleccionBD, AddressOf seleccionarBD
-            ' FlowLayoutPanel1.Controls.Add(asd)
-
-            For Each nodo In TreeView1.Nodes(0).Nodes
-                If db.Nombre.Equals(nodo.Text) Then
-                    For Each tabla In db.Tablas
-                        nodo.Nodes.Add(New TreeNode(tabla.NombreTabla))
-                    Next
-                End If
+            FlowLayoutPanel1.Controls.Add(asd)
 
 
-
-            Next
 
         Next
-
 
 
         ' Agregue cualquier inicialización después de la llamada a InitializeComponent().
@@ -90,10 +76,9 @@ Public Class Main
 
     End Sub
 
-    Private Sub FlowLayoutPanel1_Paint(sender As Object, e As PaintEventArgs)
+    Private Sub FlowLayoutPanel1_Paint(sender As Object, e As PaintEventArgs) Handles FlowLayoutPanel1.Paint
 
     End Sub
-
 
     'Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
     '    For Each db In listaDatabases
