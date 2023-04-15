@@ -23,6 +23,7 @@ Partial Class InputText
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'RichTextBox1
@@ -32,24 +33,33 @@ Partial Class InputText
         Me.RichTextBox1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.RichTextBox1.ForeColor = System.Drawing.SystemColors.Desktop
         Me.RichTextBox1.Location = New System.Drawing.Point(0, 0)
-        Me.RichTextBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.RichTextBox1.Name = "RichTextBox1"
-        Me.RichTextBox1.Size = New System.Drawing.Size(1404, 657)
+        Me.RichTextBox1.Size = New System.Drawing.Size(1053, 534)
         Me.RichTextBox1.TabIndex = 0
         Me.RichTextBox1.Text = ""
         '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(905, 239)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(0, 13)
+        Me.Label1.TabIndex = 1
+        '
         'InputText
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSize = True
+        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.RichTextBox1)
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "InputText"
-        Me.Size = New System.Drawing.Size(1404, 657)
+        Me.Size = New System.Drawing.Size(1053, 534)
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
     Friend WithEvents RichTextBox1 As RichTextBox
+    Friend WithEvents Label1 As Label
 End Class

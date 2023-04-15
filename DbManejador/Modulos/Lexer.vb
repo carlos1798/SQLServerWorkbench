@@ -1,10 +1,42 @@
 ﻿Imports DbManejador.Token
-Imports System.Reflection
 
 Public Class Lexer
     Dim repoKeywords As New SQLKeywordsRepo()
+
     Public Sub New()
     End Sub
+
+    Public Function evToken(texto) As List(Of Token)
+        Dim UpperText As String = texto.ToUpper()
+        Dim tokens As New List(Of Token)()
+        Dim palabra As String = ""
+        Dim inicioPalabra As Integer = 0
+        Dim finalPalabra As Integer = 0
+        Dim index As Integer = 0
+        Dim tokenAux As Token
+        While index < UpperText.Length
+            Dim c As Char = UpperText(index)
+
+            If c = "'"c Then
+                tokens.Add(TokenizarDelimitadoresDeCadenas(index, UpperText, TipoToken.TOKEN_COMILLAS_SIMPLES))
+            ElseIf c = "*"c Or c = "-"c Or c = "+"c Or c = "/"c Or c = "="c Then
+                tokens.Add(New Token(TipoToken.TOKEN_OPERADORES, index, index))
+                index += 1
+            ElseIf c = """"c Then
+                tokens.Add(TokenizarDelimitadoresDeCadenas(index, UpperText, TipoToken.TOKEN_COMILLAS))
+            Else
+                tokenAux = TokenizarKeyword(index, UpperText)
+                If Not tokenAux Is Nothing Then
+                    tokens.Add(tokenAux)
+                    tokenAux = Nothing
+
+                End If
+
+            End If
+        End While
+        Return tokens
+
+    End Function
 
     Public Function getCharFromTIPO_TOKEN(TipodeToken As TipoToken) As Char
         Select Case TipodeToken
@@ -33,6 +65,7 @@ Public Class Lexer
         index = finalpalabra + 1
         Return token
     End Function
+
     Public Function TokenizarKeyword(ByRef index As Integer, texto As String) As Token
 
         Dim token As Token
@@ -48,45 +81,16 @@ Public Class Lexer
         If palabra <> "" Then
             ' Verificamos si la palabra es una palabra clave
             If repoKeywords.keywords.Contains(palabra) Then
-                Token = New Token(palabra, inicioPalabra, finalPalabra, TipoToken.TOKEN_KEYWORD)
+                token = New Token(palabra, inicioPalabra, finalPalabra, TipoToken.TOKEN_KEYWORD)
+
+                index += 1
                 Return token
+            Else
+                Return Nothing
             End If
+        Else
+            index += 1
         End If
 
     End Function
-
-    Public Function evToken(texto) As List(Of Token)
-        Dim UpperText As String = texto.ToUpper()
-        Dim tokens As New List(Of Token)()
-        Dim palabra As String = ""
-        Dim inicioPalabra As Integer = 0
-        Dim finalPalabra As Integer = 0
-        Dim index As Integer = 0
-        While index < UpperText.Length
-            Dim c As Char = UpperText(index)
-
-            If c = "'"c Then
-                tokens.Add(TokenizarDelimitadoresDeCadenas(index, UpperText, TipoToken.TOKEN_COMILLAS_SIMPLES))
-            ElseIf c = "*"c Or c = "-"c Or c = "+"c Or c = "/"c Or c = "="c Then
-                tokens.Add(New Token(TipoToken.TOKEN_OPERADORES, index, index))
-                index += 1
-            ElseIf c = """"c Then
-                tokens.Add(TokenizarDelimitadoresDeCadenas(index, UpperText, TipoToken.TOKEN_COMILLAS_SIMPLES))
-            Else
-                If Not TokenizarKeyword(index, UpperText) Is Nothing Then
-                    tokens.Add(TokenizarKeyword(index, UpperText))
-                End If
-            End If
-        End While
-        Return tokens
-
-
-    End Function
-
-
-
-
-
-
-
 End Class
