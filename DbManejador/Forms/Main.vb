@@ -45,12 +45,16 @@ Public Class Main
             Dim asd As New BDSelector(db.Nombre, db.Servidor.NombreServidor1, db)
             AddHandler asd.Eleccion, AddressOf seleccionServidor
             AddHandler asd.EleccionBD, AddressOf seleccionarBD
-            ' FlowLayoutPanel1.Controls.Add(asd)
 
-            For Each nodo In TreeView1.Nodes(0).Nodes
+            TreeView1.Nodes(0).ImageIndex = 1
+            For Each nodo As TreeNode In TreeView1.Nodes(0).Nodes
+
                 If db.Nombre.Equals(nodo.Text) Then
                     For Each tabla In db.Tablas
                         nodo.Nodes.Add(New TreeNode(tabla.NombreTabla))
+
+                        nodo.SelectedImageIndex = 3
+
                     Next
                 End If
 
@@ -86,11 +90,23 @@ Public Class Main
 
 
     End Sub
-    Private Sub BdSelector1_Load(sender As Object, e As EventArgs)
 
-    End Sub
+    Private Sub TreeView1_AfterSelect(sender As Object, e As TreeViewEventArgs) Handles TreeView1.AfterSelect
 
-    Private Sub FlowLayoutPanel1_Paint(sender As Object, e As PaintEventArgs)
+        DataGridView1.Rows.Clear()
+        For Each Database In listaDatabases
+
+            For Each tabla In Database.Tablas
+
+                If TreeView1.SelectedNode.Text = tabla.NombreTabla Then
+                    For Each columna In tabla.Columnas
+
+                        DataGridView1.Rows.Add(columna.Nombre, columna.OrdenColumna, columna.tipoDato.ToString, columna.IsNullable)
+                    Next
+
+                End If
+            Next
+        Next
 
     End Sub
 

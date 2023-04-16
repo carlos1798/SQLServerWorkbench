@@ -46,7 +46,7 @@ Public Class ColumnaDAO
 
                     Dim posicion As Integer = lectorResultado("ORDINAL_POSITION")
                     Dim tipoDato As String = lectorResultado("DATA_TYPE").ToString
-                    tdato.tipoDato = lectorResultado("DATA_TYPE").ToString
+                    tdato.TipoDato = lectorResultado("DATA_TYPE").ToString
                     Dim defecto As String
                     If lectorResultado("IS_NULLABLE").ToString = "YES" Then
                         isNullable = True
@@ -55,10 +55,10 @@ Public Class ColumnaDAO
 
                     If Not IsDBNull(lectorResultado("CHARACTER_MAXIMUM_LENGTH")) Then
 
-                        tdato.numeroCaracteres = CInt(lectorResultado("CHARACTER_MAXIMUM_LENGTH").ToString)
+                        tdato.NumeroCaracteres = CInt(lectorResultado("CHARACTER_MAXIMUM_LENGTH").ToString)
                     Else
 
-                        tdato.numeroCaracteres = Nothing
+                        tdato.NumeroCaracteres = Nothing
 
                     End If
 

@@ -194,6 +194,9 @@
     <EmbeddedResource Include="Forms\Componentes\SerBDSeleccionados.resx">
       <DependentUpon>SerBDSeleccionados.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Main.aa.resx">
+      <DependentUpon>Main.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Main.resx">
       <DependentUpon>Main.vb</DependentUpon>
     </EmbeddedResource>

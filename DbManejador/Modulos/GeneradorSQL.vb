@@ -12,10 +12,10 @@
 
     Public Function TipoDatoToString(dato As Tipo)
         Dim tipoDatoString As String
-        If dato.numeroCaracteres = Nothing Then
-            tipoDatoString = $"{dato.tipoDato}"
+        If dato.NumeroCaracteres = Nothing Then
+            tipoDatoString = $"{dato.TipoDato}"
         Else
-            tipoDatoString = $"{dato.tipoDato} ({dato.numeroCaracteres})"
+            tipoDatoString = $"{dato.TipoDato} ({dato.NumeroCaracteres})"
         End If
         Return tipoDatoString
     End Function
