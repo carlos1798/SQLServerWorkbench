@@ -22,13 +22,19 @@
                 SaveFileDialog1.ShowDialog()
                 If SaveFileDialog1.ShowDialog.OK Then
 
-                    Dim sw As New StreamWriter(SaveFileDialog1.FileName)
-                    If sw IsNot Nothing Then
-                        sw.Write(reg.generarString(Main.lista))
-                    End If
+                    Try
+                        Dim sw As New StreamWriter(SaveFileDialog1.FileName)
+                        If sw IsNot Nothing Then
+                            sw.Write(reg.GenerarString(Main.lista))
+                        End If
 
-                    sw.Close()
-                    MessageBox.Show("Tu archivo se a guardado de forma correcta")
+                        sw.Close()
+                        MessageBox.Show("Tu archivo se a guardado de forma correcta")
+
+                    Catch ex As Exception
+
+
+                    End Try
                 End If
 
 

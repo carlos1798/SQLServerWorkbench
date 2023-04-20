@@ -13,6 +13,7 @@
         Me.Columnas = columnas
         Me.Indices = indexs
         Me.Restricciones = restricciones
+
     End Sub
     Public Sub New(nombreTabla As String)
         Me.NombreTabla = nombreTabla

@@ -100,7 +100,7 @@ Public Class Main
 
                 If TreeView1.SelectedNode.Text = tabla.NombreTabla Then
                     For Each columna In tabla.Columnas
-
+                        'TODO: Arreglar las columnas con los tipos de datos
                         DataGridView1.Rows.Add(columna.Nombre, columna.OrdenColumna, columna.tipoDato.ToString, columna.IsNullable)
                     Next
 

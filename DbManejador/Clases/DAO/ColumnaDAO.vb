@@ -21,19 +21,22 @@ Public Class ColumnaDAO
         Dim resultado As New List(Of Columna)
         Dim columnaAux As New Columna()
         Dim SqlQuery As String = $"SELECT COLUMN_NAME,ORDINAL_POSITION,DATA_TYPE,CHARACTER_MAXIMUM_LENGTH,COLUMN_DEFAULT,IS_NULLABLE FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME ='{nombreTabla}'"
-        Dim tdato As New Tipo()
         Dim isNullable As Boolean = False
         Dim isIdentity As Boolean
         Dim listaIdentity As New List(Of String)
         Try
-
-            conectar()
+            If nombreTabla = "Posts" Then
+                MessageBox.Show("asd")
+            End If
+            Conectar()
             Dim comandoSql As New SqlCommand(SqlQuery, conexion)
             Dim lectorResultado As SqlDataReader = comandoSql.ExecuteReader
             Dim adaptador = New SqlDataAdapter(comandoSql)
             If lectorResultado.HasRows Then
 
                 Do While lectorResultado.Read()
+
+                    Dim tdato As New Tipo()
                     isIdentity = False
                     Dim nombre As String = lectorResultado("COLUMN_NAME").ToString
                     If listaIdentity IsNot Nothing Then
@@ -58,7 +61,7 @@ Public Class ColumnaDAO
                         tdato.NumeroCaracteres = CInt(lectorResultado("CHARACTER_MAXIMUM_LENGTH").ToString)
                     Else
 
-                        tdato.NumeroCaracteres = Nothing
+                        tdato.NumeroCaracteres = 0
 
                     End If
 
@@ -78,6 +81,7 @@ Public Class ColumnaDAO
                     posicion = Nothing
                     nombre = Nothing
                     tipoDato = Nothing
+                    tdato = Nothing
                 Loop
             End If
 

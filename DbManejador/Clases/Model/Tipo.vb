@@ -42,10 +42,13 @@
     End Function
 
     Public Overrides Function ToString() As String
-        If NumeroCaracteres = 0 Then
-            Return $"{TipoDato}".ToUpper
+        If NumeroCaracteres <= 0 Then
+            If TipoDato.Equals("NVARCHAR") Then
+                Return $"{TipoDato}(MAX)".ToUpper
+            Else
+                Return $"{TipoDato}".ToUpper
+            End If
         Else
-
             Return $"{TipoDato}({NumeroCaracteres})".ToUpper
         End If
     End Function

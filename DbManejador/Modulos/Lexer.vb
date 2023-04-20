@@ -20,7 +20,7 @@ Public Class Lexer
             If c = "'"c Then
                 tokens.Add(TokenizarDelimitadoresDeCadenas(index, UpperText, TipoToken.TOKEN_COMILLAS_SIMPLES))
             ElseIf c = "*"c Or c = "-"c Or c = "+"c Or c = "/"c Or c = "="c Then
-                tokens.Add(New Token(TipoToken.TOKEN_OPERADORES, index, index))
+                tokens.Add(New Token(index, index, TipoToken.TOKEN_OPERADORES))
                 index += 1
             ElseIf c = """"c Then
                 tokens.Add(TokenizarDelimitadoresDeCadenas(index, UpperText, TipoToken.TOKEN_COMILLAS))
