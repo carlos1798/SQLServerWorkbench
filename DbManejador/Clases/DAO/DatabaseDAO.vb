@@ -23,7 +23,6 @@ Public Class DatabaseDAO
             End if 
         Catch ex As Exception
         End Try
-        cerrarConexion()
 
         Return listaDatabases
     End Function
@@ -48,7 +47,6 @@ Public Class DatabaseDAO
         Catch ex As Exception
             Return Nothing
         End Try
-        CerrarConexion()
         Return db
     End Function
 End Class

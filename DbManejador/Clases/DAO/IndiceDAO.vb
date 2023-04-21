@@ -60,7 +60,6 @@ Public Class IndiceDAO
             Console.WriteLine(_Exception.Message)
             Return Nothing
         End Try
-        cerrarConexion()
         Return listaIndices
 
     End Function

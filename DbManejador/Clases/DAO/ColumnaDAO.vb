@@ -89,8 +89,7 @@ Public Class ColumnaDAO
             Console.WriteLine(_Exception.Message)
             Return Nothing
         End Try
-        conexion.Close()
-        checkIdentity(nombreTabla)
+        CheckIdentity(nombreTabla)
         Return resultado
     End Function
 

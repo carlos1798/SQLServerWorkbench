@@ -2,15 +2,10 @@
     Inherits GeneradorSQL
 
 
-    ''' <summary>
-    ''' 
-    ''' </summary>
-    ''' <param name="Objeto"></param>
-    ''' <returns>String</returns>
     Public Function Crear(columna As Columna, nombre_tabla As String) As String
         Dim addColumna As String
         Dim queryGeneral As String = $"ALTER TABLE {nombre_tabla}"
-        addColumna = $" ADD {columna.Nombre} {TipoDatoToString(columna.tipoDato)}{GenerarNulo(columna.isNullable)}"
+        addColumna = $" ADD {columna.Nombre} {TipoDatoToString(columna.tipoDato)}{GenerarNulo(columna.IsNullable)}"
         queryGeneral = queryGeneral + vbCr + addColumna
         Return queryGeneral
     End Function

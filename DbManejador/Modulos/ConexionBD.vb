@@ -36,41 +36,40 @@ Public MustInherit Class ConexionBD
 
 #End Region
 
+    'TODO:Meter esto en otro lado
+    '    'Public Function NumeroRegistros(nombreTabla As String) As Object
+    '    Dim resultado As String = 0
+    '    Dim SqlQuery As String = $"SELECT COUNT(*) as numReg FROM {nombreTabla}"
+    '    Try
 
-    'Devuelve el numero de registros que tiene una tabla introduciendo el nombre
-    Public Function NumeroRegistros(nombreTabla As String) As Object
-        Dim resultado As String = 0
-        Dim SqlQuery As String = $"SELECT COUNT(*) as numReg FROM {nombreTabla}"
-        Try
+    '        If ConnectionState.Open Then
+    '            conexion.Close()
 
-            If ConnectionState.Open Then
-                conexion.Close()
+    '        End If
+    '        conexion.Open()
+    '        Dim comandoSql As New SqlCommand(SqlQuery, conexion)
+    '        Dim lectorResultado As SqlDataReader = comandoSql.ExecuteReader
+    '        Dim adaptador = New SqlDataAdapter(comandoSql)
+    '        If lectorResultado.HasRows Then
+    '            Do While lectorResultado.Read()
+    '                Try
 
-            End If
-            conexion.Open()
-            Dim comandoSql As New SqlCommand(SqlQuery, conexion)
-            Dim lectorResultado As SqlDataReader = comandoSql.ExecuteReader
-            Dim adaptador = New SqlDataAdapter(comandoSql)
-            If lectorResultado.HasRows Then
-                Do While lectorResultado.Read()
-                    Try
+    '                    resultado = lectorResultado("numReg")
+    '                Catch ex As Exception
+    '                    resultado = 0
 
-                        resultado = lectorResultado("numReg")
-                    Catch ex As Exception
-                        resultado = 0
-
-                    End Try
-                Loop
-            End If
-            comandoSql.Dispose()
-            comandoSql = Nothing
-        Catch _Exception As Exception
-            Console.WriteLine(_Exception.Message)
-            Return Nothing
-        End Try
-        conexion.Close()
-        Return resultado
-    End Function
+    '                End Try
+    '            Loop
+    '        End If
+    '        comandoSql.Dispose()
+    '        comandoSql = Nothing
+    '    Catch _Exception As Exception
+    '        Console.WriteLine(_Exception.Message)
+    '        Return Nothing
+    '    End Try
+    '    conexion.Close()
+    '    Return resultado
+    'End Function
 
 
     'Devuelve las columnas que tiene una tabla
@@ -151,6 +150,7 @@ Public MustInherit Class ConexionBD
             If disposing Then
                 cerrarConexion()
             End If
+            SqlConnection.ClearPool(conexion)
             conexion = Nothing
             connectionString = Nothing
             disposedValue = True
