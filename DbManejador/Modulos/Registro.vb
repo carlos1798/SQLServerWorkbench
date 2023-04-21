@@ -20,9 +20,8 @@ Public Class Registro
     'End Function
     Public Function GetServidores() As Servidores
 
-        'Para que esto funcione hay que meter una clase que sea lista de servidores y que deserialize eso en el objeto lista y de ahi ya tienes los objetos 
+        Dim fileData As Servidores
 
-        Dim fileData As New Servidores()
         Try
             Dim reader = New XmlSerializer(GetType(Servidores))
             Using file As New StreamReader(xmlPath)
@@ -34,9 +33,11 @@ Public Class Registro
 
 
         Catch ex As Exception
+            fileData = New Servidores()
             Return fileData
         End Try
-        'TODO: Lista que devuelva los servidores almacenados
+        'TODO: List
+        'a que devuelva los servidores almacenados
     End Function
     Public Sub SaveServidor(servidor As Servidor)
         'TODO: Para arreglar que salga bien tengo que leer el xml y sobrescribilo 

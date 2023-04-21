@@ -10,21 +10,26 @@ Public Class Login
     Dim contrasena As String = ""
 
     'Se almacenaran todos los servidores que se van añadiendo en la sesion
-    Private ReadOnly registo As New Registro
-    Dim servidores As Servidores = registo.GetServidores()
+    Private ReadOnly registro As New Registro
+    Dim servidores As Servidores = registro.GetServidores()
     Dim listaDatabases As New List(Of Database)
     Public servidor As Servidor
+
+
     Private Sub Aceptar_Click(sender As Object, e As EventArgs) Handles Aceptar.Click
-        servidor = RecuperarDatosForm()
-        servidor.ModificarConexionString("master")
         Try
+            servidor = RecuperarDatosForm()
+            servidor.ModificarConexionString("master")
+
             If servidor.CheckExistenciaServidor() Then 'Sabemos que esta en alcance el servidor
                 Main.Show()
                 MessageBox.Show("Conectado")
-                registo.SaveServidor(servidor) 'Lo guardamos
-                servidores.ListaServidores.Add(servidor)
+                If Not servidores.ExisteEnArchivo(servidor) Then
+                    registro.SaveServidor(servidor)
+                    servidores.ListaServidores.Add(servidor)
+                End If
             Else
-                MsgBox("No se encuentra el nombre de ese servidor")
+                    MsgBox("No se encuentra el nombre de ese servidor")
             End If
         Catch ex As Exception
             MessageBox.Show(ex.Message)
@@ -42,7 +47,7 @@ Public Class Login
         Select Case Autenticacion.SelectedIndex
             Case 0
                 Dim servidor As New Servidor(nombreServidor)
-                usrComboBox.Text = servidor.Usuario1
+                usrComboBox.Text = servidor.Usuario
                 Return servidor
             Case 1
                 nombreUsuario = usrComboBox.Text
@@ -55,7 +60,6 @@ Public Class Login
         End Select
     End Function
 
-    'Eliminamos la posibilidad de que se indtroduzca el nombre de usuario y contrasena si el metodo de Login es con la autentificacion de windows
     Private Sub Autenticacion_SelectedValueChanged(sender As Object, e As EventArgs) Handles Autenticacion.SelectedValueChanged
         If Autenticacion.SelectedItem = "autenticacion de Windows" Then
             Me.usrComboBox.Text = ""
@@ -70,36 +74,48 @@ Public Class Login
 
 
     Private Sub NomServidor_Click(sender As Object, e As EventArgs) Handles nomServidor.Click
-        If Not nomServidor.Items.Count = 0 Then nomServidor.Items.Clear()
+        If nomServidor.Items.Count = 0 Then
+            nomServidor.Items.Clear()
 
-        Me.nomServidor.TabIndex = servidores.ListaServidores.Count
-        For Each servidor In servidores.ListaServidores
-            nomServidor.Items.Add(servidor.NombreServidor1)
-        Next
+            Me.nomServidor.TabIndex = servidores.ListaServidores.Count
+            For Each servidor In servidores.ListaServidores
+                nomServidor.Items.Add(servidor.NombreServidor)
+            Next
+
+        End If
+
     End Sub
 
     Private Sub NomServidor_SelectedValueChanged(sender As Object, e As EventArgs) Handles nomServidor.SelectedValueChanged
-        Dim servidorSeleccionado As New Servidor()
-        For Each servidor As Servidor In servidores.ListaServidores
-            If nomServidor.SelectedItem.Equals(servidor.NombreServidor1) Then
-                If servidor.TipoLogin1.Equals(TipoAutentificacion.WINDOWS) Then
-                    Autenticacion.SelectedIndex = 0
-                    Me.usrComboBox.Text = ""
-                    Me.passwdTextBox.Text = ""
-                    Me.usrComboBox.Enabled = False
-                    Me.passwdTextBox.Enabled = False
+        If servidores IsNot Nothing Then
+            Dim servidorSeleccionado As New Servidor()
+            For Each servidor As Servidor In servidores.ListaServidores
+                If nomServidor.SelectedItem IsNot Nothing Then
 
-                    Exit For
-                Else
-                    Autenticacion.SelectedIndex = 1
-                    Me.usrComboBox.Text = servidor.Usuario1
-                    Me.passwdTextBox.Text = servidor.Contrasena1
 
-                    Exit For
+                    If nomServidor.SelectedItem.Equals(servidor.NombreServidor) Then
+                        If servidor.TipoLogin.Equals(TipoAutentificacion.WINDOWS) Then
+                            Autenticacion.SelectedIndex = 0
+                            Me.usrComboBox.Text = ""
+                            Me.passwdTextBox.Text = ""
+                            Me.usrComboBox.Enabled = False
+                            Me.passwdTextBox.Enabled = False
+
+                            Exit For
+                        Else
+                            Autenticacion.SelectedIndex = 1
+                            Me.usrComboBox.Text = servidor.Usuario
+                            Me.passwdTextBox.Text = servidor.Contrasena
+
+                            Exit For
+                        End If
+
+
+                    End If
+
                 End If
 
-            End If
-
-        Next
+            Next
+        End If
     End Sub
 End Class

@@ -1,50 +1,52 @@
 ﻿Imports System.Net.NetworkInformation
+Imports System.Runtime.Serialization
+Imports System.Xml.Serialization
 
 Public Class Servidor
 
-    Dim nombreServidor As String
-    Dim tipoLogin As TipoAutentificacion
-    Dim usuario As String
-    Dim contrasena As String
-    Dim listaBaseDatos As List(Of Database)
-    '    Dim nombreTest As String = "DESKTOP-LAV1DTM"
+    Dim _nombreServidor As String
+    Dim _tipoLogin As TipoAutentificacion
+    Dim _usuario As String
+    Dim _contrasena As String
 
-#Region "Setters y getters"
-    Public Property NombreServidor1 As String
+#Region "Getters y setters"
+    Public Property NombreServidor As String
         Get
-            Return nombreServidor
+            Return _nombreServidor
         End Get
         Set(value As String)
-            nombreServidor = value
+            _nombreServidor = value
         End Set
     End Property
 
-    Public Property TipoLogin1 As TipoAutentificacion
+    Public Property TipoLogin As TipoAutentificacion
         Get
-            Return tipoLogin
+            Return _tipoLogin
         End Get
         Set(value As TipoAutentificacion)
-            tipoLogin = value
+            _tipoLogin = value
         End Set
     End Property
 
-    Public Property Usuario1 As String
+    Public Property Usuario As String
         Get
-            Return usuario
+            Return _usuario
         End Get
         Set(value As String)
-            usuario = value
+            _usuario = value
         End Set
     End Property
 
-    Public Property Contrasena1 As String
+    Public Property Contrasena As String
         Get
-            Return contrasena
+            Return _contrasena
         End Get
         Set(value As String)
-            contrasena = value
+            _contrasena = value
         End Set
     End Property
+
+    '    Dim nombreTest As String = "DESKTOP-LAV1DTM"
 #End Region
     Public Enum TipoAutentificacion
         WINDOWS
@@ -53,18 +55,18 @@ Public Class Servidor
 
 
     Public Sub New(nombreServidor As String, usuario As String, contrasena As String)
-        Me.nombreServidor = nombreServidor
-        Me.usuario = usuario
-        Me.tipoLogin = TipoAutentificacion.SQLSERVER
-        Me.contrasena = contrasena
+        Me.NombreServidor = nombreServidor
+        Me.Usuario = usuario
+        Me.TipoLogin = TipoAutentificacion.SQLSERVER
+        Me.Contrasena = contrasena
     End Sub
     Public Sub New(nombreServidor As String)
         Dim userName As String = My.User.Name.ToString
         Dim trimUsername As String = userName.Remove(0, userName.LastIndexOf("\") + 1)
 
-        Me.tipoLogin = TipoAutentificacion.WINDOWS
-        Me.NombreServidor1 = nombreServidor
-        Me.usuario = trimUsername
+        Me.TipoLogin = TipoAutentificacion.WINDOWS
+        Me.NombreServidor = nombreServidor
+        Me.Usuario = trimUsername
 
     End Sub
     Public Sub New()
@@ -76,7 +78,7 @@ Public Class Servidor
         Dim exito As Boolean = False
         Dim ping As New Ping()
         Try
-            Dim respuesta = ping.Send(Me.nombreServidor, 1000)
+            Dim respuesta = ping.Send(Me.NombreServidor, 1000)
             exito = True
         Catch ex As Exception
             Debug.Write(ex.Message)
@@ -85,22 +87,22 @@ Public Class Servidor
     End Function
     Public Function CrearConexionString() As String
         Dim conexion As String
-        If tipoLogin = TipoAutentificacion.WINDOWS Then
-            conexion = $"Data Source={nombreServidor} ;Initial Catalog=master;Integrated Security=True"
+        If TipoLogin = TipoAutentificacion.WINDOWS Then
+            conexion = $"Data Source={NombreServidor} ;Initial Catalog=master;Integrated Security=True"
 
 
         Else
-            conexion = $"Server={nombreServidor} ;Database=master;User Id={usuario};Password={contrasena};"
+            conexion = $"Server={NombreServidor} ;Database=master;User Id={Usuario};Password={Contrasena};"
         End If
         Return conexion
     End Function
     Public Function ModificarConexionString(dbName As String) As String
         Dim conexion As String
-        If tipoLogin = TipoAutentificacion.WINDOWS Then
-            conexion = $"Data Source={nombreServidor} ;Initial Catalog={dbName};Integrated Security=True"
+        If TipoLogin = TipoAutentificacion.WINDOWS Then
+            conexion = $"Data Source={NombreServidor} ;Initial Catalog={dbName};Integrated Security=True"
             My.Settings.ConnectionString = conexion
         Else
-            conexion = $"Server={nombreServidor} ;Database=master;User Id={dbName};Password={contrasena};"
+            conexion = $"Server={NombreServidor} ;Database=master;User Id={dbName};Password={Contrasena};"
             My.Settings.ConnectionString = conexion
         End If
         Return conexion

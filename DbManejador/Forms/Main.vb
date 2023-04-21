@@ -11,7 +11,7 @@ Public Class Main
 
     Public Sub New()
 
-        Dim root As New TreeNode(Login.servidor.NombreServidor1)
+        Dim root As New TreeNode(Login.servidor.NombreServidor)
 
         ' Esta llamada es exigida por el diseñador.
         InitializeComponent()
@@ -42,7 +42,7 @@ Public Class Main
         Next
 
         For Each db In listaDatabases
-            Dim asd As New BDSelector(db.Nombre, db.Servidor.NombreServidor1, db)
+            Dim asd As New BDSelector(db.Nombre, db.Servidor.NombreServidor, db)
             AddHandler asd.Eleccion, AddressOf seleccionServidor
             AddHandler asd.EleccionBD, AddressOf seleccionarBD
 
@@ -99,6 +99,10 @@ Public Class Main
                 End If
             Next
         Next
+
+    End Sub
+
+    Private Sub Menu1_Load(sender As Object, e As EventArgs) Handles Menu1.Load
 
     End Sub
 

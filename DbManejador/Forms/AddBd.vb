@@ -28,7 +28,7 @@ Public Class AddBd
         Select Case Autenticacion.SelectedIndex
             Case 0
                 Dim servidor As New Servidor(nombreServidor)
-                usrComboBox.Text = servidor.Usuario1
+                usrComboBox.Text = servidor.Usuario
                 Return servidor
             Case 1
                 nombreUsuario = usrComboBox.Text
@@ -60,15 +60,15 @@ Public Class AddBd
 
         Me.nomServidor.TabIndex = listaservidores.listaServidores.Count
         For Each servidor In listaservidores.listaServidores
-            nomServidor.Items.Add(servidor.NombreServidor1)
+            nomServidor.Items.Add(servidor.NombreServidor)
         Next
     End Sub
 
     Private Sub NomServidor_SelectedValueChanged(sender As Object, e As EventArgs) Handles nomServidor.SelectedValueChanged
         Dim servidorSeleccionado As New Servidor()
         For Each servidor As Servidor In listaservidores.listaServidores
-            If nomServidor.SelectedItem.Equals(servidor.NombreServidor1) Then
-                If servidor.TipoLogin1.Equals(TipoAutentificacion.WINDOWS) Then
+            If nomServidor.SelectedItem.Equals(servidor.NombreServidor) Then
+                If servidor.TipoLogin.Equals(TipoAutentificacion.WINDOWS) Then
                     Autenticacion.SelectedIndex = 0
                     Me.usrComboBox.Text = ""
                     Me.passwdTextBox.Text = ""
@@ -78,8 +78,8 @@ Public Class AddBd
                     Exit For
                 Else
                     Autenticacion.SelectedIndex = 1
-                    Me.usrComboBox.Text = servidor.Usuario1
-                    Me.passwdTextBox.Text = servidor.Contrasena1
+                    Me.usrComboBox.Text = servidor.Usuario
+                    Me.passwdTextBox.Text = servidor.Contrasena
 
                     Exit For
                 End If
