@@ -22,7 +22,7 @@ Public Class InputText
             RichTextBox1.Select(token.Inicio, token.Final - token.Inicio + 1)
             If token.Tipo = Token.TipoToken.TOKEN_COMILLAS Or token.Tipo = Token.TipoToken.TOKEN_COMILLAS_SIMPLES Then
 
-                RichTextBox1.SelectionColor = Color.LightGreen
+                RichTextBox1.SelectionColor = Color.Green
             Else
                 RichTextBox1.SelectionColor = Color.DeepPink
             End If
