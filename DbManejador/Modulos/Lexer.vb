@@ -29,13 +29,10 @@ Public Class Lexer
                 If tokenAux IsNot Nothing Then
                     tokens.Add(tokenAux)
                     tokenAux = Nothing
-
                 End If
-
             End If
         End While
         Return tokens
-
     End Function
 
     Public Function getCharFromTIPO_TOKEN(TipodeToken As TipoToken) As Char

@@ -30,7 +30,7 @@ Public Class DatabaseDAO
 
     Public Function FindBy(name As Object) As Database Implements IDAO(Of Database).FindBy
         Dim db As New Database
-        Dim SqlQuery As String = $"SELECT name FROM sys.databases " 'where name = 'GESTIONSQL' "
+        Dim SqlQuery As String = $"SELECT {name} FROM sys.databases " 'where name = 'GESTIONSQL' "
         'when name not in('master','model','msdb','tempdb')"
         Try
             Conectar()
@@ -46,6 +46,7 @@ Public Class DatabaseDAO
                 Loop
             End If
         Catch ex As Exception
+            Return Nothing
         End Try
         CerrarConexion()
         Return db

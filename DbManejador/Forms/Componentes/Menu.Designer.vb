@@ -31,8 +31,8 @@ Partial Class Menu
         Me.IndexPer = New System.Windows.Forms.ToolStripMenuItem()
         Me.AddBaseDatos = New System.Windows.Forms.ToolStripButton()
         Me.Atras = New System.Windows.Forms.ToolStripButton()
-        Me.SerBDSeleccionados1 = New DbManejador.SerBDSeleccionados()
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
+        Me.SerBDSeleccionados1 = New DbManejador.SerBDSeleccionados()
         Me.ToolStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -123,8 +123,8 @@ Partial Class Menu
         Me.AddBaseDatos.Margin = New System.Windows.Forms.Padding(0)
         Me.AddBaseDatos.Name = "AddBaseDatos"
         Me.AddBaseDatos.Overflow = System.Windows.Forms.ToolStripItemOverflow.Never
-        Me.AddBaseDatos.Size = New System.Drawing.Size(107, 52)
-        Me.AddBaseDatos.Text = "Añadir una BD"
+        Me.AddBaseDatos.Size = New System.Drawing.Size(66, 52)
+        Me.AddBaseDatos.Text = "Añadir"
         '
         'Atras
         '
@@ -142,7 +142,7 @@ Partial Class Menu
         '
         Me.SerBDSeleccionados1.BackColor = System.Drawing.SystemColors.GradientActiveCaption
         Me.SerBDSeleccionados1.Location = New System.Drawing.Point(66, 8)
-        Me.SerBDSeleccionados1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.SerBDSeleccionados1.Margin = New System.Windows.Forms.Padding(4)
         Me.SerBDSeleccionados1.Name = "SerBDSeleccionados1"
         Me.SerBDSeleccionados1.Size = New System.Drawing.Size(177, 27)
         Me.SerBDSeleccionados1.TabIndex = 1

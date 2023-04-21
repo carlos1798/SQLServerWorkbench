@@ -44,5 +44,6 @@ Public Class TablaDAO
 
             Return Nothing
         End Try
+        CerrarConexion()
     End Function
 End Class

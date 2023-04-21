@@ -18,7 +18,8 @@ Public Class BDSelector
 
     End Sub
 
-    Private Sub eventoClick(Clicksender As Object, e As TreeNodeMouseClickEventArgs) Handles TreeView.AfterSelect
+    Private Sub eventoClick(Clicksender As Object, e As TreeNodeMouseClickEventArgs) Handles Label1.MouseDown, Label2.MouseDown, Label3.MouseDown, Label4.MouseDown, Button1.MouseDown, Label5.MouseDown, Panel2.MouseDown
+
 
         If e.Button = MouseButtons.Left Then
             RaiseEvent Eleccion(nombredb, nombreServidor)

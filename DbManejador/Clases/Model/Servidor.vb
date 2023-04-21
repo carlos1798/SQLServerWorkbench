@@ -6,6 +6,7 @@ Public Class Servidor
     Dim tipoLogin As TipoAutentificacion
     Dim usuario As String
     Dim contrasena As String
+    Dim listaBaseDatos As List(Of Database)
     '    Dim nombreTest As String = "DESKTOP-LAV1DTM"
 
 #Region "Setters y getters"

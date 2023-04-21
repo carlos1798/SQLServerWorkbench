@@ -44,7 +44,7 @@ Public Class Registro
         Dim listaServidores = GetServidores()
 
 
-        listaServidores.listaServidores.Add(servidor)
+        listaServidores.ListaServidores.Add(servidor)
         Dim reader = New XmlSerializer(GetType(Servidor))
 
         Dim tipoServidor As Type = GetType(Servidores)
