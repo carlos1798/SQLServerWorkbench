@@ -29,7 +29,25 @@ Public Class DatabaseDAO
     End Function
 
     Public Function FindBy(name As Object) As Database Implements IDAO(Of Database).FindBy
-        Throw New NotImplementedException()
-
+        Dim db As New Database
+        Dim SqlQuery As String = $"SELECT name FROM sys.databases " 'where name = 'GESTIONSQL' "
+        'when name not in('master','model','msdb','tempdb')"
+        Try
+            Conectar()
+            Dim comandoSql As New SqlCommand(SqlQuery, conexion)
+            Dim lectorResultado As SqlDataReader = comandoSql.ExecuteReader
+            Dim adaptador = New SqlDataAdapter(comandoSql)
+            If lectorResultado.HasRows Then
+                Do While lectorResultado.Read()
+                    If lectorResultado("name") = name Then
+                        db = New Database With {
+                                   .Nombre = lectorResultado("name")}
+                    End If
+                Loop
+            End If
+        Catch ex As Exception
+        End Try
+        CerrarConexion()
+        Return db
     End Function
 End Class

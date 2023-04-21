@@ -1,6 +1,7 @@
 ﻿Imports System.IO
+Imports System.Net.NetworkInformation
 
- Public Class Menu
+Public Class Menu
     Dim reg As New Registro()
     Private Sub ToolStrip1_ItemClicked(sender As Object, e As ToolStripItemClickedEventArgs) Handles ToolStrip1.ItemClicked
 
@@ -15,7 +16,8 @@
 
             Case "IndexSug"
 
-            Case "AddBd"
+            Case "AddBaseDatos"
+                AddBd.Show()
 
             Case "Guardar"
                 SaveFileDialog1.Filter = "Sql files (*.sql)|*.sql|All files (*.*)|*.*"

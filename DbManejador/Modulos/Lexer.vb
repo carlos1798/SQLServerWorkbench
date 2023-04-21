@@ -26,7 +26,7 @@ Public Class Lexer
                 tokens.Add(TokenizarDelimitadoresDeCadenas(index, UpperText, TipoToken.TOKEN_COMILLAS))
             Else
                 tokenAux = TokenizarKeyword(index, UpperText)
-                If Not tokenAux Is Nothing Then
+                If tokenAux IsNot Nothing Then
                     tokens.Add(tokenAux)
                     tokenAux = Nothing
 
@@ -67,7 +67,6 @@ Public Class Lexer
     End Function
 
     Public Function TokenizarKeyword(ByRef index As Integer, texto As String) As Token
-
         Dim token As Token
         Dim palabra As String = ""
         Dim inicioPalabra As Integer = index
@@ -79,10 +78,8 @@ Public Class Lexer
         End While
         finalPalabra = index - 1
         If palabra <> "" Then
-            ' Verificamos si la palabra es una palabra clave
             If repoKeywords.keywords.Contains(palabra) Then
                 token = New Token(palabra, inicioPalabra, finalPalabra, TipoToken.TOKEN_KEYWORD)
-
                 index += 1
                 Return token
             Else
@@ -90,7 +87,9 @@ Public Class Lexer
             End If
         Else
             index += 1
+            Return Nothing
         End If
+
 
     End Function
 End Class

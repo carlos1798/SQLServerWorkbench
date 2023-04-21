@@ -29,7 +29,7 @@ Partial Class Menu
         Me.ToolStripButton4 = New System.Windows.Forms.ToolStripDropDownButton()
         Me.IndexSug = New System.Windows.Forms.ToolStripMenuItem()
         Me.IndexPer = New System.Windows.Forms.ToolStripMenuItem()
-        Me.AddBD = New System.Windows.Forms.ToolStripButton()
+        Me.AddBaseDatos = New System.Windows.Forms.ToolStripButton()
         Me.Atras = New System.Windows.Forms.ToolStripButton()
         Me.SerBDSeleccionados1 = New DbManejador.SerBDSeleccionados()
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
@@ -42,10 +42,10 @@ Partial Class Menu
         Me.ToolStrip1.CanOverflow = False
         Me.ToolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden
         Me.ToolStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Guardar, Me.Sincronizacion, Me.Fragmentacion, Me.ToolStripButton4, Me.AddBD, Me.Atras})
+        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Guardar, Me.Sincronizacion, Me.Fragmentacion, Me.ToolStripButton4, Me.AddBaseDatos, Me.Atras})
         Me.ToolStrip1.Location = New System.Drawing.Point(0, 0)
         Me.ToolStrip1.Name = "ToolStrip1"
-        Me.ToolStrip1.Size = New System.Drawing.Size(972, 52)
+        Me.ToolStrip1.Size = New System.Drawing.Size(729, 52)
         Me.ToolStrip1.TabIndex = 0
         Me.ToolStrip1.Text = "ToolStrip1"
         '
@@ -59,7 +59,7 @@ Partial Class Menu
         Me.Guardar.Margin = New System.Windows.Forms.Padding(0)
         Me.Guardar.Name = "Guardar"
         Me.Guardar.Overflow = System.Windows.Forms.ToolStripItemOverflow.Never
-        Me.Guardar.Size = New System.Drawing.Size(86, 52)
+        Me.Guardar.Size = New System.Drawing.Size(73, 52)
         Me.Guardar.Text = "Guardar"
         '
         'Sincronizacion
@@ -72,7 +72,7 @@ Partial Class Menu
         Me.Sincronizacion.Margin = New System.Windows.Forms.Padding(0)
         Me.Sincronizacion.Name = "Sincronizacion"
         Me.Sincronizacion.Overflow = System.Windows.Forms.ToolStripItemOverflow.Never
-        Me.Sincronizacion.Size = New System.Drawing.Size(129, 52)
+        Me.Sincronizacion.Size = New System.Drawing.Size(108, 52)
         Me.Sincronizacion.Text = "Sincronizacion"
         '
         'Fragmentacion
@@ -85,7 +85,7 @@ Partial Class Menu
         Me.Fragmentacion.Margin = New System.Windows.Forms.Padding(0)
         Me.Fragmentacion.Name = "Fragmentacion"
         Me.Fragmentacion.Overflow = System.Windows.Forms.ToolStripItemOverflow.Never
-        Me.Fragmentacion.Size = New System.Drawing.Size(132, 52)
+        Me.Fragmentacion.Size = New System.Drawing.Size(111, 52)
         Me.Fragmentacion.Text = "Fragmentacion"
         '
         'ToolStripButton4
@@ -98,33 +98,33 @@ Partial Class Menu
         Me.ToolStripButton4.Margin = New System.Windows.Forms.Padding(0)
         Me.ToolStripButton4.Name = "ToolStripButton4"
         Me.ToolStripButton4.Overflow = System.Windows.Forms.ToolStripItemOverflow.Never
-        Me.ToolStripButton4.Size = New System.Drawing.Size(89, 52)
+        Me.ToolStripButton4.Size = New System.Drawing.Size(77, 52)
         Me.ToolStripButton4.Text = "Indices"
         '
         'IndexSug
         '
         Me.IndexSug.Name = "IndexSug"
-        Me.IndexSug.Size = New System.Drawing.Size(202, 26)
+        Me.IndexSug.Size = New System.Drawing.Size(161, 22)
         Me.IndexSug.Text = "Indices Sugerido"
         '
         'IndexPer
         '
         Me.IndexPer.Name = "IndexPer"
-        Me.IndexPer.Size = New System.Drawing.Size(202, 26)
+        Me.IndexPer.Size = New System.Drawing.Size(161, 22)
         Me.IndexPer.Text = "Indices Perdidos"
         '
-        'AddBD
+        'AddBaseDatos
         '
-        Me.AddBD.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
-        Me.AddBD.AutoToolTip = False
-        Me.AddBD.CheckOnClick = True
-        Me.AddBD.Image = Global.DbManejador.My.Resources.Resources.add_circle_sharp
-        Me.AddBD.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.AddBD.Margin = New System.Windows.Forms.Padding(0)
-        Me.AddBD.Name = "AddBD"
-        Me.AddBD.Overflow = System.Windows.Forms.ToolStripItemOverflow.Never
-        Me.AddBD.Size = New System.Drawing.Size(129, 52)
-        Me.AddBD.Text = "Añadir una BD"
+        Me.AddBaseDatos.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
+        Me.AddBaseDatos.AutoToolTip = False
+        Me.AddBaseDatos.CheckOnClick = True
+        Me.AddBaseDatos.Image = Global.DbManejador.My.Resources.Resources.add_circle_sharp
+        Me.AddBaseDatos.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.AddBaseDatos.Margin = New System.Windows.Forms.Padding(0)
+        Me.AddBaseDatos.Name = "AddBaseDatos"
+        Me.AddBaseDatos.Overflow = System.Windows.Forms.ToolStripItemOverflow.Never
+        Me.AddBaseDatos.Size = New System.Drawing.Size(107, 52)
+        Me.AddBaseDatos.Text = "Añadir una BD"
         '
         'Atras
         '
@@ -141,21 +141,20 @@ Partial Class Menu
         'SerBDSeleccionados1
         '
         Me.SerBDSeleccionados1.BackColor = System.Drawing.SystemColors.GradientActiveCaption
-        Me.SerBDSeleccionados1.Location = New System.Drawing.Point(88, 10)
-        Me.SerBDSeleccionados1.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
+        Me.SerBDSeleccionados1.Location = New System.Drawing.Point(66, 8)
+        Me.SerBDSeleccionados1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.SerBDSeleccionados1.Name = "SerBDSeleccionados1"
-        Me.SerBDSeleccionados1.Size = New System.Drawing.Size(236, 33)
+        Me.SerBDSeleccionados1.Size = New System.Drawing.Size(177, 27)
         Me.SerBDSeleccionados1.TabIndex = 1
         '
         'Menu
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.Controls.Add(Me.SerBDSeleccionados1)
         Me.Controls.Add(Me.ToolStrip1)
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "Menu"
-        Me.Size = New System.Drawing.Size(972, 52)
+        Me.Size = New System.Drawing.Size(729, 42)
         Me.ToolStrip1.ResumeLayout(False)
         Me.ToolStrip1.PerformLayout()
         Me.ResumeLayout(False)
@@ -166,7 +165,7 @@ Partial Class Menu
     Friend WithEvents ToolStrip1 As ToolStrip
     Friend WithEvents Guardar As ToolStripButton
     Friend WithEvents Fragmentacion As ToolStripButton
-    Friend WithEvents AddBD As ToolStripButton
+    Friend WithEvents AddBaseDatos As ToolStripButton
     Friend WithEvents ToolStripButton4 As ToolStripDropDownButton
     Friend WithEvents IndexSug As ToolStripMenuItem
     Friend WithEvents IndexPer As ToolStripMenuItem

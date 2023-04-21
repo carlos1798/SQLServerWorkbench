@@ -182,6 +182,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Forms\AddBd.resx">
+      <DependentUpon>AddBd.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Componentes\BDSelector.resx">
       <DependentUpon>BDSelector.vb</DependentUpon>
     </EmbeddedResource>

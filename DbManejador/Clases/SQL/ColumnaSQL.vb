@@ -25,6 +25,14 @@
     End Function
 
     Public Function Modificar(columna_original As Columna, nueva_columna As Columna) As String
+        'TODO:
+        'Para que funcione debe de tener el mismo nombre
+        '1.Comparar el tipo de dato
+        '2.Numero de caracterares
+        '3.El orden
+        '4.Las restricciones que tiene asignadas
+        '5.Si es nullable
+        '6.Si tiene valor por defecto
 
         Throw New NotImplementedException()
     End Function

@@ -48,20 +48,13 @@ Public Class Main
 
             TreeView1.Nodes(0).ImageIndex = 1
             For Each nodo As TreeNode In TreeView1.Nodes(0).Nodes
-
                 If db.Nombre.Equals(nodo.Text) Then
                     For Each tabla In db.Tablas
                         nodo.Nodes.Add(New TreeNode(tabla.NombreTabla))
-
                         nodo.SelectedImageIndex = 3
-
                     Next
                 End If
-
-
-
             Next
-
         Next
 
 
@@ -100,7 +93,6 @@ Public Class Main
 
                 If TreeView1.SelectedNode.Text = tabla.NombreTabla Then
                     For Each columna In tabla.Columnas
-                        'TODO: Arreglar las columnas con los tipos de datos
                         DataGridView1.Rows.Add(columna.Nombre, columna.OrdenColumna, columna.tipoDato.ToString, columna.IsNullable)
                     Next
 
