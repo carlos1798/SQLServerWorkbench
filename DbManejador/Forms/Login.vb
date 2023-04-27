@@ -79,7 +79,12 @@ Public Class Login
 
             Me.nomServidor.TabIndex = servidores.ListaServidores.Count
             For Each servidor In servidores.ListaServidores
-                nomServidor.Items.Add(servidor.NombreServidor)
+                If Not servidor.NombreServidor = "" Then
+
+                    nomServidor.Items.Add(servidor.NombreServidor)
+
+                End If
+
             Next
 
         End If

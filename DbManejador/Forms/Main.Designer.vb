@@ -38,7 +38,9 @@ Partial Class Main
         Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
         Me.InputText1 = New DbManejador.InputText()
         Me.Menu1 = New DbManejador.Menu()
+        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TableLayoutPanel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'DataGridView1
@@ -64,8 +66,8 @@ Partial Class Main
         DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
         Me.DataGridView1.DefaultCellStyle = DataGridViewCellStyle2
-        Me.DataGridView1.GridColor = System.Drawing.SystemColors.Control
         resources.ApplyResources(Me.DataGridView1, "DataGridView1")
+        Me.DataGridView1.GridColor = System.Drawing.SystemColors.Control
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
@@ -111,6 +113,7 @@ Partial Class Main
         resources.ApplyResources(Me.TreeView1, "TreeView1")
         Me.TreeView1.ImageList = Me.ImageList1
         Me.TreeView1.Name = "TreeView1"
+        Me.TableLayoutPanel1.SetRowSpan(Me.TreeView1, 2)
         '
         'ImageList1
         '
@@ -134,18 +137,27 @@ Partial Class Main
         resources.ApplyResources(Me.Menu1, "Menu1")
         Me.Menu1.Name = "Menu1"
         '
+        'TableLayoutPanel1
+        '
+        resources.ApplyResources(Me.TableLayoutPanel1, "TableLayoutPanel1")
+        Me.TableLayoutPanel1.Controls.Add(Me.InputText1, 1, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.TreeView1, 0, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.DataGridView1, 1, 1)
+        Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
+        '
         'Main
         '
-        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         resources.ApplyResources(Me, "$this")
         Me.BackColor = System.Drawing.Color.White
+        Me.Controls.Add(Me.TableLayoutPanel1)
         Me.Controls.Add(Me.Menu1)
-        Me.Controls.Add(Me.TreeView1)
-        Me.Controls.Add(Me.InputText1)
-        Me.Controls.Add(Me.DataGridView1)
         Me.DoubleBuffered = True
         Me.Name = "Main"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TableLayoutPanel1.ResumeLayout(False)
+        Me.TableLayoutPanel1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -161,4 +173,5 @@ Partial Class Main
     Friend WithEvents TreeView1 As TreeView
     Friend WithEvents ImageList1 As ImageList
     Friend WithEvents Menu1 As Menu
+    Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
 End Class

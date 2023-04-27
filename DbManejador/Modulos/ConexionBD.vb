@@ -150,7 +150,6 @@ Public MustInherit Class ConexionBD
             If disposing Then
                 cerrarConexion()
             End If
-            SqlConnection.ClearPool(conexion)
             conexion = Nothing
             connectionString = Nothing
             disposedValue = True
