@@ -39,8 +39,13 @@ Partial Class Main
         Me.InputText1 = New DbManejador.InputText()
         Me.Menu1 = New DbManejador.Menu()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TableLayoutPanel1.SuspendLayout()
+        CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SplitContainer1.Panel1.SuspendLayout()
+        Me.SplitContainer1.Panel2.SuspendLayout()
+        Me.SplitContainer1.SuspendLayout()
         Me.SuspendLayout()
         '
         'DataGridView1
@@ -140,10 +145,23 @@ Partial Class Main
         'TableLayoutPanel1
         '
         resources.ApplyResources(Me.TableLayoutPanel1, "TableLayoutPanel1")
-        Me.TableLayoutPanel1.Controls.Add(Me.InputText1, 1, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.TreeView1, 0, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.DataGridView1, 1, 1)
+        Me.TableLayoutPanel1.Controls.Add(Me.SplitContainer1, 1, 0)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
+        '
+        'SplitContainer1
+        '
+        resources.ApplyResources(Me.SplitContainer1, "SplitContainer1")
+        Me.SplitContainer1.Name = "SplitContainer1"
+        '
+        'SplitContainer1.Panel1
+        '
+        Me.SplitContainer1.Panel1.Controls.Add(Me.InputText1)
+        '
+        'SplitContainer1.Panel2
+        '
+        Me.SplitContainer1.Panel2.Controls.Add(Me.DataGridView1)
+        Me.TableLayoutPanel1.SetRowSpan(Me.SplitContainer1, 2)
         '
         'Main
         '
@@ -157,7 +175,11 @@ Partial Class Main
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TableLayoutPanel1.ResumeLayout(False)
-        Me.TableLayoutPanel1.PerformLayout()
+        Me.SplitContainer1.Panel1.ResumeLayout(False)
+        Me.SplitContainer1.Panel1.PerformLayout()
+        Me.SplitContainer1.Panel2.ResumeLayout(False)
+        CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.SplitContainer1.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -174,4 +196,5 @@ Partial Class Main
     Friend WithEvents ImageList1 As ImageList
     Friend WithEvents Menu1 As Menu
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
+    Friend WithEvents SplitContainer1 As SplitContainer
 End Class

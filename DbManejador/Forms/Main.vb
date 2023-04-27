@@ -102,9 +102,6 @@ Public Class Main
 
     End Sub
 
-    Private Sub Menu1_Load(sender As Object, e As EventArgs) Handles Menu1.Load
-
-    End Sub
 
 
     'Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click

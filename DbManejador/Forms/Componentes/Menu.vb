@@ -17,7 +17,8 @@ Public Class Menu
             Case "IndexSug"
 
             Case "AddBaseDatos"
-                AddBd.Show()
+                Dim AddDBForm As New AddBd()
+
 
             Case "Guardar"
                 SaveFileDialog1.Filter = "Sql files (*.sql)|*.sql|All files (*.*)|*.*"
