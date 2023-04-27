@@ -40,7 +40,6 @@ Public Class Main
                 End Using
             Next
         Next
-
         For Each db In listaDatabases
             Dim asd As New BDSelector(db.Nombre, db.Servidor.NombreServidor, db)
             AddHandler asd.Eleccion, AddressOf seleccionServidor
@@ -56,10 +55,6 @@ Public Class Main
                 End If
             Next
         Next
-
-
-
-        ' Agregue cualquier inicialización después de la llamada a InitializeComponent().
 
     End Sub
     Private Sub seleccionServidor(servidor As String, baseDatos As String)
@@ -93,7 +88,7 @@ Public Class Main
 
                 If TreeView1.SelectedNode.Text = tabla.NombreTabla Then
                     For Each columna In tabla.Columnas
-                        DataGridView1.Rows.Add(columna.Nombre, columna.OrdenColumna, columna.tipoDato.ToString, columna.IsNullable)
+                        DataGridView1.Rows.Add(columna.Nombre, columna.OrdenColumna, columna.tipoDato.ToString)
                     Next
 
                 End If

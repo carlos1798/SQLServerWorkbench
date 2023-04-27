@@ -117,51 +117,36 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <metadata name="NumCol.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="NumCol.HeaderText" xml:space="preserve">
+    <value>Orden</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="NumCol.MinimumWidth" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
   <metadata name="TablaNombre.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <data name="TablaNombre.HeaderText" xml:space="preserve">
-    <value>Nombre de la tabla</value>
+    <value>Nombre</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="TablaNombre.MinimumWidth" type="System.Int32, mscorlib">
     <value>6</value>
+  </data>
+  <data name="TablaNombre.Width" type="System.Int32, mscorlib">
+    <value>69</value>
   </data>
   <metadata name="NumeroIndices.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <data name="NumeroIndices.HeaderText" xml:space="preserve">
-    <value>Numero de Indices</value>
+    <value>Tipo</value>
   </data>
   <data name="NumeroIndices.MinimumWidth" type="System.Int32, mscorlib">
     <value>6</value>
-  </data>
-  <data name="NumeroIndices.Width" type="System.Int32, mscorlib">
-    <value>125</value>
-  </data>
-  <metadata name="NumCol.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="NumCol.HeaderText" xml:space="preserve">
-    <value>Numero de Columnas</value>
-  </data>
-  <data name="NumCol.MinimumWidth" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="NumCol.Width" type="System.Int32, mscorlib">
-    <value>125</value>
-  </data>
-  <metadata name="TotRegistros.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="TotRegistros.HeaderText" xml:space="preserve">
-    <value>Total de registros</value>
-  </data>
-  <data name="TotRegistros.MinimumWidth" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="TotRegistros.Width" type="System.Int32, mscorlib">
-    <value>125</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="DataGridView1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
@@ -178,7 +163,7 @@
     <value>51</value>
   </data>
   <data name="DataGridView1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>952, 164</value>
+    <value>218, 248</value>
   </data>
   <data name="DataGridView1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -190,7 +175,7 @@
     <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;DataGridView1.Parent" xml:space="preserve">
-    <value>SplitContainer1.Panel2</value>
+    <value>DBObjetos_Splitter.Panel2</value>
   </data>
   <data name="&gt;&gt;DataGridView1.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -198,15 +183,6 @@
   <metadata name="SaveFileDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <data name="TreeView1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="TreeView1.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 11.25pt</value>
-  </data>
-  <data name="TreeView1.ImageIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
   <metadata name="ImageList1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>154, 17</value>
   </metadata>
@@ -215,7 +191,7 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAAAi
-        CwAAAk1TRnQBSQFMAgEBBAEAASgBAAEoAQABEAEAARABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
+        CwAAAk1TRnQBSQFMAgEBBAEAAUABAAFAAQABEAEAARABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
         AwABQAMAASADAAEBAQABCAYAAQgYAAGAAgABgAMAAoABAAGAAwABgAEAAYABAAKAAgADwAEAAcAB3AHA
         AQAB8AHKAaYBAAEzBQABMwEAATMBAAEzAQACMwIAAxYBAAMcAQADIgEAAykBAANVAQADTQEAA0IBAAM5
         AQABgAF8Af8BAAJQAf8BAAGTAQAB1gEAAf8B7AHMAQABxgHWAe8BAAHWAucBAAGQAakBrQIAAf8BMwMA
@@ -265,17 +241,14 @@
         AfcBjwHwAQ8BHwEBAYABAQHwAR8B/AE/Af8BHwHgAQcK/ws=
 </value>
   </data>
-  <data name="TreeView1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 3</value>
-  </data>
-  <data name="TableLayoutPanel1.ColumnCount" type="System.Int32, mscorlib">
-    <value>2</value>
+  <data name="Query_Result_Container.ColumnCount" type="System.Int32, mscorlib">
+    <value>1</value>
   </data>
   <data name="SplitContainer1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
   <data name="SplitContainer1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>322, 3</value>
+    <value>3, 3</value>
   </data>
   <data name="SplitContainer1.Orientation" type="System.Windows.Forms.Orientation, System.Windows.Forms">
     <value>Horizontal</value>
@@ -293,7 +266,7 @@
     <value>5, 5, 5, 5</value>
   </data>
   <data name="InputText1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>952, 455</value>
+    <value>1049, 288</value>
   </data>
   <data name="InputText1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -335,10 +308,10 @@
     <value>1</value>
   </data>
   <data name="SplitContainer1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>952, 623</value>
+    <value>1049, 623</value>
   </data>
   <data name="SplitContainer1.SplitterDistance" type="System.Int32, mscorlib">
-    <value>455</value>
+    <value>288</value>
   </data>
   <data name="SplitContainer1.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -350,61 +323,40 @@
     <value>System.Windows.Forms.SplitContainer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;SplitContainer1.Parent" xml:space="preserve">
-    <value>TableLayoutPanel1</value>
+    <value>Query_Result_Container</value>
   </data>
   <data name="&gt;&gt;SplitContainer1.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>0</value>
   </data>
-  <data name="TableLayoutPanel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+  <data name="Query_Result_Container.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <data name="TableLayoutPanel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 52</value>
+  <data name="Query_Result_Container.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
   </data>
-  <data name="TableLayoutPanel1.RowCount" type="System.Int32, mscorlib">
-    <value>2</value>
+  <data name="Query_Result_Container.RowCount" type="System.Int32, mscorlib">
+    <value>1</value>
   </data>
-  <data name="TableLayoutPanel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1277, 629</value>
+  <data name="Query_Result_Container.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1055, 629</value>
   </data>
-  <data name="TableLayoutPanel1.TabIndex" type="System.Int32, mscorlib">
+  <data name="Query_Result_Container.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
   </data>
-  <data name="&gt;&gt;TableLayoutPanel1.Name" xml:space="preserve">
-    <value>TableLayoutPanel1</value>
+  <data name="&gt;&gt;Query_Result_Container.Name" xml:space="preserve">
+    <value>Query_Result_Container</value>
   </data>
-  <data name="&gt;&gt;TableLayoutPanel1.Type" xml:space="preserve">
+  <data name="&gt;&gt;Query_Result_Container.Type" xml:space="preserve">
     <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;TableLayoutPanel1.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;Query_Result_Container.Parent" xml:space="preserve">
+    <value>MainSplitter.Panel2</value>
   </data>
-  <data name="&gt;&gt;TableLayoutPanel1.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;Query_Result_Container.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="TableLayoutPanel1.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="TreeView1" Row="0" RowSpan="2" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="SplitContainer1" Row="0" RowSpan="2" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,25,Percent,75" /&gt;&lt;Rows Styles="Percent,50,Percent,50" /&gt;&lt;/TableLayoutSettings&gt;</value>
-  </data>
-  <data name="TreeView1.SelectedImageIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="TreeView1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>313, 623</value>
-  </data>
-  <data name="TreeView1.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;TreeView1.Name" xml:space="preserve">
-    <value>TreeView1</value>
-  </data>
-  <data name="&gt;&gt;TreeView1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TreeView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TreeView1.Parent" xml:space="preserve">
-    <value>TableLayoutPanel1</value>
-  </data>
-  <data name="&gt;&gt;TreeView1.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="Query_Result_Container.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="SplitContainer1" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="Menu1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -433,6 +385,141 @@
   <data name="&gt;&gt;Menu1.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <data name="MainSplitter.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="MainSplitter.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 52</value>
+  </data>
+  <data name="DBObjetos_Splitter.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="DBObjetos_Splitter.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="DBObjetos_Splitter.Orientation" type="System.Windows.Forms.Orientation, System.Windows.Forms">
+    <value>Horizontal</value>
+  </data>
+  <data name="TreeView1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9pt</value>
+  </data>
+  <data name="TreeView1.ImageIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="TreeView1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 43</value>
+  </data>
+  <data name="TreeView1.SelectedImageIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="TreeView1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>215, 322</value>
+  </data>
+  <data name="TreeView1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;TreeView1.Name" xml:space="preserve">
+    <value>TreeView1</value>
+  </data>
+  <data name="&gt;&gt;TreeView1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TreeView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TreeView1.Parent" xml:space="preserve">
+    <value>DBObjetos_Splitter.Panel1</value>
+  </data>
+  <data name="&gt;&gt;TreeView1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;DBObjetos_Splitter.Panel1.Name" xml:space="preserve">
+    <value>DBObjetos_Splitter.Panel1</value>
+  </data>
+  <data name="&gt;&gt;DBObjetos_Splitter.Panel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;DBObjetos_Splitter.Panel1.Parent" xml:space="preserve">
+    <value>DBObjetos_Splitter</value>
+  </data>
+  <data name="&gt;&gt;DBObjetos_Splitter.Panel1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;DBObjetos_Splitter.Panel2.Name" xml:space="preserve">
+    <value>DBObjetos_Splitter.Panel2</value>
+  </data>
+  <data name="&gt;&gt;DBObjetos_Splitter.Panel2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;DBObjetos_Splitter.Panel2.Parent" xml:space="preserve">
+    <value>DBObjetos_Splitter</value>
+  </data>
+  <data name="&gt;&gt;DBObjetos_Splitter.Panel2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="DBObjetos_Splitter.Size" type="System.Drawing.Size, System.Drawing">
+    <value>218, 629</value>
+  </data>
+  <data name="DBObjetos_Splitter.SplitterDistance" type="System.Int32, mscorlib">
+    <value>377</value>
+  </data>
+  <data name="DBObjetos_Splitter.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;DBObjetos_Splitter.Name" xml:space="preserve">
+    <value>DBObjetos_Splitter</value>
+  </data>
+  <data name="&gt;&gt;DBObjetos_Splitter.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitContainer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;DBObjetos_Splitter.Parent" xml:space="preserve">
+    <value>MainSplitter.Panel1</value>
+  </data>
+  <data name="&gt;&gt;DBObjetos_Splitter.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;MainSplitter.Panel1.Name" xml:space="preserve">
+    <value>MainSplitter.Panel1</value>
+  </data>
+  <data name="&gt;&gt;MainSplitter.Panel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;MainSplitter.Panel1.Parent" xml:space="preserve">
+    <value>MainSplitter</value>
+  </data>
+  <data name="&gt;&gt;MainSplitter.Panel1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;MainSplitter.Panel2.Name" xml:space="preserve">
+    <value>MainSplitter.Panel2</value>
+  </data>
+  <data name="&gt;&gt;MainSplitter.Panel2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;MainSplitter.Panel2.Parent" xml:space="preserve">
+    <value>MainSplitter</value>
+  </data>
+  <data name="&gt;&gt;MainSplitter.Panel2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="MainSplitter.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1277, 629</value>
+  </data>
+  <data name="MainSplitter.SplitterDistance" type="System.Int32, mscorlib">
+    <value>218</value>
+  </data>
+  <data name="MainSplitter.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;MainSplitter.Name" xml:space="preserve">
+    <value>MainSplitter</value>
+  </data>
+  <data name="&gt;&gt;MainSplitter.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitContainer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;MainSplitter.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;MainSplitter.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -454,30 +541,6 @@
   <data name="$this.Text" xml:space="preserve">
     <value>Form1</value>
   </data>
-  <data name="&gt;&gt;TablaNombre.Name" xml:space="preserve">
-    <value>TablaNombre</value>
-  </data>
-  <data name="&gt;&gt;TablaNombre.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;NumeroIndices.Name" xml:space="preserve">
-    <value>NumeroIndices</value>
-  </data>
-  <data name="&gt;&gt;NumeroIndices.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;NumCol.Name" xml:space="preserve">
-    <value>NumCol</value>
-  </data>
-  <data name="&gt;&gt;NumCol.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TotRegistros.Name" xml:space="preserve">
-    <value>TotRegistros</value>
-  </data>
-  <data name="&gt;&gt;TotRegistros.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;SaveFileDialog1.Name" xml:space="preserve">
     <value>SaveFileDialog1</value>
   </data>
@@ -489,6 +552,24 @@
   </data>
   <data name="&gt;&gt;ImageList1.Type" xml:space="preserve">
     <value>System.Windows.Forms.ImageList, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;NumCol.Name" xml:space="preserve">
+    <value>NumCol</value>
+  </data>
+  <data name="&gt;&gt;NumCol.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TablaNombre.Name" xml:space="preserve">
+    <value>TablaNombre</value>
+  </data>
+  <data name="&gt;&gt;TablaNombre.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;NumeroIndices.Name" xml:space="preserve">
+    <value>NumeroIndices</value>
+  </data>
+  <data name="&gt;&gt;NumeroIndices.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>Main</value>

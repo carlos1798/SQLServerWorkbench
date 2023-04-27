@@ -143,6 +143,12 @@
     <Compile Include="Forms\Componentes\InputText.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Forms\Componentes\UserControl2.Designer.vb">
+      <DependentUpon>UserControl2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Componentes\UserControl2.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Forms\Main.Designer.vb">
       <DependentUpon>Main.vb</DependentUpon>
     </Compile>
@@ -197,6 +203,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Componentes\SerBDSeleccionados.resx">
       <DependentUpon>SerBDSeleccionados.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Componentes\UserControl2.resx">
+      <DependentUpon>UserControl2.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Main.aa.resx">
       <DependentUpon>Main.vb</DependentUpon>
