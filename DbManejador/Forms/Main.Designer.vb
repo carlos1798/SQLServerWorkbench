@@ -29,22 +29,25 @@ Partial Class Main
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Main))
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.NumCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TablaNombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.NumeroIndices = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
         Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
         Me.Query_Result_Container = New System.Windows.Forms.TableLayoutPanel()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
+        Me.MainSplitter = New System.Windows.Forms.SplitContainer()
+        Me.DBObjetos_Splitter = New System.Windows.Forms.SplitContainer()
+        Me.TreeView1 = New System.Windows.Forms.TreeView()
         Me.InputText1 = New DbManejador.InputText()
         Me.Menu1 = New DbManejador.Menu()
-        Me.MainSplitter = New System.Windows.Forms.SplitContainer()
-        Me.TreeView1 = New System.Windows.Forms.TreeView()
-        Me.DBObjetos_Splitter = New System.Windows.Forms.SplitContainer()
-        Me.NumCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.TablaNombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.NumeroIndices = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.QueryResult = New System.Windows.Forms.DataGridView()
+        Me.Button1 = New System.Windows.Forms.Button()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Query_Result_Container.SuspendLayout()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
+        Me.SplitContainer1.Panel2.SuspendLayout()
         Me.SplitContainer1.SuspendLayout()
         CType(Me.MainSplitter, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MainSplitter.Panel1.SuspendLayout()
@@ -54,6 +57,7 @@ Partial Class Main
         Me.DBObjetos_Splitter.Panel1.SuspendLayout()
         Me.DBObjetos_Splitter.Panel2.SuspendLayout()
         Me.DBObjetos_Splitter.SuspendLayout()
+        CType(Me.QueryResult, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'DataGridView1
@@ -99,6 +103,24 @@ Partial Class Main
         Me.DataGridView1.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight
         Me.DataGridView1.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black
         '
+        'NumCol
+        '
+        Me.NumCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        resources.ApplyResources(Me.NumCol, "NumCol")
+        Me.NumCol.Name = "NumCol"
+        '
+        'TablaNombre
+        '
+        Me.TablaNombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
+        resources.ApplyResources(Me.TablaNombre, "TablaNombre")
+        Me.TablaNombre.Name = "TablaNombre"
+        '
+        'NumeroIndices
+        '
+        Me.NumeroIndices.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        resources.ApplyResources(Me.NumeroIndices, "NumeroIndices")
+        Me.NumeroIndices.Name = "NumeroIndices"
+        '
         'ImageList1
         '
         Me.ImageList1.ImageStream = CType(resources.GetObject("ImageList1.ImageStream"), System.Windows.Forms.ImageListStreamer)
@@ -123,18 +145,9 @@ Partial Class Main
         '
         Me.SplitContainer1.Panel1.Controls.Add(Me.InputText1)
         '
-        'InputText1
+        'SplitContainer1.Panel2
         '
-        resources.ApplyResources(Me.InputText1, "InputText1")
-        Me.InputText1.BackColor = System.Drawing.Color.DimGray
-        Me.InputText1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.InputText1.ForeColor = System.Drawing.SystemColors.Window
-        Me.InputText1.Name = "InputText1"
-        '
-        'Menu1
-        '
-        resources.ApplyResources(Me.Menu1, "Menu1")
-        Me.Menu1.Name = "Menu1"
+        Me.SplitContainer1.Panel2.Controls.Add(Me.QueryResult)
         '
         'MainSplitter
         '
@@ -149,12 +162,6 @@ Partial Class Main
         '
         Me.MainSplitter.Panel2.Controls.Add(Me.Query_Result_Container)
         '
-        'TreeView1
-        '
-        resources.ApplyResources(Me.TreeView1, "TreeView1")
-        Me.TreeView1.ImageList = Me.ImageList1
-        Me.TreeView1.Name = "TreeView1"
-        '
         'DBObjetos_Splitter
         '
         resources.ApplyResources(Me.DBObjetos_Splitter, "DBObjetos_Splitter")
@@ -168,29 +175,43 @@ Partial Class Main
         '
         Me.DBObjetos_Splitter.Panel2.Controls.Add(Me.DataGridView1)
         '
-        'NumCol
+        'TreeView1
         '
-        Me.NumCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        resources.ApplyResources(Me.NumCol, "NumCol")
-        Me.NumCol.Name = "NumCol"
+        resources.ApplyResources(Me.TreeView1, "TreeView1")
+        Me.TreeView1.ImageList = Me.ImageList1
+        Me.TreeView1.Name = "TreeView1"
         '
-        'TablaNombre
+        'InputText1
         '
-        Me.TablaNombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
-        resources.ApplyResources(Me.TablaNombre, "TablaNombre")
-        Me.TablaNombre.Name = "TablaNombre"
+        resources.ApplyResources(Me.InputText1, "InputText1")
+        Me.InputText1.BackColor = System.Drawing.Color.DimGray
+        Me.InputText1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.InputText1.ForeColor = System.Drawing.SystemColors.Window
+        Me.InputText1.Name = "InputText1"
         '
-        'NumeroIndices
+        'Menu1
         '
-        Me.NumeroIndices.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        resources.ApplyResources(Me.NumeroIndices, "NumeroIndices")
-        Me.NumeroIndices.Name = "NumeroIndices"
+        resources.ApplyResources(Me.Menu1, "Menu1")
+        Me.Menu1.Name = "Menu1"
+        '
+        'QueryResult
+        '
+        Me.QueryResult.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        resources.ApplyResources(Me.QueryResult, "QueryResult")
+        Me.QueryResult.Name = "QueryResult"
+        '
+        'Button1
+        '
+        resources.ApplyResources(Me.Button1, "Button1")
+        Me.Button1.Name = "Button1"
+        Me.Button1.UseVisualStyleBackColor = True
         '
         'Main
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         resources.ApplyResources(Me, "$this")
         Me.BackColor = System.Drawing.Color.White
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.MainSplitter)
         Me.Controls.Add(Me.Menu1)
         Me.DoubleBuffered = True
@@ -200,6 +221,7 @@ Partial Class Main
         Me.Query_Result_Container.ResumeLayout(False)
         Me.SplitContainer1.Panel1.ResumeLayout(False)
         Me.SplitContainer1.Panel1.PerformLayout()
+        Me.SplitContainer1.Panel2.ResumeLayout(False)
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SplitContainer1.ResumeLayout(False)
         Me.MainSplitter.Panel1.ResumeLayout(False)
@@ -210,6 +232,7 @@ Partial Class Main
         Me.DBObjetos_Splitter.Panel2.ResumeLayout(False)
         CType(Me.DBObjetos_Splitter, System.ComponentModel.ISupportInitialize).EndInit()
         Me.DBObjetos_Splitter.ResumeLayout(False)
+        CType(Me.QueryResult, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -228,4 +251,6 @@ Partial Class Main
     Friend WithEvents NumCol As DataGridViewTextBoxColumn
     Friend WithEvents TablaNombre As DataGridViewTextBoxColumn
     Friend WithEvents NumeroIndices As DataGridViewTextBoxColumn
+    Friend WithEvents QueryResult As DataGridView
+    Friend WithEvents Button1 As Button
 End Class

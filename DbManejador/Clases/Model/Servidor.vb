@@ -88,7 +88,7 @@ Public Class Servidor
     Public Function CrearConexionString() As String
         Dim conexion As String
         If TipoLogin = TipoAutentificacion.WINDOWS Then
-            conexion = $"Data Source={NombreServidor} ;Initial Catalog=master;Integrated Security=True"
+            conexion = $"Data Source={NombreServidor} ;Initial Catalog=master;Integrated Security=True;MultipleActiveResultSets=true"
 
 
         Else
@@ -99,10 +99,10 @@ Public Class Servidor
     Public Function ModificarConexionString(dbName As String) As String
         Dim conexion As String
         If TipoLogin = TipoAutentificacion.WINDOWS Then
-            conexion = $"Data Source={NombreServidor} ;Initial Catalog={dbName};Integrated Security=True"
+            conexion = $"Data Source={NombreServidor} ;Initial Catalog={dbName};Integrated Security=True;MultipleActiveResultSets=true"
             My.Settings.ConnectionString = conexion
         Else
-            conexion = $"Server={NombreServidor} ;Database=master;User Id={dbName};Password={Contrasena};"
+            conexion = $"Server={NombreServidor} ;Database=master;User Id={dbName};Password={Contrasena};MultipleActiveResultSets=true"
             My.Settings.ConnectionString = conexion
         End If
         Return conexion

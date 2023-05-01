@@ -16,6 +16,8 @@ Public Class Main
         ' Esta llamada es exigida por el diseñador.
         InitializeComponent()
 
+        SplitContainer1.Panel2Collapsed = True
+
         TreeView1.Nodes.Add(root)
         Using DatabaseDAO As New DatabaseDAO()
             listaDatabases = DatabaseDAO.FindAll()
@@ -95,6 +97,20 @@ Public Class Main
             Next
         Next
 
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Dim datatable As DataTable
+        Dim bs As New BindingSource
+        Using QueryDAO As New QueryDAO()
+            datatable = QueryDAO.ExecuteQuery(InputText1.RichTextBox1.Text)
+        End Using
+
+        QueryResult.DataSource = datatable
+
+
+
+        SplitContainer1.Panel2Collapsed = False
     End Sub
 
 

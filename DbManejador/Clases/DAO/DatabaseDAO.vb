@@ -12,16 +12,22 @@ Public Class DatabaseDAO
         'when name not in('master','model','msdb','tempdb')"
         Try
             conectar()
-            Dim comandoSql As New SqlCommand(SqlQuery, conexion)
-            Dim lectorResultado As SqlDataReader = comandoSql.ExecuteReader
-            Dim adaptador = New SqlDataAdapter(comandoSql)
-            If lectorResultado.HasRows Then
-                Do While lectorResultado.Read()
-                    listaDatabases.Add(New Database With {
-                                   .Nombre = lectorResultado("name")})
-                Loop
-            End if 
+            Using comandoSql As New SqlCommand(SqlQuery, conexion)
+                Using lectorResultado As SqlDataReader = comandoSql.ExecuteReader
+                    Using adaptador As New SqlDataAdapter(comandoSql)
+
+                        If lectorResultado.HasRows Then
+                            Do While lectorResultado.Read()
+                                listaDatabases.Add(New Database With {
+                                               .Nombre = lectorResultado("name")})
+                            Loop
+                        End If
+                    End Using
+                End Using
+            End Using
+
         Catch ex As Exception
+
         End Try
 
         Return listaDatabases
@@ -33,17 +39,23 @@ Public Class DatabaseDAO
         'when name not in('master','model','msdb','tempdb')"
         Try
             Conectar()
-            Dim comandoSql As New SqlCommand(SqlQuery, conexion)
-            Dim lectorResultado As SqlDataReader = comandoSql.ExecuteReader
-            Dim adaptador = New SqlDataAdapter(comandoSql)
-            If lectorResultado.HasRows Then
-                Do While lectorResultado.Read()
-                    If lectorResultado("name") = name Then
-                        db = New Database With {
-                                   .Nombre = lectorResultado("name")}
-                    End If
-                Loop
-            End If
+            Using comandoSql As New SqlCommand(SqlQuery, conexion)
+                Using lectorResultado As SqlDataReader = comandoSql.ExecuteReader
+                    Using adaptador As New SqlDataAdapter(comandoSql)
+
+                        If lectorResultado.HasRows Then
+                            Do While lectorResultado.Read()
+                                If lectorResultado("name") = name Then
+                                    db = New Database With {
+                                               .Nombre = lectorResultado("name")}
+                                End If
+                            Loop
+                        End If
+
+                    End Using
+                End Using
+            End Using
+
         Catch ex As Exception
             Return Nothing
         End Try

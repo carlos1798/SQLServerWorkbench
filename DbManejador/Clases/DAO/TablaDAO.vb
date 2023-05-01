@@ -23,21 +23,20 @@ Public Class TablaDAO
 
         Try
             Conectar()
-            Dim comandoSql As New SqlCommand(SqlQuery, conexion)
-            Dim lectorResultado As SqlDataReader = comandoSql.ExecuteReader
-            Dim adaptador = New SqlDataAdapter(comandoSql)
-            If lectorResultado.HasRows Then
-                Do While lectorResultado.Read()
-                    listaTablas.Add(New Tabla With {
-                        .NombreTabla = lectorResultado("TABLE_NAME")
-                        })
+            Using comandoSql As New SqlCommand(SqlQuery, conexion)
+                Using lectorResultado As SqlDataReader = comandoSql.ExecuteReader
+                    Using adaptador As New SqlDataAdapter(comandoSql)
+                        If lectorResultado.HasRows Then
+                            Do While lectorResultado.Read()
+                                listaTablas.Add(New Tabla With {
+                                    .NombreTabla = lectorResultado("TABLE_NAME")
+                                    })
 
-                Loop
-            End If
-            comandoSql.Dispose()
-            comandoSql = Nothing
-            lectorResultado.Close()
-            lectorResultado = Nothing
+                            Loop
+                        End If
+                    End Using
+                End Using
+            End Using
             Return listaTablas
         Catch _Exception As Exception
             Console.WriteLine(_Exception.Message)

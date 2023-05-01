@@ -93,6 +93,7 @@
     <Compile Include="Clases\DAO\DatabaseDAO.vb" />
     <Compile Include="Clases\DAO\IDAO.vb" />
     <Compile Include="Clases\DAO\IndiceDAO.vb" />
+    <Compile Include="Clases\DAO\QueryDAO.vb" />
     <Compile Include="Clases\DAO\ServidorDAO.vb" />
     <Compile Include="Clases\DAO\TablaDAO.vb" />
     <Compile Include="Clases\Model\Columna.vb" />

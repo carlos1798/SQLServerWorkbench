@@ -29,67 +29,72 @@ Public Class ColumnaDAO
                 MessageBox.Show("asd")
             End If
             Conectar()
-            Dim comandoSql As New SqlCommand(SqlQuery, conexion)
-            Dim lectorResultado As SqlDataReader = comandoSql.ExecuteReader
-            Dim adaptador = New SqlDataAdapter(comandoSql)
-            If lectorResultado.HasRows Then
+            Using comandoSql As New SqlCommand(SqlQuery, conexion)
+                Using lectorResultado As SqlDataReader = comandoSql.ExecuteReader
+                    Using adaptador As New SqlDataAdapter(comandoSql)
+                        If lectorResultado.HasRows Then
+                            Do While lectorResultado.Read()
 
-                Do While lectorResultado.Read()
+                                Dim tdato As New Tipo()
+                                isIdentity = False
+                                Dim nombre As String = lectorResultado("COLUMN_NAME").ToString
+                                If listaIdentity IsNot Nothing Then
+                                    For Each nombreIdentidad In listaIdentity
+                                        If nombre.Equals(nombreIdentidad) Then
+                                            isIdentity = True
+                                        End If
+                                    Next
+                                End If
 
-                    Dim tdato As New Tipo()
-                    isIdentity = False
-                    Dim nombre As String = lectorResultado("COLUMN_NAME").ToString
-                    If listaIdentity IsNot Nothing Then
-                        For Each nombreIdentidad In listaIdentity
-                            If nombre.Equals(nombreIdentidad) Then
-                                isIdentity = True
-                            End If
-                        Next
-                    End If
+                                Dim posicion As Integer = lectorResultado("ORDINAL_POSITION")
+                                Dim tipoDato As String = lectorResultado("DATA_TYPE").ToString
+                                tdato.TipoDato = lectorResultado("DATA_TYPE").ToString
+                                Dim defecto As String
+                                If lectorResultado("IS_NULLABLE").ToString = "YES" Then
+                                    isNullable = True
 
-                    Dim posicion As Integer = lectorResultado("ORDINAL_POSITION")
-                    Dim tipoDato As String = lectorResultado("DATA_TYPE").ToString
-                    tdato.TipoDato = lectorResultado("DATA_TYPE").ToString
-                    Dim defecto As String
-                    If lectorResultado("IS_NULLABLE").ToString = "YES" Then
-                        isNullable = True
+                                End If
 
-                    End If
+                                If Not IsDBNull(lectorResultado("CHARACTER_MAXIMUM_LENGTH")) Then
 
-                    If Not IsDBNull(lectorResultado("CHARACTER_MAXIMUM_LENGTH")) Then
+                                    tdato.NumeroCaracteres = CInt(lectorResultado("CHARACTER_MAXIMUM_LENGTH").ToString)
+                                Else
 
-                        tdato.NumeroCaracteres = CInt(lectorResultado("CHARACTER_MAXIMUM_LENGTH").ToString)
-                    Else
+                                    tdato.NumeroCaracteres = 0
 
-                        tdato.NumeroCaracteres = 0
+                                End If
 
-                    End If
+                                If Not IsDBNull(lectorResultado("COLUMN_DEFAULT")) Then
+                                    defecto = lectorResultado("COLUMN_DEFAULT")
+                                Else
+                                    defecto = Nothing
+                                End If
 
-                    If Not IsDBNull(lectorResultado("COLUMN_DEFAULT")) Then
-                        defecto = lectorResultado("COLUMN_DEFAULT")
-                    Else
-                        defecto = Nothing
-                    End If
+                                resultado.Add(New Columna With {
+                            .Nombre = nombre,
+                            .OrdenColumna = posicion,
+                            .tipoDato = tdato,
+                            .ValorDefecto = defecto,
+                            .IsNullable = isNullable,
+                            .IsIdentity = isIdentity})
+                                posicion = Nothing
+                                nombre = Nothing
+                                tipoDato = Nothing
+                                tdato = Nothing
+                            Loop
+                        End If
 
-                    resultado.Add(New Columna With {
-                        .Nombre = nombre,
-                        .ordenColumna = posicion,
-                        .tipoDato = tdato,
-                        .valorDefecto = defecto,
-                        .isNullable = isNullable,
-                        .isIdentity = isIdentity})
-                    posicion = Nothing
-                    nombre = Nothing
-                    tipoDato = Nothing
-                    tdato = Nothing
-                Loop
-            End If
+                    End Using
+                End Using
 
+            End Using
         Catch _Exception As Exception
+
             Console.WriteLine(_Exception.Message)
             Return Nothing
         End Try
         CheckIdentity(nombreTabla)
+
         Return resultado
     End Function
 
@@ -100,23 +105,23 @@ Public Class ColumnaDAO
         Try
 
             conectar()
-            Dim comandoSql As New SqlCommand(SqlQuery, conexion)
-            Dim lectorResultado As SqlDataReader = comandoSql.ExecuteReader
-            Dim adaptador = New SqlDataAdapter(comandoSql)
-            If lectorResultado.HasRows Then
-                Do While lectorResultado.Read()
-                    Try
-                        nombre = lectorResultado("name").ToString
-                        listaColumnas.Add(nombre)
-                    Catch ex As Exception
+            Using comandoSql As New SqlCommand(SqlQuery, conexion)
+                Using lectorResultado As SqlDataReader = comandoSql.ExecuteReader
+                    Using adaptador As New SqlDataAdapter(comandoSql)
+                        If lectorResultado.HasRows Then
+                            Do While lectorResultado.Read()
+                                Try
+                                    nombre = lectorResultado("name").ToString
+                                    listaColumnas.Add(nombre)
+                                Catch ex As Exception
+                                End Try
+                            Loop
+                        End If
+                        comandoSql.Dispose()
+                    End Using
+                End Using
+            End Using
 
-                    End Try
-                Loop
-            End If
-            comandoSql.Dispose()
-            comandoSql = Nothing
-            lectorResultado.Close()
-            lectorResultado = Nothing
         Catch _Exception As Exception
             Console.WriteLine(_Exception.Message)
             cerrarConexion()

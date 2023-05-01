@@ -24,37 +24,37 @@ Public Class IndiceDAO
         Try
 
             conectar()
-            Dim comandoSql As New SqlCommand(SqlQuery, conexion)
-            Dim lectorResultado As SqlDataReader = comandoSql.ExecuteReader
-            Dim adaptador = New SqlDataAdapter(comandoSql)
-            If lectorResultado.HasRows Then
-                Do While lectorResultado.Read()
-                    nombreIndice = lectorResultado("Index_Name").ToString
-                    nombreColumna = lectorResultado("Column_Name").ToString
-                    tipo = lectorResultado("type_desc").ToString
-                    Dim esUnico = lectorResultado("is_unique").ToString
-                    fillFactor = lectorResultado("fill_factor").ToString
+            Using comandoSql As New SqlCommand(SqlQuery, conexion)
+                Using lectorResultado As SqlDataReader = comandoSql.ExecuteReader
+                    Using adaptador As New SqlDataAdapter(comandoSql)
 
-                    If listaIndices.Count = 0 Then
-                        listaIndices.Add(New Indice With {.Nombre = nombreIndice, .Columnas = New List(Of Columna), .TipoIndice = tipo, .Unico = esUnico, .FillFactor = fillFactor, .NombreTabla = nombreTabla})
-                        listaIndices.Last.Columnas.Add(New Columna With {.Nombre = nombreColumna})
-                    ElseIf listaIndices.Last.Nombre.Equals(nombreIndice, StringComparison.Ordinal) Then
-                        For Each indice In listaIndices
-                            If indice.Nombre.Equals(nombreIndice, StringComparison.Ordinal) Then
-                                indice.Columnas.Add(New Columna With {.Nombre = nombreColumna})
-                            End If
-                        Next
-                    ElseIf Not listaIndices.Last.Nombre.Equals(nombreIndice) Then
-                        listaIndices.Add(New Indice With {.Nombre = nombreIndice, .Columnas = New List(Of Columna), .TipoIndice = tipo, .Unico = esUnico, .FillFactor = fillFactor, .NombreTabla = nombreTabla})
-                        listaIndices.Last.Columnas.Add(New Columna With {.Nombre = nombreColumna})
-                    End If
-                    unico = False
-                Loop
-            End If
-            comandoSql.Dispose()
-            comandoSql = Nothing
-            lectorResultado.Close()
-            lectorResultado = Nothing
+                        If lectorResultado.HasRows Then
+                            Do While lectorResultado.Read()
+                                nombreIndice = lectorResultado("Index_Name").ToString
+                                nombreColumna = lectorResultado("Column_Name").ToString
+                                tipo = lectorResultado("type_desc").ToString
+                                Dim esUnico = lectorResultado("is_unique").ToString
+                                fillFactor = lectorResultado("fill_factor").ToString
+
+                                If listaIndices.Count = 0 Then
+                                    listaIndices.Add(New Indice With {.Nombre = nombreIndice, .Columnas = New List(Of Columna), .TipoIndice = tipo, .Unico = esUnico, .FillFactor = fillFactor, .NombreTabla = nombreTabla})
+                                    listaIndices.Last.Columnas.Add(New Columna With {.Nombre = nombreColumna})
+                                ElseIf listaIndices.Last.Nombre.Equals(nombreIndice, StringComparison.Ordinal) Then
+                                    For Each indice In listaIndices
+                                        If indice.Nombre.Equals(nombreIndice, StringComparison.Ordinal) Then
+                                            indice.Columnas.Add(New Columna With {.Nombre = nombreColumna})
+                                        End If
+                                    Next
+                                ElseIf Not listaIndices.Last.Nombre.Equals(nombreIndice) Then
+                                    listaIndices.Add(New Indice With {.Nombre = nombreIndice, .Columnas = New List(Of Columna), .TipoIndice = tipo, .Unico = esUnico, .FillFactor = fillFactor, .NombreTabla = nombreTabla})
+                                    listaIndices.Last.Columnas.Add(New Columna With {.Nombre = nombreColumna})
+                                End If
+                                unico = False
+                            Loop
+                        End If
+                    End Using
+                End Using
+            End Using
 
         Catch _Exception As Exception
             Console.WriteLine(_Exception.Message)

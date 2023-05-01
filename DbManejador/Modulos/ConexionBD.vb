@@ -14,6 +14,7 @@ Public MustInherit Class ConexionBD
         Me.conexion = New SqlConnection()
         Me.connectionString = connectionString
         conexion.ConnectionString = connectionString
+
     End Sub
 
     Public Sub Conectar()
@@ -145,6 +146,7 @@ Public MustInherit Class ConexionBD
 
 
 
+
     Protected Overridable Sub Dispose(disposing As Boolean)
         If Not disposedValue Then
             If disposing Then
@@ -162,4 +164,6 @@ Public MustInherit Class ConexionBD
         Dispose(disposing:=True)
         GC.SuppressFinalize(Me)
     End Sub
+
+
 End Class
