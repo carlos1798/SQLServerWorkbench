@@ -1,4 +1,4 @@
-# SQLWORKBECH(Nombre provisional)
+# SQL WORKBENCH
 
 ![Login](https://user-images.githubusercontent.com/24571992/226689015-1241d99b-338a-47a4-8746-5c1ed38b93b3.PNG)
 
