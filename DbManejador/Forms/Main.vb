@@ -1,6 +1,8 @@
 ﻿Imports System.IO
 
 Public Class Main
+    Private sql As New SqlFunctions
+    Private t
     Public listaDatabases As List(Of Database)
     Dim reg As New Registro
     Public lista As New List(Of String)
@@ -15,6 +17,7 @@ Public Class Main
 
         ' Esta llamada es exigida por el diseñador.
         InitializeComponent()
+
 
         SplitContainer1.Panel2Collapsed = True
 
@@ -99,18 +102,29 @@ Public Class Main
 
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Dim datatable As DataTable
+    Private Async Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        'Dim datatable As DataTable
+
+
         Dim bs As New BindingSource
-        Using QueryDAO As New QueryDAO()
-            datatable = QueryDAO.ExecuteQuery(InputText1.RichTextBox1.Text)
-        End Using
+        t = sql.ExecuteQueryAsync(InputText1.RichTextBox1.Text)
+        'Using QueryDAO As New QueryDAO()
+        '    datatable = QueryDAO.ExecuteQuery(InputText1.RichTextBox1.Text)
+        'End Using
+        Await t
 
-        QueryResult.DataSource = datatable
 
-
-
+        QueryResult.DataSource = t.Result
         SplitContainer1.Panel2Collapsed = False
+    End Sub
+
+    Private Sub Main_Load(sender As Object, e As EventArgs) Handles Me.Load
+        Utiles.DoubleBuffered(QueryResult, True)
+
+    End Sub
+
+    Private Sub QueryResult_DataSourceChanged(sender As Object, e As EventArgs) Handles QueryResult.DataSourceChanged
+
     End Sub
 
 
