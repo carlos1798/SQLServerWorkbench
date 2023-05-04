@@ -21,25 +21,4 @@ Public Class QueryDAO
             Return Nothing
         End Try
     End Function
-    Public Async Function ExecuteQueryAsync(SQlQuery As String) As Task(Of DataTable)
-        Dim tablaDatos As New DataTable
-        Try
-            Await ConectarAsync()
-
-            Using comandoSql As New SqlCommand(SQlQuery, conexion)
-                Using reader = Await comandoSql.ExecuteReaderAsync
-                    Using adaptador As New SqlDataAdapter()
-                        adaptador.SelectCommand = comandoSql
-                        adaptador.Fill(tablaDatos)
-                        Return tablaDatos
-                    End Using
-                End Using
-            End Using
-
-
-        Catch ex As Exception
-            MessageBox.Show(ex.Message)
-            Return Nothing
-        End Try
-    End Function
 End Class
