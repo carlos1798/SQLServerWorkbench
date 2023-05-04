@@ -169,6 +169,8 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Modulos\ConexionBD.vb" />
+    <Compile Include="Modulos\SqlFunctions.vb" />
+    <Compile Include="Modulos\Utiles.vb" />
     <Compile Include="Modulos\GeneradorSQL.vb" />
     <Compile Include="Modulos\Lexer.vb" />
     <Compile Include="Modulos\Registro.vb" />
