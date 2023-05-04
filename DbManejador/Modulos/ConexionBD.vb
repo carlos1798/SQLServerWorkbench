@@ -28,6 +28,17 @@ Public MustInherit Class ConexionBD
             Console.WriteLine(ex.Message)
         End Try
     End Sub
+    Public Async Function ConectarAsync() As Task
+        Try
+
+            If Not ConnectionState.Open Then
+                Await conexion.OpenAsync()
+            End If
+
+        Catch ex As Exception
+            Console.WriteLine(ex.Message)
+        End Try
+    End Function
 
     Public Sub CerrarConexion()
         If conexion.State = ConnectionState.Open Then
