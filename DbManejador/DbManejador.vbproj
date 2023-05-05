@@ -172,6 +172,7 @@
     <Compile Include="Modulos\GeneradorSQL.vb" />
     <Compile Include="Modulos\Lexer.vb" />
     <Compile Include="Modulos\Registro.vb" />
+    <Compile Include="Modulos\Utiles.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
