@@ -69,7 +69,7 @@ Public Class Lexer
         Dim inicioPalabra As Integer = index
         Dim finalPalabra As Integer
 
-        While index < texto.Length AndAlso Not Char.IsWhiteSpace(texto(index)) AndAlso texto(index) <> """c AndAlso texto(index) <> " '"c AndAlso texto(index) <> "*"c AndAlso texto(index) <> "-"c AndAlso texto(index) <> "+"c AndAlso texto(index) <> "/"c AndAlso texto(index) <> "="c
+        While index < texto.Length AndAlso Not Char.IsWhiteSpace(texto(index)) AndAlso texto(index) <> """"c AndAlso texto(index) <> "'"c AndAlso texto(index) <> "*"c AndAlso texto(index) <> "-"c AndAlso texto(index) <> "+"c AndAlso texto(index) <> "/"c AndAlso texto(index) <> "="c
             palabra += texto(index)
             index += 1
         End While
