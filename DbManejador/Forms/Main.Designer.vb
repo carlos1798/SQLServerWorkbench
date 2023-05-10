@@ -36,19 +36,20 @@ Partial Class Main
         Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
         Me.Query_Result_Container = New System.Windows.Forms.TableLayoutPanel()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
+        Me.QueryResult = New System.Windows.Forms.DataGridView()
         Me.MainSplitter = New System.Windows.Forms.SplitContainer()
         Me.DBObjetos_Splitter = New System.Windows.Forms.SplitContainer()
         Me.TreeView1 = New System.Windows.Forms.TreeView()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.InputText1 = New DbManejador.InputText()
         Me.Menu1 = New DbManejador.Menu()
-        Me.QueryResult = New System.Windows.Forms.DataGridView()
-        Me.Button1 = New System.Windows.Forms.Button()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Query_Result_Container.SuspendLayout()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
         Me.SplitContainer1.SuspendLayout()
+        CType(Me.QueryResult, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.MainSplitter, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MainSplitter.Panel1.SuspendLayout()
         Me.MainSplitter.Panel2.SuspendLayout()
@@ -57,13 +58,12 @@ Partial Class Main
         Me.DBObjetos_Splitter.Panel1.SuspendLayout()
         Me.DBObjetos_Splitter.Panel2.SuspendLayout()
         Me.DBObjetos_Splitter.SuspendLayout()
-        CType(Me.QueryResult, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'DataGridView1
         '
         Me.DataGridView1.AllowUserToAddRows = False
-        Me.DataGridView1.BackgroundColor = System.Drawing.Color.DarkGray
+        Me.DataGridView1.BackgroundColor = System.Drawing.Color.White
         Me.DataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
         DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Desktop
@@ -149,6 +149,14 @@ Partial Class Main
         '
         Me.SplitContainer1.Panel2.Controls.Add(Me.QueryResult)
         '
+        'QueryResult
+        '
+        Me.QueryResult.BackgroundColor = System.Drawing.SystemColors.ControlLightLight
+        Me.QueryResult.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        resources.ApplyResources(Me.QueryResult, "QueryResult")
+        Me.QueryResult.GridColor = System.Drawing.SystemColors.Control
+        Me.QueryResult.Name = "QueryResult"
+        '
         'MainSplitter
         '
         resources.ApplyResources(Me.MainSplitter, "MainSplitter")
@@ -181,6 +189,12 @@ Partial Class Main
         Me.TreeView1.ImageList = Me.ImageList1
         Me.TreeView1.Name = "TreeView1"
         '
+        'Button1
+        '
+        resources.ApplyResources(Me.Button1, "Button1")
+        Me.Button1.Name = "Button1"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
         'InputText1
         '
         resources.ApplyResources(Me.InputText1, "InputText1")
@@ -193,18 +207,6 @@ Partial Class Main
         '
         resources.ApplyResources(Me.Menu1, "Menu1")
         Me.Menu1.Name = "Menu1"
-        '
-        'QueryResult
-        '
-        Me.QueryResult.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        resources.ApplyResources(Me.QueryResult, "QueryResult")
-        Me.QueryResult.Name = "QueryResult"
-        '
-        'Button1
-        '
-        resources.ApplyResources(Me.Button1, "Button1")
-        Me.Button1.Name = "Button1"
-        Me.Button1.UseVisualStyleBackColor = True
         '
         'Main
         '
@@ -224,6 +226,7 @@ Partial Class Main
         Me.SplitContainer1.Panel2.ResumeLayout(False)
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SplitContainer1.ResumeLayout(False)
+        CType(Me.QueryResult, System.ComponentModel.ISupportInitialize).EndInit()
         Me.MainSplitter.Panel1.ResumeLayout(False)
         Me.MainSplitter.Panel2.ResumeLayout(False)
         CType(Me.MainSplitter, System.ComponentModel.ISupportInitialize).EndInit()
@@ -232,7 +235,6 @@ Partial Class Main
         Me.DBObjetos_Splitter.Panel2.ResumeLayout(False)
         CType(Me.DBObjetos_Splitter, System.ComponentModel.ISupportInitialize).EndInit()
         Me.DBObjetos_Splitter.ResumeLayout(False)
-        CType(Me.QueryResult, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
