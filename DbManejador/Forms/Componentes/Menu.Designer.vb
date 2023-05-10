@@ -33,6 +33,7 @@ Partial Class Menu
         Me.Atras = New System.Windows.Forms.ToolStripButton()
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
         Me.SerBDSeleccionados1 = New DbManejador.SerBDSeleccionados()
+        Me.IndicesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -92,7 +93,7 @@ Partial Class Menu
         '
         Me.ToolStripButton4.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
         Me.ToolStripButton4.AutoToolTip = False
-        Me.ToolStripButton4.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.IndexSug, Me.IndexPer})
+        Me.ToolStripButton4.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.IndexSug, Me.IndexPer, Me.IndicesToolStripMenuItem})
         Me.ToolStripButton4.Image = Global.DbManejador.My.Resources.Resources.library
         Me.ToolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripButton4.Margin = New System.Windows.Forms.Padding(0)
@@ -104,13 +105,13 @@ Partial Class Menu
         'IndexSug
         '
         Me.IndexSug.Name = "IndexSug"
-        Me.IndexSug.Size = New System.Drawing.Size(161, 22)
+        Me.IndexSug.Size = New System.Drawing.Size(180, 22)
         Me.IndexSug.Text = "Indices Sugerido"
         '
         'IndexPer
         '
         Me.IndexPer.Name = "IndexPer"
-        Me.IndexPer.Size = New System.Drawing.Size(161, 22)
+        Me.IndexPer.Size = New System.Drawing.Size(180, 22)
         Me.IndexPer.Text = "Indices Perdidos"
         '
         'AddBaseDatos
@@ -147,6 +148,12 @@ Partial Class Menu
         Me.SerBDSeleccionados1.Size = New System.Drawing.Size(177, 27)
         Me.SerBDSeleccionados1.TabIndex = 1
         '
+        'IndicesToolStripMenuItem
+        '
+        Me.IndicesToolStripMenuItem.Name = "IndicesToolStripMenuItem"
+        Me.IndicesToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.IndicesToolStripMenuItem.Text = "Indices"
+        '
         'Menu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -173,4 +180,5 @@ Partial Class Menu
     Friend WithEvents Sincronizacion As ToolStripButton
     Friend WithEvents SerBDSeleccionados1 As SerBDSeleccionados
     Friend WithEvents SaveFileDialog1 As SaveFileDialog
+    Friend WithEvents IndicesToolStripMenuItem As ToolStripMenuItem
 End Class

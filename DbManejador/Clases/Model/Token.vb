@@ -1,7 +1,6 @@
 ﻿Imports System.Net.Security
 
 Public Class Token
-    'Tokenizamos,almacenamos las posiciones y despues actualizamos el texto
     Private _contenido As String
     Private _inicio As Integer
     Private _final As Integer

@@ -150,6 +150,24 @@
     <Compile Include="Forms\Componentes\UserControl2.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Forms\Fragmentacion.designer.vb">
+      <DependentUpon>Fragmentacion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Fragmentacion.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\IndicesDesuso.Designer.vb">
+      <DependentUpon>IndicesDesuso.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\IndicesDesuso.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\IndicesPerdidos.Designer.vb">
+      <DependentUpon>IndicesPerdidos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\IndicesPerdidos.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\Main.Designer.vb">
       <DependentUpon>Main.vb</DependentUpon>
     </Compile>
@@ -166,6 +184,12 @@
       <DependentUpon>ComparadorEsquemas.vb</DependentUpon>
     </Compile>
     <Compile Include="Forms\ComparadorEsquemas.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\VistaIndices.Designer.vb">
+      <DependentUpon>VistaIndices.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\VistaIndices.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Modulos\ConexionBD.vb" />
@@ -208,6 +232,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Componentes\UserControl2.resx">
       <DependentUpon>UserControl2.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Fragmentacion.resx">
+      <DependentUpon>Fragmentacion.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Main.aa.resx">
       <DependentUpon>Main.vb</DependentUpon>
