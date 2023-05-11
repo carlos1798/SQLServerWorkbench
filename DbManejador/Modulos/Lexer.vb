@@ -41,6 +41,8 @@ Public Class Lexer
                 Return "'"c
             Case TipoToken.TOKEN_COMILLAS
                 Return """"c
+            Case Else
+                Return Nothing
         End Select
     End Function
 

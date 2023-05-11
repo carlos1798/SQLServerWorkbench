@@ -150,10 +150,10 @@
     <Compile Include="Forms\Componentes\UserControl2.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Forms\Fragmentacion.designer.vb">
-      <DependentUpon>Fragmentacion.vb</DependentUpon>
+    <Compile Include="Forms\VistaFragmentacion.designer.vb">
+      <DependentUpon>VistaFragmentacion.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Fragmentacion.vb">
+    <Compile Include="Forms\VistaFragmentacion.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\IndicesDesuso.Designer.vb">
@@ -162,10 +162,10 @@
     <Compile Include="Forms\IndicesDesuso.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\IndicesPerdidos.Designer.vb">
-      <DependentUpon>IndicesPerdidos.vb</DependentUpon>
+    <Compile Include="Forms\IndicesSugeridos.Designer.vb">
+      <DependentUpon>IndicesSugeridos.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\IndicesPerdidos.vb">
+    <Compile Include="Forms\IndicesSugeridos.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Main.Designer.vb">
@@ -233,8 +233,8 @@
     <EmbeddedResource Include="Forms\Componentes\UserControl2.resx">
       <DependentUpon>UserControl2.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Fragmentacion.resx">
-      <DependentUpon>Fragmentacion.vb</DependentUpon>
+    <EmbeddedResource Include="Forms\VistaFragmentacion.resx">
+      <DependentUpon>VistaFragmentacion.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Main.aa.resx">
       <DependentUpon>Main.vb</DependentUpon>
