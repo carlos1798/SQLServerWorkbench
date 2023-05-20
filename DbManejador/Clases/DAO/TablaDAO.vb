@@ -12,11 +12,6 @@ Public Class TablaDAO
         Throw New NotImplementedException()
     End Function
 
-    ''' <summary>
-    ''' Devuelve una lista de Objetos tabla solo con el nombre cargado
-    ''' </summary>
-    ''' <returns></returns>
-    'Falta anadir las restrcciones
     Public Function LightFindAll() As List(Of Tabla)
         Dim listaTablas As New List(Of Tabla)
         Dim SqlQuery As String = "SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES where TABLE_SCHEMA = 'dbo' and TABLE_TYPE = 'BASE TABLE'"

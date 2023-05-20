@@ -1,4 +1,4 @@
-﻿Public Class Fragmentacion
+﻿Public Class VistaFragmentacion
     Public listaCambios As New List(Of String)
 
     Public bs As New BindingSource()
@@ -50,7 +50,7 @@
 
         Next
 
-        Fragmentacion.ActiveForm.Close()
+        VistaFragmentacion.ActiveForm.Close()
         MessageBox.Show("Los cambios se han guardado")
         listaCambios.Clear()
     End Sub
