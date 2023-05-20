@@ -23,7 +23,7 @@ Public Class IndiceDAO
         Dim unico As Boolean
         Try
 
-            conectar()
+            Conectar()
             Using comandoSql As New SqlCommand(SqlQuery, conexion)
                 Using lectorResultado As SqlDataReader = comandoSql.ExecuteReader
                     Using adaptador As New SqlDataAdapter(comandoSql)
@@ -35,6 +35,9 @@ Public Class IndiceDAO
                                 tipo = lectorResultado("type_desc").ToString
                                 Dim esUnico = lectorResultado("is_unique").ToString
                                 fillFactor = lectorResultado("fill_factor").ToString
+                                If fillFactor = 0 Then
+                                    fillFactor = 90
+                                End If
 
                                 If listaIndices.Count = 0 Then
                                     listaIndices.Add(New Indice With {.Nombre = nombreIndice, .Columnas = New List(Of Columna), .TipoIndice = tipo, .Unico = esUnico, .FillFactor = fillFactor, .NombreTabla = nombreTabla})
@@ -55,7 +58,6 @@ Public Class IndiceDAO
                     End Using
                 End Using
             End Using
-
         Catch _Exception As Exception
             Console.WriteLine(_Exception.Message)
             Return Nothing
@@ -63,4 +65,5 @@ Public Class IndiceDAO
         Return listaIndices
 
     End Function
+
 End Class

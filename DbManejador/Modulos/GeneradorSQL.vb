@@ -12,8 +12,8 @@
 
     Public Function TipoDatoToString(dato As Tipo)
         Dim tipoDatoString As String
-        If dato.NumeroCaracteres = Nothing Then
-            tipoDatoString = $"{dato.TipoDato}"
+        If dato.NumeroCaracteres = Nothing Or dato.NumeroCaracteres <= 0 Then
+            tipoDatoString = $"{dato.TipoDato} "
         Else
             tipoDatoString = $"{dato.TipoDato} ({dato.NumeroCaracteres})"
         End If

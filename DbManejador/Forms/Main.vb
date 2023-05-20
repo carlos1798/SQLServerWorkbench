@@ -1,13 +1,10 @@
-﻿Imports System.IO
-
-Public Class Main
+﻿Public Class Main
     Public listaDatabases As List(Of Database)
     Dim reg As New Registro
     Public lista As New List(Of String)
     Dim tablaSql As New TablaSQL
     Public bdseleccionada As String = ""
     Public servidorSelec As String = ""
-
 
     Public Sub New()
 
@@ -16,8 +13,15 @@ Public Class Main
         ' Esta llamada es exigida por el diseñador.
         InitializeComponent()
 
+        fillTreeNode()
         SplitContainer1.Panel2Collapsed = True
 
+    End Sub
+
+    Private Sub fillTreeNode()
+
+        TreeView1.Nodes.Clear()
+        Dim root As New TreeNode(Login.servidor.NombreServidor)
         TreeView1.Nodes.Add(root)
         Using DatabaseDAO As New DatabaseDAO()
             listaDatabases = DatabaseDAO.FindAll()
@@ -59,6 +63,7 @@ Public Class Main
         Next
 
     End Sub
+
     Private Sub seleccionServidor(servidor As String, baseDatos As String)
         Menu1.SerBDSeleccionados1.Label3.Text = servidor
         Menu1.SerBDSeleccionados1.Label4.Text = baseDatos
@@ -75,9 +80,6 @@ Public Class Main
         For Each tabla In lista
             InputText1.RichTextBox1.AppendText(vbCrLf + tabla)
         Next
-
-
-
 
     End Sub
 
@@ -101,41 +103,63 @@ Public Class Main
 
     End Sub
 
-
     Public Sub ejecutarSQLTextBox()
         Dim datatable As DataTable
         Dim bs As New BindingSource
+        Dim tablasql As New TablaSQL
+        Dim esUpdate As Boolean = False
+        Dim refresh As Boolean = False
+        Dim query As String = InputText1.RichTextBox1.Text
 
-        GC.Collect()
-        Using QueryDAO As New QueryDAO()
-            datatable = QueryDAO.ExecuteQuery(InputText1.RichTextBox1.Text)
-        End Using
+        If Not InputText1.RichTextBox1.Text = Nothing Then
+            GC.Collect()
+            For Each token In InputText1.tokenes
+                If token.Contenido IsNot Nothing Then
+                    If token.Contenido.ToUpper = "UPDATE" Then
+                        esUpdate = True
+                        Exit For
+                    ElseIf token.Contenido.ToUpper = "CREATE" Or token.Contenido.ToUpper = "DROP" Then
+                        refresh = True
+                    End If
+                Else
+                    Exit Sub
+                End If
 
-        QueryResult.DataSource = datatable
+            Next
+            If esUpdate Then
+                Using QueryDAO As New QueryDAO()
+                    Dim filas_afectadas As Integer = QueryDAO.ExecuteUpdateQuery(query)
+                    Dim mensaje As String = $"{filas_afectadas} filas han sido afectadas."
+                    MsgBox(mensaje)
+                End Using
+                query = tablasql.SelectWhereDesdeUpdateTokens(InputText1.tokenes)
+            End If
 
+            Using QueryDAO As New QueryDAO()
+                datatable = QueryDAO.ExecuteSelectQuery(query)
+            End Using
+            If refresh Then
+                fillTreeNode()
+            End If
 
+            ' InputText1.RichTextBox1.Text = query
 
-        SplitContainer1.Panel2Collapsed = False
+            QueryResult.DataSource = datatable
+            SplitContainer1.Panel2Collapsed = False
+        End If
 
     End Sub
-
 
     Private Sub TreeView1_NodeMouseClick(sender As Object, e As TreeNodeMouseClickEventArgs) Handles TreeView1.NodeMouseClick
 
         If e.Button = MouseButtons.Right Then
-
             TreeView1.SelectedNode = e.Node
-
             For Each db In listaDatabases
-
                 If Not TreeView1.SelectedNode.Text = Nothing Then
                     If db.Nombre = TreeView1.SelectedNode.Text Then
-
                         EdicionDb.Show(System.Windows.Forms.Cursor.Position)
-
                     Else
                         For Each tabla In db.Tablas
-
                             If TreeView1.SelectedNode.Text = tabla.NombreTabla Then
                                 EdicionTablas.Show(System.Windows.Forms.Cursor.Position)
                             End If
@@ -158,12 +182,36 @@ Public Class Main
         coordenadas = get_Coordenadas_Tabla(listaDatabases, TreeView1.SelectedNode.Text)
         tabla = listaDatabases.ElementAt(coordenadas(0)).Tablas.ElementAt(coordenadas(1))
         query = tablaSQL.Selecttop100Query(tabla)
+        InputText1.RichTextBox1.Text = query
+        ejecutarSQLTextBox()
+    End Sub
 
+    Private Sub GenerarSQLToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GenerarSQLToolStripMenuItem.Click
+        Dim tablaSQL As New TablaSQL
+        Dim query As String
+        Dim coordenadas As Integer()
+        Dim tabla As New Tabla
 
+        coordenadas = get_Coordenadas_Tabla(listaDatabases, TreeView1.SelectedNode.Text)
+
+        tabla = listaDatabases.ElementAt(coordenadas(0)).Tablas.ElementAt(coordenadas(1))
+        query = tablaSQL.Crear(tabla)
         InputText1.RichTextBox1.Text = query
     End Sub
 
+    Private Sub EliminarTablaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EliminarTablaToolStripMenuItem.Click
+        Dim tablaSQL As New TablaSQL
+        Dim query As String
+        Dim coordenadas As Integer()
+        Dim tabla As New Tabla
 
+        coordenadas = get_Coordenadas_Tabla(listaDatabases, TreeView1.SelectedNode.Text)
+
+        tabla = listaDatabases.ElementAt(coordenadas(0)).Tablas.ElementAt(coordenadas(1))
+        query = tablaSQL.Eliminar(tabla)
+        InputText1.RichTextBox1.Text = query
+
+    End Sub
 
     'Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
     '    For Each db In listaDatabases

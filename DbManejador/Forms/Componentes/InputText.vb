@@ -5,8 +5,9 @@ Imports System.Text.RegularExpressions
 
 Public Class InputText
     Dim lexer As New Lexer()
+    Public tokenes As New List(Of Token)
 
-    'TODO: Pasarle el guardado sql a este textbox 
+    'TODO: Pasarle el guardado sql a este textbox
     'TODO: Crear un evento para cuando se pase el sql y que haga el parseo para resaltar las keywords
     Private Sub RichTextBox1_TextChanged(sender As Object, e As EventArgs) Handles RichTextBox1.TextChanged
         Dim originalIndex As Integer
@@ -26,12 +27,15 @@ Public Class InputText
             Else
                 If Not token.Contenido = Nothing Then
                     If token.Contenido.ToUpper = "WHERE" Then
-
                         RichTextBox1.SelectionColor = Color.DeepSkyBlue
-                    ElseIf token.Tipo = Token.TipoToken.TOKEN_NUMERICO Then
 
+                    ElseIf token.Contenido.ToUpper = "NULL" Then
+
+                        RichTextBox1.SelectionColor = Color.Gray
+                    ElseIf token.Tipo = Token.TipoToken.TOKEN_NUMERICO Then
                         RichTextBox1.SelectionColor = Color.BlueViolet
-                    Else
+
+                    ElseIf token.Tipo = Token.TipoToken.TOKEN_KEYWORD Then
                         RichTextBox1.SelectionColor = Color.DeepPink
                     End If
                 End If
@@ -46,5 +50,7 @@ Public Class InputText
         RichTextBox1.Focus()
 
         RichTextBox1.DeselectAll()
+        tokenes = tokens
     End Sub
+
 End Class

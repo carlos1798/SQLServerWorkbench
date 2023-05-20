@@ -11,6 +11,7 @@ Public Class Token
         TOKEN_OPERADORES
         TOKEN_COMILLAS_SIMPLES
         TOKEN_NUMERICO
+        TOKEN_PARAMETRO
     End Enum
 
     Public Sub New(inicio As Integer, final As Integer, tipoToken As TipoToken)
