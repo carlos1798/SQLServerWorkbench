@@ -111,6 +111,23 @@
         Return Dif
     End Function
 
-
-
+    Public Overrides Function Equals(obj As Object) As Boolean
+        Dim columna = TryCast(obj, Columna)
+        Return columna IsNot Nothing AndAlso
+               EqualityComparer(Of Tipo).Default.Equals(tipoDato, columna.tipoDato) AndAlso
+               EqualityComparer(Of List(Of Restriccion)).Default.Equals(_restriciones, columna._restriciones) AndAlso
+               _ordenColumna = columna._ordenColumna AndAlso
+               _valorDefecto = columna._valorDefecto AndAlso
+               _isNullable = columna._isNullable AndAlso
+               _isPrimaryKey = columna._isPrimaryKey AndAlso
+               _isIdentity = columna._isIdentity AndAlso
+               _nombre = columna._nombre AndAlso
+               EqualityComparer(Of List(Of Restriccion)).Default.Equals(Restriciones, columna.Restriciones) AndAlso
+               OrdenColumna = columna.OrdenColumna AndAlso
+               ValorDefecto = columna.ValorDefecto AndAlso
+               IsNullable = columna.IsNullable AndAlso
+               IsPrimaryKey = columna.IsPrimaryKey AndAlso
+               IsIdentity = columna.IsIdentity AndAlso
+               Nombre = columna.Nombre
+    End Function
 End Class

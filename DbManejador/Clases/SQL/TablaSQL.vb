@@ -38,4 +38,20 @@
         Return queryGeneral
 
     End Function
+    Public Function Selecttop100Query(tabla As Tabla) As String
+        Dim Query As String = ""
+        Query += "SELECT TOP 1000" + vbCrLf
+        For Each columna In tabla.Columnas
+
+            If columna.Equals(tabla.Columnas.Last) Then
+                Query += vbTab + $"[{columna.Nombre}]" + vbCrLf
+            Else
+                Query += vbTab + $"[{columna.Nombre}]," + vbCrLf
+            End If
+
+        Next
+        Query += $"FROM {tabla.NombreTabla}"
+
+        Return Query
+    End Function
 End Class
