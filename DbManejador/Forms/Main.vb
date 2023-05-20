@@ -213,6 +213,20 @@
 
     End Sub
 
+    Private Sub GenerarSQLToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles GenerarSQLToolStripMenuItem1.Click
+        Dim db As New Database
+        Dim query As String
+        Dim coordenadas As Integer
+        Dim dbSQLbuilder As New DatabaseSQL
+
+        coordenadas = get_BD_Index_ListaDb(listaDatabases, TreeView1.SelectedNode.Text)
+
+        db = listaDatabases.ElementAt(coordenadas)
+        query = dbSQLbuilder.Crear(db)
+        InputText1.RichTextBox1.Text = query
+
+    End Sub
+
     'Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
     '    For Each db In listaDatabases
     '        If db.Nombre = "" Then

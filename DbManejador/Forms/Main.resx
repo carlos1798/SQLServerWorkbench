@@ -191,7 +191,7 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAAAi
-        CwAAAk1TRnQBSQFMAgEBBAEAAbABAQGwAQEBEAEAARABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
+        CwAAAk1TRnQBSQFMAgEBBAEAAcgBAQHIAQEBEAEAARABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
         AwABQAMAASADAAEBAQABCAYAAQgYAAGAAgABgAMAAoABAAGAAwABgAEAAYABAAKAAgADwAEAAcAB3AHA
         AQAB8AHKAaYBAAEzBQABMwEAATMBAAEzAQACMwIAAxYBAAMcAQADIgEAAykBAANVAQADTQEAA0IBAAM5
         AQABgAF8Af8BAAJQAf8BAAGTAQAB1gEAAf8B7AHMAQABxgHWAe8BAAHWAucBAAGQAakBrQIAAf8BMwMA
@@ -584,31 +584,31 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;MainSplitter.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <metadata name="EdicionTablas.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>330, 21</value>
+    <value>456, 37</value>
   </metadata>
   <data name="SelecionarTOP1000ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
+    <value>179, 22</value>
   </data>
   <data name="SelecionarTOP1000ToolStripMenuItem.Text" xml:space="preserve">
     <value>Selecionar TOP 1000</value>
   </data>
   <data name="GenerarSQLToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
+    <value>179, 22</value>
   </data>
   <data name="GenerarSQLToolStripMenuItem.Text" xml:space="preserve">
     <value>Generar SQL</value>
   </data>
   <data name="EliminarTablaToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
+    <value>179, 22</value>
   </data>
   <data name="EliminarTablaToolStripMenuItem.Text" xml:space="preserve">
     <value>Eliminar  Tabla</value>
   </data>
   <data name="EdicionTablas.Size" type="System.Drawing.Size, System.Drawing">
-    <value>181, 92</value>
+    <value>180, 70</value>
   </data>
   <data name="&gt;&gt;EdicionTablas.Name" xml:space="preserve">
     <value>EdicionTablas</value>
@@ -617,28 +617,28 @@
     <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <metadata name="EdicionDb.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>459, 24</value>
+    <value>351, 11</value>
   </metadata>
   <data name="SeleccionarBDToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="SeleccionarBDToolStripMenuItem.Text" xml:space="preserve">
     <value>Seleccionar BD</value>
   </data>
   <data name="EliminarToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="EliminarToolStripMenuItem.Text" xml:space="preserve">
     <value>Eliminar</value>
   </data>
   <data name="GenerarSQLToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="GenerarSQLToolStripMenuItem1.Text" xml:space="preserve">
     <value>Generar SQL</value>
   </data>
   <data name="EdicionDb.Size" type="System.Drawing.Size, System.Drawing">
-    <value>153, 70</value>
+    <value>181, 92</value>
   </data>
   <data name="&gt;&gt;EdicionDb.Name" xml:space="preserve">
     <value>EdicionDb</value>

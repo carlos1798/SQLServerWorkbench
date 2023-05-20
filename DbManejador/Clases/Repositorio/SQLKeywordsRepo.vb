@@ -19,6 +19,7 @@ Imports System.Windows.Forms.VisualStyles.VisualStyleElement
 Imports System.Xml
 
 Public Class SQLKeywordsRepo
+
     Public keywords() As String =
         {
 "ABORT",
@@ -440,6 +441,8 @@ Public Class SQLKeywordsRepo
 "NOCREATEDB",
 "NOCREATEROLE",
 "NOCREATEUSER",
+"CREATE",
+"NULL",
 "NOINHERIT",
 "NOLOGIN",
 "NONCLUSTERED",
@@ -821,4 +824,5 @@ Public Class SQLKeywordsRepo
     Public Sub New()
         Me.keywords = keywords
     End Sub
+
 End Class

@@ -32,9 +32,9 @@
         Dim queryGeneral As String = ""
         For Each columna In tabla.Columnas
             If tabla.Columnas.Last.Equals(columna) Then
-                addColumna = $"{columna.Nombre} {TipoDatoToString(columna.tipoDato)} {GenerarIdentity(columna.IsIdentity)} {GenerarNulo(columna.IsNullable)}"
+                addColumna = vbTab + $"{columna.Nombre} {TipoDatoToString(columna.tipoDato)} {GenerarIdentity(columna.IsIdentity)} {GenerarNulo(columna.IsNullable)}"
             Else
-                addColumna = $"{columna.Nombre} {TipoDatoToString(columna.tipoDato)} {GenerarIdentity(columna.IsIdentity)} {GenerarNulo(columna.IsNullable)},"
+                addColumna = vbTab + $"{columna.Nombre} {TipoDatoToString(columna.tipoDato)} {GenerarIdentity(columna.IsIdentity)} {GenerarNulo(columna.IsNullable)},"
             End If
             queryGeneral = queryGeneral + vbCr + addColumna
             addColumna = Nothing
