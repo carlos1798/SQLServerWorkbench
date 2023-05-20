@@ -91,6 +91,8 @@ Public Class Main
                 If TreeView1.SelectedNode.Text = tabla.NombreTabla Then
                     For Each columna In tabla.Columnas
                         DataGridView1.Rows.Add(columna.Nombre, columna.OrdenColumna, columna.tipoDato.ToString)
+
+                        Label1.Text = TreeView1.SelectedNode.Text
                     Next
 
                 End If
@@ -99,8 +101,11 @@ Public Class Main
 
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+    Private Sub Button1_Click(sender As Object, e As EventArgs) 
 
+    End Sub
+
+    Public Sub ejecutarSQLTextBox()
         Dim datatable As DataTable
         Dim bs As New BindingSource
 
@@ -114,8 +119,8 @@ Public Class Main
 
 
         SplitContainer1.Panel2Collapsed = False
-    End Sub
 
+    End Sub
 
 
     'Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click

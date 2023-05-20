@@ -24,9 +24,16 @@ Public Class InputText
 
                 RichTextBox1.SelectionColor = Color.Green
             Else
-                RichTextBox1.SelectionColor = Color.DeepPink
+                If Not token.Contenido = Nothing Then
+                    If token.Contenido.ToUpper = "WHERE" Then
+
+                        RichTextBox1.SelectionColor = Color.BlueViolet
+                    Else
+                        RichTextBox1.SelectionColor = Color.DeepPink
+                    End If
+                End If
+                RichTextBox1.DeselectAll()
             End If
-            RichTextBox1.DeselectAll()
         Next
 
         RichTextBox1.SelectionStart = originalIndex

@@ -40,7 +40,8 @@ Partial Class Main
         Me.MainSplitter = New System.Windows.Forms.SplitContainer()
         Me.DBObjetos_Splitter = New System.Windows.Forms.SplitContainer()
         Me.TreeView1 = New System.Windows.Forms.TreeView()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.InputText1 = New DbManejador.InputText()
         Me.Menu1 = New DbManejador.Menu()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -58,6 +59,7 @@ Partial Class Main
         Me.DBObjetos_Splitter.Panel1.SuspendLayout()
         Me.DBObjetos_Splitter.Panel2.SuspendLayout()
         Me.DBObjetos_Splitter.SuspendLayout()
+        Me.TableLayoutPanel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'DataGridView1
@@ -181,7 +183,7 @@ Partial Class Main
         '
         'DBObjetos_Splitter.Panel2
         '
-        Me.DBObjetos_Splitter.Panel2.Controls.Add(Me.DataGridView1)
+        Me.DBObjetos_Splitter.Panel2.Controls.Add(Me.TableLayoutPanel1)
         '
         'TreeView1
         '
@@ -189,11 +191,18 @@ Partial Class Main
         Me.TreeView1.ImageList = Me.ImageList1
         Me.TreeView1.Name = "TreeView1"
         '
-        'Button1
+        'TableLayoutPanel1
         '
-        resources.ApplyResources(Me.Button1, "Button1")
-        Me.Button1.Name = "Button1"
-        Me.Button1.UseVisualStyleBackColor = True
+        resources.ApplyResources(Me.TableLayoutPanel1, "TableLayoutPanel1")
+        Me.TableLayoutPanel1.Controls.Add(Me.DataGridView1, 0, 1)
+        Me.TableLayoutPanel1.Controls.Add(Me.Label1, 0, 0)
+        Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
+        '
+        'Label1
+        '
+        resources.ApplyResources(Me.Label1, "Label1")
+        Me.Label1.BackColor = System.Drawing.SystemColors.GradientActiveCaption
+        Me.Label1.Name = "Label1"
         '
         'InputText1
         '
@@ -213,7 +222,6 @@ Partial Class Main
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         resources.ApplyResources(Me, "$this")
         Me.BackColor = System.Drawing.Color.White
-        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.MainSplitter)
         Me.Controls.Add(Me.Menu1)
         Me.DoubleBuffered = True
@@ -235,6 +243,8 @@ Partial Class Main
         Me.DBObjetos_Splitter.Panel2.ResumeLayout(False)
         CType(Me.DBObjetos_Splitter, System.ComponentModel.ISupportInitialize).EndInit()
         Me.DBObjetos_Splitter.ResumeLayout(False)
+        Me.TableLayoutPanel1.ResumeLayout(False)
+        Me.TableLayoutPanel1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -254,5 +264,6 @@ Partial Class Main
     Friend WithEvents TablaNombre As DataGridViewTextBoxColumn
     Friend WithEvents NumeroIndices As DataGridViewTextBoxColumn
     Friend WithEvents QueryResult As DataGridView
-    Friend WithEvents Button1 As Button
+    Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
+    Friend WithEvents Label1 As Label
 End Class

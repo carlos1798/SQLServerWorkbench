@@ -19,7 +19,8 @@ Public Class Menu
             Case "AddBaseDatos"
                 Dim AddDBForm As New AddBd()
 
-
+            Case "Ejecutar"
+                Main.ejecutarSQLTextBox()
             Case "Guardar"
                 SaveFileDialog1.Filter = "Sql files (*.sql)|*.sql|All files (*.*)|*.*"
                 SaveFileDialog1.ShowDialog()

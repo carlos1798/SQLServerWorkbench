@@ -22,6 +22,7 @@ Partial Class Menu
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Menu))
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
         Me.Guardar = New System.Windows.Forms.ToolStripButton()
         Me.Sincronizacion = New System.Windows.Forms.ToolStripButton()
@@ -29,11 +30,12 @@ Partial Class Menu
         Me.ToolStripButton4 = New System.Windows.Forms.ToolStripDropDownButton()
         Me.IndexSug = New System.Windows.Forms.ToolStripMenuItem()
         Me.IndexPer = New System.Windows.Forms.ToolStripMenuItem()
+        Me.IndicesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AddBaseDatos = New System.Windows.Forms.ToolStripButton()
         Me.Atras = New System.Windows.Forms.ToolStripButton()
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
+        Me.Ejecutar = New System.Windows.Forms.ToolStripButton()
         Me.SerBDSeleccionados1 = New DbManejador.SerBDSeleccionados()
-        Me.IndicesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -43,7 +45,7 @@ Partial Class Menu
         Me.ToolStrip1.CanOverflow = False
         Me.ToolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden
         Me.ToolStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Guardar, Me.Sincronizacion, Me.Fragmentacion, Me.ToolStripButton4, Me.AddBaseDatos, Me.Atras})
+        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Guardar, Me.Sincronizacion, Me.Fragmentacion, Me.ToolStripButton4, Me.AddBaseDatos, Me.Ejecutar, Me.Atras})
         Me.ToolStrip1.Location = New System.Drawing.Point(0, 0)
         Me.ToolStrip1.Name = "ToolStrip1"
         Me.ToolStrip1.Size = New System.Drawing.Size(729, 52)
@@ -105,14 +107,20 @@ Partial Class Menu
         'IndexSug
         '
         Me.IndexSug.Name = "IndexSug"
-        Me.IndexSug.Size = New System.Drawing.Size(180, 22)
+        Me.IndexSug.Size = New System.Drawing.Size(161, 22)
         Me.IndexSug.Text = "Indices Sugerido"
         '
         'IndexPer
         '
         Me.IndexPer.Name = "IndexPer"
-        Me.IndexPer.Size = New System.Drawing.Size(180, 22)
+        Me.IndexPer.Size = New System.Drawing.Size(161, 22)
         Me.IndexPer.Text = "Indices Perdidos"
+        '
+        'IndicesToolStripMenuItem
+        '
+        Me.IndicesToolStripMenuItem.Name = "IndicesToolStripMenuItem"
+        Me.IndicesToolStripMenuItem.Size = New System.Drawing.Size(161, 22)
+        Me.IndicesToolStripMenuItem.Text = "Indices"
         '
         'AddBaseDatos
         '
@@ -139,6 +147,19 @@ Partial Class Menu
         Me.Atras.Size = New System.Drawing.Size(70, 49)
         Me.Atras.Text = "Atras"
         '
+        'Ejecutar
+        '
+        Me.Ejecutar.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
+        Me.Ejecutar.AutoToolTip = False
+        Me.Ejecutar.CheckOnClick = True
+        Me.Ejecutar.Image = CType(resources.GetObject("Ejecutar.Image"), System.Drawing.Image)
+        Me.Ejecutar.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.Ejecutar.Margin = New System.Windows.Forms.Padding(0)
+        Me.Ejecutar.Name = "Ejecutar"
+        Me.Ejecutar.Overflow = System.Windows.Forms.ToolStripItemOverflow.Never
+        Me.Ejecutar.Size = New System.Drawing.Size(73, 52)
+        Me.Ejecutar.Text = "Ejecutar"
+        '
         'SerBDSeleccionados1
         '
         Me.SerBDSeleccionados1.BackColor = System.Drawing.SystemColors.GradientActiveCaption
@@ -147,12 +168,6 @@ Partial Class Menu
         Me.SerBDSeleccionados1.Name = "SerBDSeleccionados1"
         Me.SerBDSeleccionados1.Size = New System.Drawing.Size(177, 27)
         Me.SerBDSeleccionados1.TabIndex = 1
-        '
-        'IndicesToolStripMenuItem
-        '
-        Me.IndicesToolStripMenuItem.Name = "IndicesToolStripMenuItem"
-        Me.IndicesToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.IndicesToolStripMenuItem.Text = "Indices"
         '
         'Menu
         '
@@ -181,4 +196,5 @@ Partial Class Menu
     Friend WithEvents SerBDSeleccionados1 As SerBDSeleccionados
     Friend WithEvents SaveFileDialog1 As SaveFileDialog
     Friend WithEvents IndicesToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents Ejecutar As ToolStripButton
 End Class
