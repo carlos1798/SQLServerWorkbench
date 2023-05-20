@@ -101,9 +101,6 @@ Public Class Main
 
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) 
-
-    End Sub
 
     Public Sub ejecutarSQLTextBox()
         Dim datatable As DataTable
@@ -121,6 +118,51 @@ Public Class Main
         SplitContainer1.Panel2Collapsed = False
 
     End Sub
+
+
+    Private Sub TreeView1_NodeMouseClick(sender As Object, e As TreeNodeMouseClickEventArgs) Handles TreeView1.NodeMouseClick
+
+        If e.Button = MouseButtons.Right Then
+
+            TreeView1.SelectedNode = e.Node
+
+            For Each db In listaDatabases
+
+                If Not TreeView1.SelectedNode.Text = Nothing Then
+                    If db.Nombre = TreeView1.SelectedNode.Text Then
+
+                        EdicionDb.Show(System.Windows.Forms.Cursor.Position)
+
+                    Else
+                        For Each tabla In db.Tablas
+
+                            If TreeView1.SelectedNode.Text = tabla.NombreTabla Then
+                                EdicionTablas.Show(System.Windows.Forms.Cursor.Position)
+                            End If
+
+                        Next
+
+                    End If
+                End If
+            Next
+        End If
+    End Sub
+
+    Private Sub SelecionarTOP1000ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SelecionarTOP1000ToolStripMenuItem.Click
+
+        Dim tablaSQL As New TablaSQL
+        Dim query As String
+        Dim coordenadas As Integer()
+        Dim tabla As New Tabla
+
+        coordenadas = get_Coordenadas_Tabla(listaDatabases, TreeView1.SelectedNode.Text)
+        tabla = listaDatabases.ElementAt(coordenadas(0)).Tablas.ElementAt(coordenadas(1))
+        query = tablaSQL.Selecttop100Query(tabla)
+
+
+        InputText1.RichTextBox1.Text = query
+    End Sub
+
 
 
     'Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click

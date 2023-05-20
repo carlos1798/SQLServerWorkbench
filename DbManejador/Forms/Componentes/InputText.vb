@@ -27,6 +27,9 @@ Public Class InputText
                 If Not token.Contenido = Nothing Then
                     If token.Contenido.ToUpper = "WHERE" Then
 
+                        RichTextBox1.SelectionColor = Color.DeepSkyBlue
+                    ElseIf token.Tipo = Token.TipoToken.TOKEN_NUMERICO Then
+
                         RichTextBox1.SelectionColor = Color.BlueViolet
                     Else
                         RichTextBox1.SelectionColor = Color.DeepPink

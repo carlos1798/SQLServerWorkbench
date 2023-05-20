@@ -24,7 +24,10 @@ Public Class Lexer
                 index += 1
             ElseIf c = """"c Then
                 tokens.Add(TokenizarDelimitadoresDeCadenas(index, UpperText, TipoToken.TOKEN_COMILLAS))
+            ElseIf IsNumeric(c) Then
+                tokens.Add(TokenizarNumero(index, UpperText, TipoToken.TOKEN_NUMERICO))
             Else
+
                 tokenAux = TokenizarKeyword(index, UpperText)
                 If tokenAux IsNot Nothing Then
                     tokens.Add(tokenAux)
@@ -44,6 +47,35 @@ Public Class Lexer
             Case Else
                 Return Nothing
         End Select
+    End Function
+    Public Function TokenizarNumero(ByRef index As Integer, texto As String, TipodeToken As TipoToken) As Token
+        Dim token As Token
+        Dim numero As String = ""
+        Dim inicio_numero As Integer = index
+        Dim final_numero As Integer
+
+        While index < texto.Length AndAlso Char.IsNumber(texto(index))
+            numero += texto(index)
+            index += 1
+
+            If index + 1 < texto.Length Then
+                If IsNumeric(texto(index + 1)) Then
+                    numero += texto(index)
+                    index += 1
+                End If
+            End If
+        End While
+        final_numero = index - 1
+        If numero <> "" Then
+            token = New Token(numero, inicio_numero, final_numero, TipoToken.TOKEN_NUMERICO)
+            index += 1
+                Return token
+
+            Else
+            index += 1
+            Return Nothing
+        End If
+
     End Function
 
     Public Function TokenizarDelimitadoresDeCadenas(ByRef index As Integer, texto As String, TipodeToken As TipoToken) As Token

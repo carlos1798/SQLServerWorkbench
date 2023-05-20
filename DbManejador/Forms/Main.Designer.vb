@@ -23,10 +23,10 @@ Partial Class Main
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Main))
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.NumCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -43,8 +43,15 @@ Partial Class Main
         Me.TreeView1 = New System.Windows.Forms.TreeView()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.InputText1 = New DbManejador.InputText()
+        Me.EdicionTablas = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.SelecionarTOP1000ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.GenerarSQLToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Menu1 = New DbManejador.Menu()
+        Me.EdicionDb = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.EliminarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.GenerarSQLToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.EliminarTablaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SeleccionarBDToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Query_Result_Container.SuspendLayout()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -61,6 +68,8 @@ Partial Class Main
         Me.DBObjetos_Splitter.Panel2.SuspendLayout()
         Me.DBObjetos_Splitter.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
+        Me.EdicionTablas.SuspendLayout()
+        Me.EdicionDb.SuspendLayout()
         Me.SuspendLayout()
         '
         'DataGridView1
@@ -68,39 +77,39 @@ Partial Class Main
         Me.DataGridView1.AllowUserToAddRows = False
         Me.DataGridView1.BackgroundColor = System.Drawing.Color.White
         Me.DataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Desktop
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Desktop
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.NumCol, Me.TablaNombre, Me.NumeroIndices})
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Menu
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridView1.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Menu
+        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridView1.DefaultCellStyle = DataGridViewCellStyle6
         resources.ApplyResources(Me.DataGridView1, "DataGridView1")
         Me.DataGridView1.GridColor = System.Drawing.SystemColors.Control
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.ControlLightLight
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.InfoText
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ControlLightLight
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridView1.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.ControlLightLight
+        DataGridViewCellStyle7.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.InfoText
+        DataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.ControlLightLight
+        DataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView1.RowHeadersDefaultCellStyle = DataGridViewCellStyle7
         Me.DataGridView1.RowHeadersVisible = False
-        DataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black
-        Me.DataGridView1.RowsDefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black
+        Me.DataGridView1.RowsDefaultCellStyle = DataGridViewCellStyle8
         Me.DataGridView1.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.White
         Me.DataGridView1.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black
         Me.DataGridView1.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight
@@ -213,10 +222,52 @@ Partial Class Main
         Me.Label1.BackColor = System.Drawing.SystemColors.GradientActiveCaption
         Me.Label1.Name = "Label1"
         '
+        'EdicionTablas
+        '
+        Me.EdicionTablas.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SelecionarTOP1000ToolStripMenuItem, Me.GenerarSQLToolStripMenuItem, Me.EliminarTablaToolStripMenuItem})
+        Me.EdicionTablas.Name = "EdicionTablas"
+        resources.ApplyResources(Me.EdicionTablas, "EdicionTablas")
+        '
+        'SelecionarTOP1000ToolStripMenuItem
+        '
+        Me.SelecionarTOP1000ToolStripMenuItem.Name = "SelecionarTOP1000ToolStripMenuItem"
+        resources.ApplyResources(Me.SelecionarTOP1000ToolStripMenuItem, "SelecionarTOP1000ToolStripMenuItem")
+        '
+        'GenerarSQLToolStripMenuItem
+        '
+        Me.GenerarSQLToolStripMenuItem.Name = "GenerarSQLToolStripMenuItem"
+        resources.ApplyResources(Me.GenerarSQLToolStripMenuItem, "GenerarSQLToolStripMenuItem")
+        '
         'Menu1
         '
         resources.ApplyResources(Me.Menu1, "Menu1")
         Me.Menu1.Name = "Menu1"
+        '
+        'EdicionDb
+        '
+        Me.EdicionDb.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SeleccionarBDToolStripMenuItem, Me.EliminarToolStripMenuItem, Me.GenerarSQLToolStripMenuItem1})
+        Me.EdicionDb.Name = "EdicionDb"
+        resources.ApplyResources(Me.EdicionDb, "EdicionDb")
+        '
+        'EliminarToolStripMenuItem
+        '
+        Me.EliminarToolStripMenuItem.Name = "EliminarToolStripMenuItem"
+        resources.ApplyResources(Me.EliminarToolStripMenuItem, "EliminarToolStripMenuItem")
+        '
+        'GenerarSQLToolStripMenuItem1
+        '
+        Me.GenerarSQLToolStripMenuItem1.Name = "GenerarSQLToolStripMenuItem1"
+        resources.ApplyResources(Me.GenerarSQLToolStripMenuItem1, "GenerarSQLToolStripMenuItem1")
+        '
+        'EliminarTablaToolStripMenuItem
+        '
+        Me.EliminarTablaToolStripMenuItem.Name = "EliminarTablaToolStripMenuItem"
+        resources.ApplyResources(Me.EliminarTablaToolStripMenuItem, "EliminarTablaToolStripMenuItem")
+        '
+        'SeleccionarBDToolStripMenuItem
+        '
+        Me.SeleccionarBDToolStripMenuItem.Name = "SeleccionarBDToolStripMenuItem"
+        resources.ApplyResources(Me.SeleccionarBDToolStripMenuItem, "SeleccionarBDToolStripMenuItem")
         '
         'Main
         '
@@ -246,6 +297,8 @@ Partial Class Main
         Me.DBObjetos_Splitter.ResumeLayout(False)
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel1.PerformLayout()
+        Me.EdicionTablas.ResumeLayout(False)
+        Me.EdicionDb.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -267,4 +320,12 @@ Partial Class Main
     Friend WithEvents QueryResult As DataGridView
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
     Friend WithEvents Label1 As Label
+    Friend WithEvents EdicionTablas As ContextMenuStrip
+    Friend WithEvents SelecionarTOP1000ToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents GenerarSQLToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents EdicionDb As ContextMenuStrip
+    Friend WithEvents EliminarToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents GenerarSQLToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents EliminarTablaToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents SeleccionarBDToolStripMenuItem As ToolStripMenuItem
 End Class
