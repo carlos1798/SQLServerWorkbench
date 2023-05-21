@@ -32,10 +32,10 @@ Partial Class Menu
         Me.IndexPer = New System.Windows.Forms.ToolStripMenuItem()
         Me.IndicesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AddBaseDatos = New System.Windows.Forms.ToolStripButton()
+        Me.Ejecutar = New System.Windows.Forms.ToolStripButton()
         Me.Atras = New System.Windows.Forms.ToolStripButton()
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
-        Me.Ejecutar = New System.Windows.Forms.ToolStripButton()
-        Me.SerBDSeleccionados1 = New DbManejador.SerBDSeleccionados()
+        Me.DBSeleccion = New System.Windows.Forms.ToolStripComboBox()
         Me.ToolStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -45,10 +45,11 @@ Partial Class Menu
         Me.ToolStrip1.CanOverflow = False
         Me.ToolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden
         Me.ToolStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Guardar, Me.Sincronizacion, Me.Fragmentacion, Me.ToolStripButton4, Me.AddBaseDatos, Me.Ejecutar, Me.Atras})
+        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Guardar, Me.Sincronizacion, Me.Fragmentacion, Me.ToolStripButton4, Me.AddBaseDatos, Me.Ejecutar, Me.Atras, Me.DBSeleccion})
         Me.ToolStrip1.Location = New System.Drawing.Point(0, 0)
         Me.ToolStrip1.Name = "ToolStrip1"
         Me.ToolStrip1.Size = New System.Drawing.Size(729, 52)
+        Me.ToolStrip1.Stretch = True
         Me.ToolStrip1.TabIndex = 0
         Me.ToolStrip1.Text = "ToolStrip1"
         '
@@ -135,18 +136,6 @@ Partial Class Menu
         Me.AddBaseDatos.Size = New System.Drawing.Size(66, 52)
         Me.AddBaseDatos.Text = "Añadir"
         '
-        'Atras
-        '
-        Me.Atras.AutoSize = False
-        Me.Atras.AutoToolTip = False
-        Me.Atras.Image = Global.DbManejador.My.Resources.Resources.arrow_back_circle
-        Me.Atras.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.Atras.Margin = New System.Windows.Forms.Padding(5, 1, 0, 2)
-        Me.Atras.Name = "Atras"
-        Me.Atras.Overflow = System.Windows.Forms.ToolStripItemOverflow.Never
-        Me.Atras.Size = New System.Drawing.Size(70, 49)
-        Me.Atras.Text = "Atras"
-        '
         'Ejecutar
         '
         Me.Ejecutar.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
@@ -160,20 +149,28 @@ Partial Class Menu
         Me.Ejecutar.Size = New System.Drawing.Size(73, 52)
         Me.Ejecutar.Text = "Ejecutar"
         '
-        'SerBDSeleccionados1
+        'Atras
         '
-        Me.SerBDSeleccionados1.BackColor = System.Drawing.SystemColors.GradientActiveCaption
-        Me.SerBDSeleccionados1.Location = New System.Drawing.Point(66, 8)
-        Me.SerBDSeleccionados1.Margin = New System.Windows.Forms.Padding(4)
-        Me.SerBDSeleccionados1.Name = "SerBDSeleccionados1"
-        Me.SerBDSeleccionados1.Size = New System.Drawing.Size(177, 27)
-        Me.SerBDSeleccionados1.TabIndex = 1
+        Me.Atras.AutoSize = False
+        Me.Atras.AutoToolTip = False
+        Me.Atras.Image = Global.DbManejador.My.Resources.Resources.arrow_back_circle
+        Me.Atras.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.Atras.Margin = New System.Windows.Forms.Padding(5, 1, 0, 2)
+        Me.Atras.Name = "Atras"
+        Me.Atras.Overflow = System.Windows.Forms.ToolStripItemOverflow.Never
+        Me.Atras.Size = New System.Drawing.Size(70, 49)
+        Me.Atras.Text = "Atras"
+        '
+        'DBSeleccion
+        '
+        Me.DBSeleccion.MaxDropDownItems = 20
+        Me.DBSeleccion.Name = "DBSeleccion"
+        Me.DBSeleccion.Size = New System.Drawing.Size(300, 52)
         '
         'Menu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.Controls.Add(Me.SerBDSeleccionados1)
         Me.Controls.Add(Me.ToolStrip1)
         Me.Name = "Menu"
         Me.Size = New System.Drawing.Size(729, 42)
@@ -193,8 +190,8 @@ Partial Class Menu
     Friend WithEvents IndexPer As ToolStripMenuItem
     Friend WithEvents Atras As ToolStripButton
     Friend WithEvents Sincronizacion As ToolStripButton
-    Friend WithEvents SerBDSeleccionados1 As SerBDSeleccionados
     Friend WithEvents SaveFileDialog1 As SaveFileDialog
     Friend WithEvents IndicesToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents Ejecutar As ToolStripButton
+    Friend WithEvents DBSeleccion As ToolStripComboBox
 End Class

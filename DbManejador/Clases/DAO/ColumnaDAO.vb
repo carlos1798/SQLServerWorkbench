@@ -12,11 +12,6 @@ Public Class ColumnaDAO
         Throw New NotImplementedException()
     End Function
 
-    ''' <summary>
-    ''' Devuelve todas las columnas de una tabla determinada
-    ''' </summary>
-    ''' <param name="nombreTabla"></param>
-    ''' <returns></returns>
     Public Function LightFindAll(nombreTabla As String) As List(Of Columna)
         Dim resultado As New List(Of Columna)
         Dim columnaAux As New Columna()
@@ -25,9 +20,6 @@ Public Class ColumnaDAO
         Dim isIdentity As Boolean
         Dim listaIdentity As New List(Of String)
         Try
-            If nombreTabla = "Posts" Then
-                MessageBox.Show("asd")
-            End If
             Conectar()
             Using comandoSql As New SqlCommand(SqlQuery, conexion)
                 Using lectorResultado As SqlDataReader = comandoSql.ExecuteReader
@@ -104,7 +96,7 @@ Public Class ColumnaDAO
         Dim nombre As String
         Try
 
-            conectar()
+            Conectar()
             Using comandoSql As New SqlCommand(SqlQuery, conexion)
                 Using lectorResultado As SqlDataReader = comandoSql.ExecuteReader
                     Using adaptador As New SqlDataAdapter(comandoSql)
@@ -121,15 +113,12 @@ Public Class ColumnaDAO
                     End Using
                 End Using
             End Using
-
         Catch _Exception As Exception
             Console.WriteLine(_Exception.Message)
-            cerrarConexion()
+            CerrarConexion()
             Return Nothing
         End Try
         Return listaColumnas
     End Function
-
-
 
 End Class

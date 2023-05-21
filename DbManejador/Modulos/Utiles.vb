@@ -1,6 +1,7 @@
 ﻿Imports System.Reflection
 
 Public Module Utiles
+
     Public Sub DoubleBuffered(ByRef dgv As DataGridView, ByVal setting As Boolean)
         Dim dgvType As Type = dgv.[GetType]()
         Dim pi As PropertyInfo = dgvType.GetProperty("DoubleBuffered", BindingFlags.Instance Or BindingFlags.NonPublic)
@@ -17,6 +18,7 @@ Public Module Utiles
         Next
         Return index
     End Function
+
     Public Function get_Table_Index_ListaDb(ByRef listaTablas As List(Of Tabla), nombre_tabla As String) As Integer
         Dim index As Integer = -1
         For Each tabla In listaTablas
@@ -26,12 +28,14 @@ Public Module Utiles
         Next
         Return index
     End Function
+
     Public Function get_Coordenadas_DB_Tabla(listaDB As List(Of Database), nombre_tabla As String, nombre_db As String) As Integer()
         Dim coordenadas As Integer() = {-1, -1}
         coordenadas(0) = get_BD_Index_ListaDb(listaDB, nombre_db)
         coordenadas(1) = get_Table_Index_ListaDb(listaDB.ElementAt(coordenadas(0)).Tablas, nombre_tabla)
         Return coordenadas
     End Function
+
     Public Function get_Coordenadas_Tabla(listaDB As List(Of Database), nombre_tabla As String) As Integer()
         Dim coordenadas As Integer() = {-1, -1}
         For Each db In listaDB
@@ -47,11 +51,5 @@ Public Module Utiles
 
         Return coordenadas
     End Function
-
-
-
-
-
-
 
 End Module

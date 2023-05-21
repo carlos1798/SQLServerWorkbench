@@ -36,7 +36,6 @@ Partial Class Main
         Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
         Me.Query_Result_Container = New System.Windows.Forms.TableLayoutPanel()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
-        Me.InputText1 = New DbManejador.InputText()
         Me.QueryResult = New System.Windows.Forms.DataGridView()
         Me.MainSplitter = New System.Windows.Forms.SplitContainer()
         Me.DBObjetos_Splitter = New System.Windows.Forms.SplitContainer()
@@ -51,6 +50,7 @@ Partial Class Main
         Me.SeleccionarBDToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EliminarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GenerarSQLToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.InputText1 = New DbManejador.InputText()
         Me.Menu1 = New DbManejador.Menu()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Query_Result_Container.SuspendLayout()
@@ -161,14 +161,6 @@ Partial Class Main
         '
         Me.SplitContainer1.Panel2.Controls.Add(Me.QueryResult)
         '
-        'InputText1
-        '
-        resources.ApplyResources(Me.InputText1, "InputText1")
-        Me.InputText1.BackColor = System.Drawing.Color.DimGray
-        Me.InputText1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.InputText1.ForeColor = System.Drawing.SystemColors.Window
-        Me.InputText1.Name = "InputText1"
-        '
         'QueryResult
         '
         Me.QueryResult.BackgroundColor = System.Drawing.SystemColors.ControlLightLight
@@ -263,6 +255,14 @@ Partial Class Main
         '
         Me.GenerarSQLToolStripMenuItem1.Name = "GenerarSQLToolStripMenuItem1"
         resources.ApplyResources(Me.GenerarSQLToolStripMenuItem1, "GenerarSQLToolStripMenuItem1")
+        '
+        'InputText1
+        '
+        resources.ApplyResources(Me.InputText1, "InputText1")
+        Me.InputText1.BackColor = System.Drawing.Color.DimGray
+        Me.InputText1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.InputText1.ForeColor = System.Drawing.SystemColors.Window
+        Me.InputText1.Name = "InputText1"
         '
         'Menu1
         '

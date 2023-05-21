@@ -15,6 +15,7 @@
 
         fillTreeNode()
         SplitContainer1.Panel2Collapsed = True
+        Menu1.Fill_BD_Combo(listaDatabases)
 
     End Sub
 
@@ -65,8 +66,6 @@
     End Sub
 
     Private Sub seleccionServidor(servidor As String, baseDatos As String)
-        Menu1.SerBDSeleccionados1.Label3.Text = servidor
-        Menu1.SerBDSeleccionados1.Label4.Text = baseDatos
     End Sub
 
     Private Sub seleccionarBD(basedatos As Database)

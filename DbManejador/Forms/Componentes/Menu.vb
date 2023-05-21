@@ -3,6 +3,7 @@ Imports System.Net.NetworkInformation
 
 Public Class Menu
     Dim reg As New Registro()
+
     Private Sub ToolStrip1_ItemClicked(sender As Object, e As ToolStripItemClickedEventArgs) Handles ToolStrip1.ItemClicked
 
         Select Case e.ClickedItem.ToString
@@ -32,7 +33,7 @@ Public Class Menu
                     Try
                         Dim sw As New StreamWriter(SaveFileDialog1.FileName)
                         If sw IsNot Nothing Then
-                            sw.Write(reg.GenerarString(Main.lista))
+                            sw.Write(Main.InputText1.RichTextBox1.Text)
                         End If
                         sw.Close()
                         MessageBox.Show("Tu archivo se a guardado de forma correcta")
@@ -41,12 +42,24 @@ Public Class Menu
                     End Try
                 End If
 
-
-
         End Select
 
+    End Sub
 
+    Public Sub Fill_BD_Combo(listaDatabases As List(Of Database))
+        For Each db In listaDatabases
+            DBSeleccion.Items.Add(db.Servidor.NombreServidor + " / " + db.Nombre)
+        Next
 
+    End Sub
+
+    Private Sub DBSeleccion_SelectedIndexChanged(sender As Object, e As EventArgs) Handles DBSeleccion.SelectedIndexChanged
+
+        Dim index As Integer = DBSeleccion.SelectedIndex
+
+        Dim eleccion As String = DBSeleccion.Items(index)
+        Dim nombreBd As String = eleccion.Substring(eleccion.LastIndexOf("/") + 1)
+        Login.servidor.ModificarConexionString(nombreBd)
     End Sub
 
 End Class
