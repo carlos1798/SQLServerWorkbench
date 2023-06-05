@@ -2,6 +2,7 @@
     Private _Nombre As String
     Private _Tablas As New List(Of Tabla)
     Private _Servidor As Servidor
+    Private _Seleccionada As Boolean
 
     Public Sub New()
     End Sub
@@ -40,6 +41,15 @@
         End Get
         Set(value As String)
             _Nombre = value
+        End Set
+    End Property
+
+    Public Property Seleccionada As Boolean
+        Get
+            Return _Seleccionada
+        End Get
+        Set(value As Boolean)
+            _Seleccionada = value
         End Set
     End Property
 End Class

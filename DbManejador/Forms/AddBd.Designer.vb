@@ -28,9 +28,7 @@ Partial Class AddBd
         Me.Username_label = New System.Windows.Forms.Label()
         Me.Autenticacion = New System.Windows.Forms.ComboBox()
         Me.nomServidor = New System.Windows.Forms.ComboBox()
-        Me.autenticacionLabel = New System.Windows.Forms.Label()
         Me.nombreServidorLabel = New System.Windows.Forms.Label()
-        Me.cmbListaDB = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
@@ -85,38 +83,19 @@ Partial Class AddBd
         'nomServidor
         '
         Me.nomServidor.FormattingEnabled = True
-        Me.nomServidor.Location = New System.Drawing.Point(194, 81)
+        Me.nomServidor.Location = New System.Drawing.Point(194, 103)
         Me.nomServidor.Name = "nomServidor"
         Me.nomServidor.Size = New System.Drawing.Size(274, 21)
         Me.nomServidor.TabIndex = 10
         '
-        'autenticacionLabel
-        '
-        Me.autenticacionLabel.AutoSize = True
-        Me.autenticacionLabel.Location = New System.Drawing.Point(16, 111)
-        Me.autenticacionLabel.Name = "autenticacionLabel"
-        Me.autenticacionLabel.Size = New System.Drawing.Size(75, 13)
-        Me.autenticacionLabel.TabIndex = 9
-        Me.autenticacionLabel.Text = "Base de datos"
-        '
         'nombreServidorLabel
         '
         Me.nombreServidorLabel.AutoSize = True
-        Me.nombreServidorLabel.Location = New System.Drawing.Point(16, 84)
+        Me.nombreServidorLabel.Location = New System.Drawing.Point(16, 106)
         Me.nombreServidorLabel.Name = "nombreServidorLabel"
         Me.nombreServidorLabel.Size = New System.Drawing.Size(104, 13)
         Me.nombreServidorLabel.TabIndex = 8
         Me.nombreServidorLabel.Text = "Nombre del servidor:"
-        '
-        'cmbListaDB
-        '
-        Me.cmbListaDB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cmbListaDB.FormattingEnabled = True
-        Me.cmbListaDB.Items.AddRange(New Object() {"Autentificacion de Windows", "Autentificacion de SQL Server"})
-        Me.cmbListaDB.Location = New System.Drawing.Point(194, 105)
-        Me.cmbListaDB.Name = "cmbListaDB"
-        Me.cmbListaDB.Size = New System.Drawing.Size(274, 21)
-        Me.cmbListaDB.TabIndex = 17
         '
         'Label1
         '
@@ -133,9 +112,9 @@ Partial Class AddBd
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(62, 25)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(191, 20)
+        Me.Label2.Size = New System.Drawing.Size(136, 20)
         Me.Label2.TabIndex = 18
-        Me.Label2.Text = "Añadir una base de datos"
+        Me.Label2.Text = "Añadir un servidor"
         '
         'Panel1
         '
@@ -173,7 +152,6 @@ Partial Class AddBd
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.cmbListaDB)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.passwdTextBox)
         Me.Controls.Add(Me.usrComboBox)
@@ -181,7 +159,6 @@ Partial Class AddBd
         Me.Controls.Add(Me.Username_label)
         Me.Controls.Add(Me.Autenticacion)
         Me.Controls.Add(Me.nomServidor)
-        Me.Controls.Add(Me.autenticacionLabel)
         Me.Controls.Add(Me.nombreServidorLabel)
         Me.Name = "AddBd"
         Me.Text = "AddBd"
@@ -196,9 +173,7 @@ Partial Class AddBd
     Friend WithEvents Username_label As Label
     Friend WithEvents Autenticacion As ComboBox
     Friend WithEvents nomServidor As ComboBox
-    Friend WithEvents autenticacionLabel As Label
     Friend WithEvents nombreServidorLabel As Label
-    Friend WithEvents cmbListaDB As ComboBox
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Panel1 As Panel

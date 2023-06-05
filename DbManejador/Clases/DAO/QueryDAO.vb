@@ -3,7 +3,6 @@
 Public Class QueryDAO
     Inherits ConexionBD
 
-    Dim sqlTablabuilder As New TablaSQL
     'Devuelvo la query que me de devuelve el valor modificado
     Public Function ExecuteUpdateQuery(SQlQuery As String) As Integer
         Dim filas_afectadas As Integer = 0

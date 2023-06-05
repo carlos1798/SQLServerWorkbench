@@ -21,9 +21,9 @@ Public Class Menu
             Case "Fragmentacion"
                 Dim FormFragmentacion As New VistaFragmentacion()
                 FormFragmentacion.Show()
-            Case "AddBaseDatos"
+            Case "Añadir"
                 Dim AddDBForm As New AddBd()
-
+                AddDBForm.Show()
             Case "Ejecutar"
                 Main.ejecutarSQLTextBox()
             Case "Guardar"
@@ -46,9 +46,11 @@ Public Class Menu
 
     End Sub
 
-    Public Sub Fill_BD_Combo(listaDatabases As List(Of Database))
-        For Each db In listaDatabases
-            DBSeleccion.Items.Add(db.Servidor.NombreServidor + " / " + db.Nombre)
+    Public Sub Fill_BD_Combo()
+        For Each servidor In Login.servidores.ListaServidores
+            For Each db In servidor.ListaDatabases
+                DBSeleccion.Items.Add(db.Servidor.NombreServidor + " / " + db.Nombre)
+            Next
         Next
 
     End Sub

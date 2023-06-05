@@ -34,8 +34,8 @@ Partial Class Menu
         Me.AddBaseDatos = New System.Windows.Forms.ToolStripButton()
         Me.Ejecutar = New System.Windows.Forms.ToolStripButton()
         Me.Atras = New System.Windows.Forms.ToolStripButton()
-        Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
         Me.DBSeleccion = New System.Windows.Forms.ToolStripComboBox()
+        Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
         Me.ToolStrip1.SuspendLayout()
         Me.SuspendLayout()
         '

@@ -11,8 +11,8 @@ Public Class Login
 
     'Se almacenaran todos los servidores que se van añadiendo en la sesion
     Private ReadOnly registro As New Registro
-    Dim servidores As Servidores = registro.GetServidores()
-    Dim listaDatabases As New List(Of Database)
+    'Public servidores As Servidores = registro.GetServidores()
+    Public servidores As New Servidores()
     Public servidor As Servidor
 
 
@@ -21,16 +21,19 @@ Public Class Login
             servidor = RecuperarDatosForm()
             servidor.ModificarConexionString("master")
 
-            If servidor.CheckExistenciaServidor() Then 'Sabemos que esta en alcance el servidor
-                Main.Show()
-                MessageBox.Show("Conectado")
-                If Not servidores.ExisteEnArchivo(servidor) Then
-                    registro.SaveServidor(servidor)
+            '   If servidor.CheckExistenciaServidor() Then 'Sabemos que esta en alcance el servidor
+            '   If Not servidores.ExisteEnArchivo(servidor) Then
+            ' registro.SaveServidor(servidor)
+            Using ServidorDAO As New ServidorDAO()
+                        servidor = ServidorDAO.FindBy(servidor)
+                    End Using
                     servidores.ListaServidores.Add(servidor)
-                End If
-            Else
-                    MsgBox("No se encuentra el nombre de ese servidor")
-            End If
+            '       End If
+            Dim main As New Main()
+                main.Show()
+            '   Else
+            '   MsgBox("No se encuentra el nombre de ese servidor")
+            '   End If
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         End Try
@@ -80,7 +83,6 @@ Public Class Login
             Me.nomServidor.TabIndex = servidores.ListaServidores.Count
             For Each servidor In servidores.ListaServidores
                 If Not servidor.NombreServidor = "" Then
-
                     nomServidor.Items.Add(servidor.NombreServidor)
 
                 End If

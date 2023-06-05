@@ -1,5 +1,6 @@
 ﻿Public Class Main
     Public listaDatabases As List(Of Database)
+    Dim listaAuxDB As List(Of Database)
     Dim reg As New Registro
     Public lista As New List(Of String)
     Dim tablaSql As New TablaSQL
@@ -15,43 +16,13 @@
 
         fillTreeNode()
         SplitContainer1.Panel2Collapsed = True
-        Menu1.Fill_BD_Combo(listaDatabases)
+        Menu1.Fill_BD_Combo()
 
     End Sub
 
-    Private Sub fillTreeNode()
-
-        TreeView1.Nodes.Clear()
-        Dim root As New TreeNode(Login.servidor.NombreServidor)
-        TreeView1.Nodes.Add(root)
-        Using DatabaseDAO As New DatabaseDAO()
-            listaDatabases = DatabaseDAO.FindAll()
-        End Using
-        For Each Database In listaDatabases
-            Database.Servidor = Login.servidor
-            Login.servidor.ModificarConexionString(Database.Nombre)
-            TreeView1.Nodes(0).Nodes.Add(New TreeNode(Database.Nombre))
-
-            Using TablaDAO As New TablaDAO()
-                Database.Tablas = TablaDAO.LightFindAll()
-            End Using
-        Next
-        For Each Database In listaDatabases
-            Login.servidor.ModificarConexionString(Database.Nombre)
-            For Each tabla In Database.Tablas
-                Using ColumnaDAO As New ColumnaDAO()
-                    tabla.Columnas = ColumnaDAO.LightFindAll(tabla.NombreTabla)
-                End Using
-                Using IndiceDao As New IndiceDAO
-                    tabla.Indices = IndiceDao.FindByTable(tabla.NombreTabla)
-                End Using
-            Next
-        Next
+    Public Sub fill_TreeView(listadb As List(Of Database))
         For Each db In listaDatabases
             Dim asd As New BDSelector(db.Nombre, db.Servidor.NombreServidor, db)
-            AddHandler asd.Eleccion, AddressOf seleccionServidor
-            AddHandler asd.EleccionBD, AddressOf seleccionarBD
-
             TreeView1.Nodes(0).ImageIndex = 1
             For Each nodo As TreeNode In TreeView1.Nodes(0).Nodes
                 If db.Nombre.Equals(nodo.Text) Then
@@ -62,6 +33,61 @@
                 End If
             Next
         Next
+    End Sub
+
+
+    Public Sub Add_Server(servidor As Servidor)
+        Dim root As New TreeNode(servidor.NombreServidor)
+        TreeView1.Nodes.Add(root)
+
+
+        For Each bd In servidor.ListaDatabases
+
+            TreeView1.Nodes(TreeView1.Nodes.Count - 1).Nodes.Add(New TreeNode(bd.Nombre))
+            Dim asd As New BDSelector(bd.Nombre, bd.Servidor.NombreServidor, bd)
+
+            TreeView1.Nodes(0).ImageIndex = 1
+            For Each nodo As TreeNode In TreeView1.Nodes(0).Nodes
+                If bd.Nombre.Equals(nodo.Text) Then
+                    For Each tabla In bd.Tablas
+                        nodo.Nodes.Add(New TreeNode(tabla.NombreTabla))
+                        nodo.SelectedImageIndex = 3
+                    Next
+                End If
+            Next
+        Next
+
+
+    End Sub
+
+
+    Public Sub fillTreeNode()
+
+        TreeView1.Nodes.Clear()
+
+        Dim root As New TreeNode(Login.servidor.NombreServidor)
+        TreeView1.Nodes.Add(root)
+
+
+        For Each servidor In Login.servidores.ListaServidores
+            For Each bd In Servidor.ListaDatabases
+                TreeView1.Nodes(TreeView1.Nodes.Count - 1).Nodes.Add(New TreeNode(bd.Nombre))
+                Dim asd As New BDSelector(bd.Nombre, bd.Servidor.NombreServidor, bd)
+
+                TreeView1.Nodes(0).ImageIndex = 1
+                For Each nodo As TreeNode In TreeView1.Nodes(0).Nodes
+                    If bd.Nombre.Equals(nodo.Text) Then
+                        For Each tabla In bd.Tablas
+                            nodo.Nodes.Add(New TreeNode(tabla.NombreTabla))
+                            nodo.SelectedImageIndex = 3
+                        Next
+                    End If
+                Next
+            Next
+        Next
+
+
+
 
     End Sub
 
@@ -85,24 +111,24 @@
     Private Sub TreeView1_AfterSelect(sender As Object, e As TreeViewEventArgs) Handles TreeView1.AfterSelect
 
         DataGridView1.Rows.Clear()
-        For Each Database In listaDatabases
+        For Each servidor In Login.servidores.ListaServidores
+            For Each Database In servidor.ListaDatabases
+                For Each tabla In Database.Tablas
 
-            For Each tabla In Database.Tablas
+                    If TreeView1.SelectedNode.Text = tabla.NombreTabla Then
+                        For Each columna In tabla.Columnas
+                            DataGridView1.Rows.Add(columna.Nombre, columna.OrdenColumna, columna.tipoDato.ToString)
+                            Label1.Text = TreeView1.SelectedNode.Text
+                        Next
 
-                If TreeView1.SelectedNode.Text = tabla.NombreTabla Then
-                    For Each columna In tabla.Columnas
-                        DataGridView1.Rows.Add(columna.Nombre, columna.OrdenColumna, columna.tipoDato.ToString)
-
-                        Label1.Text = TreeView1.SelectedNode.Text
-                    Next
-
-                End If
+                    End If
+                Next
             Next
         Next
 
     End Sub
 
-    Public Sub ejecutarSQLTextBox()
+    Public Sub EjecutarSQLTextBox()
         Dim datatable As DataTable
         Dim bs As New BindingSource
         Dim tablasql As New TablaSQL
@@ -153,20 +179,23 @@
 
         If e.Button = MouseButtons.Right Then
             TreeView1.SelectedNode = e.Node
-            For Each db In listaDatabases
-                If Not TreeView1.SelectedNode.Text = Nothing Then
-                    If db.Nombre = TreeView1.SelectedNode.Text Then
-                        EdicionDb.Show(System.Windows.Forms.Cursor.Position)
-                    Else
-                        For Each tabla In db.Tablas
-                            If TreeView1.SelectedNode.Text = tabla.NombreTabla Then
-                                EdicionTablas.Show(System.Windows.Forms.Cursor.Position)
-                            End If
 
-                        Next
+            For Each servidor In Login.servidores.ListaServidores
+                For Each db In servidor.ListaDatabases
+                    If Not TreeView1.SelectedNode.Text = Nothing Then
+                        If db.Nombre = TreeView1.SelectedNode.Text Then
+                            EdicionDb.Show(System.Windows.Forms.Cursor.Position)
+                        Else
+                            For Each tabla In db.Tablas
+                                If TreeView1.SelectedNode.Text = tabla.NombreTabla Then
+                                    EdicionTablas.Show(System.Windows.Forms.Cursor.Position)
+                                End If
 
+                            Next
+
+                        End If
                     End If
-                End If
+                Next
             Next
         End If
     End Sub
@@ -176,22 +205,25 @@
         Dim tablaSQL As New TablaSQL
         Dim query As String
         Dim coordenadas As Integer()
-        Dim tabla As New Tabla
+        Dim tabla As Tabla
 
-        coordenadas = get_Coordenadas_Tabla(listaDatabases, TreeView1.SelectedNode.Text)
-        tabla = listaDatabases.ElementAt(coordenadas(0)).Tablas.ElementAt(coordenadas(1))
+        coordenadas = get_Coordenadas_Tabla(TreeView1.SelectedNode.Text, True)
+        tabla = get_Tabla_Coordenadas(coordenadas)
+
         query = tablaSQL.Selecttop100Query(tabla)
         InputText1.RichTextBox1.Text = query
-        ejecutarSQLTextBox()
+
+
+        EjecutarSQLTextBox()
     End Sub
 
     Private Sub GenerarSQLToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GenerarSQLToolStripMenuItem.Click
         Dim tablaSQL As New TablaSQL
         Dim query As String
         Dim coordenadas As Integer()
-        Dim tabla As New Tabla
+        Dim tabla As Tabla
 
-        coordenadas = get_Coordenadas_Tabla(listaDatabases, TreeView1.SelectedNode.Text)
+        coordenadas = get_Coordenadas_Tabla(TreeView1.SelectedNode.Text)
 
         tabla = listaDatabases.ElementAt(coordenadas(0)).Tablas.ElementAt(coordenadas(1))
         query = tablaSQL.Crear(tabla)
@@ -204,7 +236,7 @@
         Dim coordenadas As Integer()
         Dim tabla As New Tabla
 
-        coordenadas = get_Coordenadas_Tabla(listaDatabases, TreeView1.SelectedNode.Text)
+        coordenadas = get_Coordenadas_Tabla(TreeView1.SelectedNode.Text)
 
         tabla = listaDatabases.ElementAt(coordenadas(0)).Tablas.ElementAt(coordenadas(1))
         query = tablaSQL.Eliminar(tabla)
@@ -213,7 +245,7 @@
     End Sub
 
     Private Sub GenerarSQLToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles GenerarSQLToolStripMenuItem1.Click
-        Dim db As New Database
+        Dim db As Database
         Dim query As String
         Dim coordenadas As Integer
         Dim dbSQLbuilder As New DatabaseSQL
@@ -225,6 +257,7 @@
         InputText1.RichTextBox1.Text = query
 
     End Sub
+
 
     'Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
     '    For Each db In listaDatabases

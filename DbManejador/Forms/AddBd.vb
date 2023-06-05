@@ -56,12 +56,12 @@ Public Class AddBd
 
 
     Private Sub NomServidor_Click(sender As Object, e As EventArgs) Handles nomServidor.Click
-        If Not nomServidor.Items.Count = 0 Then nomServidor.Items.Clear()
+        'If Not nomServidor.Items.Count = 0 Then nomServidor.Items.Clear()
 
-        Me.nomServidor.TabIndex = listaservidores.listaServidores.Count
-        For Each servidor In listaservidores.listaServidores
-            nomServidor.Items.Add(servidor.NombreServidor)
-        Next
+        'Me.nomServidor.TabIndex = listaservidores.listaServidores.Count
+        'For Each servidor In listaservidores.listaServidores
+        '    nomServidor.Items.Add(servidor.NombreServidor)
+        'Next
     End Sub
 
     Private Sub NomServidor_SelectedValueChanged(sender As Object, e As EventArgs) Handles nomServidor.SelectedValueChanged
@@ -94,9 +94,15 @@ Public Class AddBd
         servidor.ModificarConexionString("master")
         Try
             If servidor.CheckExistenciaServidor() Then 'Sabemos que esta en alcance el servidor
-                Main.Show()
-                MessageBox.Show("Conectado")
-                registo.SaveServidor(servidor) 'Lo guardamos
+                Using ServidorDAO As New ServidorDAO()
+                    servidor = ServidorDAO.FindBy(servidor)
+                End Using
+
+
+                Me.Close()
+
+                Login.servidores.ListaServidores.Add(servidor)
+                Main.fillTreeNode()
             Else
                 MsgBox("No se encuentra el nombre de ese servidor")
             End If
