@@ -144,6 +144,12 @@
     <Compile Include="Forms\Componentes\InputText.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Forms\Componentes\SubMenu.Designer.vb">
+      <DependentUpon>SubMenu.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Componentes\SubMenu.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Forms\Componentes\UserControl2.Designer.vb">
       <DependentUpon>UserControl2.vb</DependentUpon>
     </Compile>
@@ -230,6 +236,9 @@
     <EmbeddedResource Include="Forms\Componentes\SerBDSeleccionados.resx">
       <DependentUpon>SerBDSeleccionados.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Componentes\SubMenu.resx">
+      <DependentUpon>SubMenu.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Componentes\UserControl2.resx">
       <DependentUpon>UserControl2.vb</DependentUpon>
     </EmbeddedResource>
@@ -248,6 +257,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ComparadorEsquemas.resx">
       <DependentUpon>ComparadorEsquemas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\VistaIndices.resx">
+      <DependentUpon>VistaIndices.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

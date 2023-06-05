@@ -52,4 +52,10 @@ Public Module Utiles
         Return coordenadas
     End Function
 
+    Public Function get_Tabla_Por_Coordenadas(listabd As List(Of Database), coordenadas As Integer()) As Tabla
+        Dim Tabla As Tabla = listabd.ElementAt(coordenadas(0)).Tablas.ElementAt(coordenadas(1))
+        Return Tabla
+
+    End Function
+
 End Module
