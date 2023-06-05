@@ -23,8 +23,8 @@ Para ejecutar este gestor de bases de datos, se requiere tener instalado en el e
 
 ## Instalación
 
-Para instalar y ejecutar este gestor de bases de datos, simplemente descarga el archivo ejecutable desde el repositorio y ejecútalo en tu equipo. Se recomienda leer la documentación adjunta para obtener más información sobre el uso y las funcionalidades de este gestor de bases de datos.
+Para instalar y ejecutar este gestor de bases de datos, simplemente descarga el archivo ejecutable desde el repositorio y ejecútalo en tu equipo. Se recomienda leer la documentación adjunta para obtener más información sobre el uso y las funcionalidades.
 
- Si tienes alguna duda o comentario, no dudes en ponerte en contacto con el desarrollador.
+ Si tienes alguna duda o comentario, no dudes en ponerte en contacto con conmigo.
 
 
