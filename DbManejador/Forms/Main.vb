@@ -7,6 +7,17 @@
     Public bdseleccionada As String = ""
     Private servidores As New Servidores()
     Public servidorSelec As String = ""
+    Private _sqlquery As String = ""
+
+    Public Property Sqlquery As String
+        Get
+            Return _sqlquery
+        End Get
+        Set(value As String)
+            _sqlquery = value
+        End Set
+    End Property
+
     Private Sub Main_Load(sender As Object, e As EventArgs) Handles Me.Load
         Using LoginForm As New Login(servidores)
             LoginForm.ShowDialog()
@@ -21,8 +32,6 @@
     End Sub
 
     Public Sub New()
-
-
         ' Esta llamada es exigida por el diseñador.
         InitializeComponent()
 
@@ -43,11 +52,13 @@
         Next
     End Sub
 
+    Public Sub print_sql_editor()
+        InputText1.RichTextBox1.Text = Sqlquery
+    End Sub
 
     Public Sub Add_Server(servidor As Servidor)
         Dim root As New TreeNode(servidor.NombreServidor)
         TreeView1.Nodes.Add(root)
-
 
         For Each bd In servidor.ListaDatabases
 
@@ -65,16 +76,11 @@
             Next
         Next
 
-
     End Sub
-
 
     Public Sub fillTreeNode()
 
         TreeView1.Nodes.Clear()
-
-
-
 
         For Each servidor In servidores.ListaServidores
             Dim root As New TreeNode(servidor.NombreServidor)
@@ -95,12 +101,6 @@
             Next
         Next
 
-
-
-
-    End Sub
-
-    Private Sub seleccionServidor(servidor As String, baseDatos As String)
     End Sub
 
     Private Sub seleccionarBD(basedatos As Database)
@@ -222,7 +222,6 @@
         query = tablaSQL.Selecttop100Query(tabla)
         InputText1.RichTextBox1.Text = query
 
-
         EjecutarSQLTextBox()
     End Sub
 
@@ -270,9 +269,13 @@
     Private Sub Menu1_new_server_add(servidor As Servidores) Handles Menu1.new_server_add
         servidores = Menu1.Servidores
         fillTreeNode()
-
     End Sub
 
+    Private Sub Menu1_added_sql(SQL As String) Handles Menu1.added_sql
+        Sqlquery = SQL
+        print_sql_editor()
+
+    End Sub
 
     'Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
     '    For Each db In listaDatabases

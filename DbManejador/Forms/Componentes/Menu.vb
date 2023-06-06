@@ -3,8 +3,13 @@ Imports System.Net.NetworkInformation
 
 Public Class Menu
     Dim reg As New Registro()
+
     Public Event new_server_add(servidor As Servidores)
+
+    Public Event added_sql(SQL As String)
+
     Private _servidores As New Servidores
+    Private _sqlQuery As String = ""
 
     Public Property Servidores As Servidores
         Get
@@ -14,6 +19,15 @@ Public Class Menu
             _servidores = value
 
             Fill_BD_Combo()
+        End Set
+    End Property
+
+    Public Property SqlQuery As String
+        Get
+            Return _sqlQuery
+        End Get
+        Set(value As String)
+            _sqlQuery = value
         End Set
     End Property
 
@@ -32,17 +46,18 @@ Public Class Menu
                 Dim IndicesSugeridos As New IndicesSugeridos()
                 IndicesSugeridos.Show()
             Case "Fragmentacion"
-                Dim FormFragmentacion As New VistaFragmentacion()
-                FormFragmentacion.Show()
+                Using FormFragmentacion As New VistaFragmentacion()
+                    FormFragmentacion.ShowDialog()
+                    SqlQuery = FormFragmentacion.SQL
+                    RaiseEvent added_sql(SqlQuery)
+
+                End Using
             Case "Añadir"
                 Using AddDBForm As New AddBd()
                     AddDBForm.ShowDialog()
-
                     Servidores.ListaServidores.Add(AddDBForm.Servidor)
                     Fill_BD_Combo()
                     RaiseEvent new_server_add(Servidores)
-
-
                 End Using
 
             Case "Ejecutar"

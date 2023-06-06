@@ -2,13 +2,11 @@
 
 Public Class AddBd
 
-
     Dim nombreServidor As String = ""
     Private ReadOnly tipoautenticacion As TipoAutentificacion
     Dim nombreUsuario As String = ""
     Dim contrasena As String = ""
 
-    'Se almacenaran todos los servidores que se van añadiendo en la sesion
     Private ReadOnly registo As New Registro
     ReadOnly listaservidores = registo.GetServidores()
     Private _servidor As Servidor
@@ -25,6 +23,7 @@ Public Class AddBd
     Private Sub Cancelar_Click(sender As Object, e As EventArgs) Handles Cancelar.Click
         Me.Close()
     End Sub
+
     Private Function RecuperarDatosForm() As Servidor
         nombreServidor = nomServidor.Text
         Select Case Autenticacion.SelectedIndex
@@ -55,7 +54,6 @@ Public Class AddBd
             Me.passwdTextBox.Enabled = True
         End If
     End Sub
-
 
     Private Sub NomServidor_Click(sender As Object, e As EventArgs) Handles nomServidor.Click
         'If Not nomServidor.Items.Count = 0 Then nomServidor.Items.Clear()
@@ -102,7 +100,6 @@ Public Class AddBd
                 End Using
 
                 Me.Close()
-
             Else
                 MsgBox("No se encuentra el nombre de ese servidor")
             End If
