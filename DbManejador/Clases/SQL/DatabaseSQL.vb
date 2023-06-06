@@ -1,4 +1,5 @@
 ﻿Public Class DatabaseSQL
+    Implements SQLBuilder
     Dim sqlBuilderTablas As New TablaSQL
 
     Public Function Crear(DB As Database) As String

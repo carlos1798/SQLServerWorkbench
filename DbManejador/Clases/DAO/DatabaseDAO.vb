@@ -1,8 +1,9 @@
 ﻿Imports System.Data.SqlClient
 
 Public Class DatabaseDAO
-    Inherits ConexionBD
+    Inherits ConexionBD, Database
     Implements IDAO(Of Database)
+
     Public Function FindAll() As List(Of Database) Implements IDAO(Of Database).FindAll
         Dim listaDatabases As New List(Of Database)
         Dim SqlQuery As String = $"SELECT name FROM sys.databases " 'where name = 'GESTIONSQL' "
@@ -22,7 +23,6 @@ Public Class DatabaseDAO
                     End Using
                 End Using
             End Using
-
         Catch ex As Exception
 
         End Try
@@ -52,10 +52,10 @@ Public Class DatabaseDAO
                     End Using
                 End Using
             End Using
-
         Catch ex As Exception
             Return Nothing
         End Try
         Return db
     End Function
+
 End Class

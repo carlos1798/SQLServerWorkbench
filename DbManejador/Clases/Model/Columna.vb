@@ -1,4 +1,5 @@
 ﻿Public Class Columna
+    Inherits Indice
     Public tipoDato As Tipo
 
     Private _restriciones As New List(Of Restriccion)
@@ -8,7 +9,9 @@
     Private _isPrimaryKey As Boolean
     Private _isIdentity As Boolean
     Private _nombre As String
+
 #Region "Constructores"
+
     Public Sub New()
     End Sub
 
@@ -26,9 +29,11 @@
         Me.OrdenColumna = ordenColumna
         Me.Nombre = nomb
     End Sub
+
 #End Region
 
 #Region "Setters y getters"
+
     Public Property Restriciones As List(Of Restriccion)
         Get
             Return _restriciones
@@ -91,14 +96,13 @@
             _nombre = value
         End Set
     End Property
-#End Region
 
+#End Region
 
     Public Function ComparacionColumnas(columna_y As Columna)
         Dim Dif As New Dictionary(Of String, String)
         For Each propiedad In [GetType].GetProperties
             If propiedad.Equals("Restricciones") Then
-
             Else
                 Dim valor1 = propiedad.GetValue(Me)
                 Dim valor2 = propiedad.GetValue(columna_y)
@@ -130,4 +134,5 @@
                IsIdentity = columna.IsIdentity AndAlso
                Nombre = columna.Nombre
     End Function
+
 End Class

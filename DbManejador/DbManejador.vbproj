@@ -99,7 +99,6 @@
     <Compile Include="Clases\Model\Columna.vb" />
     <Compile Include="Clases\Model\Database.vb" />
     <Compile Include="Clases\Model\Indice.vb" />
-    <Compile Include="Clases\Model\Procedimiento.vb" />
     <Compile Include="Clases\Model\Restriccion.vb" />
     <Compile Include="Clases\Model\Servidor.vb" />
     <Compile Include="Clases\Model\Servidores.vb" />
@@ -185,12 +184,6 @@
     <Compile Include="Forms\ComparadorEsquemas.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\VistaIndices.Designer.vb">
-      <DependentUpon>VistaIndices.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\VistaIndices.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Modulos\ConexionBD.vb" />
     <Compile Include="Modulos\GeneradorSQL.vb" />
     <Compile Include="Modulos\Lexer.vb" />
@@ -232,6 +225,12 @@
     <EmbeddedResource Include="Forms\Componentes\UserControl2.resx">
       <DependentUpon>UserControl2.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\IndicesDesuso.resx">
+      <DependentUpon>IndicesDesuso.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\IndicesSugeridos.resx">
+      <DependentUpon>IndicesSugeridos.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\VistaFragmentacion.resx">
       <DependentUpon>VistaFragmentacion.vb</DependentUpon>
     </EmbeddedResource>
@@ -256,6 +255,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>

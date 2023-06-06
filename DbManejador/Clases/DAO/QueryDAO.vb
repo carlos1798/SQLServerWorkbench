@@ -20,6 +20,7 @@ Public Class QueryDAO
         End Try
 
     End Function
+
     Public Function ExecuteSelectQuery(SQlQuery As String) As DataTable
         Dim tablaDatos As New DataTable
         Try
@@ -31,8 +32,6 @@ Public Class QueryDAO
                     Return tablaDatos
                 End Using
             End Using
-
-
         Catch ex As Exception
             MessageBox.Show(ex.Message)
             Return Nothing

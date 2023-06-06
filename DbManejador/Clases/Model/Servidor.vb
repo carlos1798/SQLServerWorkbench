@@ -3,6 +3,7 @@ Imports System.Runtime.Serialization
 Imports System.Xml.Serialization
 
 Public Class Servidor
+    Inherits Database
 
     Private _nombreServidor As String
     Private _tipoLogin As TipoAutentificacion
@@ -10,12 +11,14 @@ Public Class Servidor
     Private _contrasena As String
     Private _listaDatabases As List(Of Database)
     Private _seleccionado As Boolean
+
     Public Enum TipoAutentificacion
         WINDOWS
         SQLSERVER
     End Enum
 
 #Region "Getters y setters"
+
     Public Property NombreServidor As String
         Get
             Return _nombreServidor
@@ -71,15 +74,18 @@ Public Class Servidor
     End Property
 
     '    Dim nombreTest As String = "DESKTOP-LAV1DTM"
+
 #End Region
 
 #Region "Constructores"
+
     Public Sub New(nombreServidor As String, usuario As String, contrasena As String)
         Me.NombreServidor = nombreServidor
         Me.Usuario = usuario
         Me.TipoLogin = TipoAutentificacion.SQLSERVER
         Me.Contrasena = contrasena
     End Sub
+
     Public Sub New(nombreServidor As String)
         Dim userName As String = My.User.Name.ToString
         Dim trimUsername As String = userName.Remove(0, userName.LastIndexOf("\") + 1)
@@ -89,11 +95,13 @@ Public Class Servidor
         Me.Usuario = trimUsername
 
     End Sub
+
     Public Sub New()
 
     End Sub
 
 #End Region
+
     Public Function CheckExistenciaServidor()
         Dim exito As Boolean = False
         Dim ping As New Ping()
@@ -105,6 +113,7 @@ Public Class Servidor
         End Try
         Return exito
     End Function
+
     Public Function CrearConexionString() As String
         Dim conexion As String
         If TipoLogin = TipoAutentificacion.WINDOWS Then
@@ -114,6 +123,7 @@ Public Class Servidor
         End If
         Return conexion
     End Function
+
     Public Function ModificarConexionString(dbName As String) As String
         Dim conexion As String
         If TipoLogin = TipoAutentificacion.WINDOWS Then

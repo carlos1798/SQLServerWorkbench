@@ -50,7 +50,6 @@ Public Class Menu
                     FormFragmentacion.ShowDialog()
                     SqlQuery = FormFragmentacion.SQL
                     RaiseEvent added_sql(SqlQuery)
-
                 End Using
             Case "Añadir"
                 Using AddDBForm As New AddBd()
@@ -59,7 +58,6 @@ Public Class Menu
                     Fill_BD_Combo()
                     RaiseEvent new_server_add(Servidores)
                 End Using
-
             Case "Ejecutar"
                 Main.EjecutarSQLTextBox()
             Case "Guardar"

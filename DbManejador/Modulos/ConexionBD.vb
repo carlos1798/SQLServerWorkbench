@@ -2,7 +2,6 @@
 Imports System.Configuration
 Imports System.Data.SqlClient
 Public MustInherit Class ConexionBD
-    Implements IDisposable
 
     Protected conexion As SqlConnection
     Protected comando As SqlCommand

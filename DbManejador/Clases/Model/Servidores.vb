@@ -1,6 +1,9 @@
 ﻿Public Class Servidores
+    Inherits Servidor
     Implements IDisposable
+
     Private _listaServidores As List(Of Servidor)
+
     Public Sub New(listaServidores As List(Of Servidor))
         Me.ListaServidores = listaServidores
     End Sub
@@ -8,6 +11,7 @@
     Public Sub New()
         Me.ListaServidores = New List(Of Servidor)
     End Sub
+
     Public Property ListaServidores As List(Of Servidor)
         Get
             Return _listaServidores

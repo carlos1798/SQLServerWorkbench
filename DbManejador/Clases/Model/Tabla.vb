@@ -1,4 +1,5 @@
 ﻿Public Class Tabla
+    Inherits Columna
 
     Private _nombreTabla As String
     Private _totFilas As Long
@@ -15,6 +16,7 @@
         Me.Restricciones = restricciones
 
     End Sub
+
     Public Sub New(nombreTabla As String)
         Me.NombreTabla = nombreTabla
     End Sub
@@ -22,8 +24,8 @@
     Public Sub New()
     End Sub
 
-
 #Region "Getters y setters"
+
     Public Property TotFilas As Long
         Get
             Return _totFilas
@@ -77,14 +79,14 @@
             _sentenciaSQL = value
         End Set
     End Property
-#End Region
 
+#End Region
 
     Public Sub AsignarClavePrimaria(listaClaves As List(Of String))
         For Each PK In listaClaves
             For Each columna In Columnas
                 If columna.Nombre = PK Then
-                    columna.isIdentity = True
+                    columna.IsIdentity = True
                 End If
             Next
         Next

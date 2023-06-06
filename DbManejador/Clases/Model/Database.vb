@@ -1,4 +1,6 @@
 ﻿Public Class Database
+    Inherits Tabla
+
     Private _Nombre As String
     Private _Tablas As New List(Of Tabla)
     Private _Servidor As Servidor
@@ -52,4 +54,5 @@
             _Seleccionada = value
         End Set
     End Property
+
 End Class
