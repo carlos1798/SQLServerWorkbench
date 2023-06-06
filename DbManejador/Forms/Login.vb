@@ -11,26 +11,56 @@ Public Class Login
 
     'Se almacenaran todos los servidores que se van añadiendo en la sesion
     Private ReadOnly registro As New Registro
-    Dim servidores As Servidores = registro.GetServidores()
-    Dim listaDatabases As New List(Of Database)
-    Public servidor As Servidor
+    'Public servidores As Servidores = registro.GetServidores()
+    Private _servidores As New Servidores()
+    Private _servidor As Servidor
 
+    Public Property Servidores As Servidores
+        Get
+            Return _servidores
+        End Get
+        Set(value As Servidores)
+            _servidores = value
+        End Set
+    End Property
+
+    Public Property Servidor As Servidor
+        Get
+            Return _servidor
+        End Get
+        Set(value As Servidor)
+            _servidor = value
+        End Set
+    End Property
+
+    Public Sub New(servidores As Servidores)
+
+
+        ' Esta llamada es exigida por el diseñador.
+        InitializeComponent()
+        Me._servidores = servidores
+
+        ' Agregue cualquier inicialización después de la llamada a InitializeComponent().
+
+    End Sub
 
     Private Sub Aceptar_Click(sender As Object, e As EventArgs) Handles Aceptar.Click
         Try
-            servidor = RecuperarDatosForm()
-            servidor.ModificarConexionString("master")
+            Servidor = RecuperarDatosForm()
+            Servidor.ModificarConexionString("master")
 
-            If servidor.CheckExistenciaServidor() Then 'Sabemos que esta en alcance el servidor
-                Main.Show()
-                MessageBox.Show("Conectado")
-                If Not servidores.ExisteEnArchivo(servidor) Then
-                    registro.SaveServidor(servidor)
-                    servidores.ListaServidores.Add(servidor)
-                End If
-            Else
-                    MsgBox("No se encuentra el nombre de ese servidor")
-            End If
+            '   If servidor.CheckExistenciaServidor() Then 'Sabemos que esta en alcance el servidor
+            '   If Not servidores.ExisteEnArchivo(servidor) Then
+            ' registro.SaveServidor(servidor)
+            Using ServidorDAO As New ServidorDAO()
+                servidor = ServidorDAO.FindBy(servidor)
+            End Using
+            Servidores.ListaServidores.Add(servidor)
+            '       End If
+            '   Else
+            '   MsgBox("No se encuentra el nombre de ese servidor")
+            '   End If
+            Me.Close()
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         End Try
@@ -77,11 +107,10 @@ Public Class Login
         If nomServidor.Items.Count = 0 Then
             nomServidor.Items.Clear()
 
-            Me.nomServidor.TabIndex = servidores.ListaServidores.Count
-            For Each servidor In servidores.ListaServidores
-                If Not servidor.NombreServidor = "" Then
-
-                    nomServidor.Items.Add(servidor.NombreServidor)
+            Me.nomServidor.TabIndex = Servidores.ListaServidores.Count
+            For Each Servidorr In Servidores.ListaServidores
+                If Not Servidor.NombreServidor = "" Then
+                    nomServidor.Items.Add(Servidor.NombreServidor)
 
                 End If
 

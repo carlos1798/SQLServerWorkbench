@@ -4,6 +4,33 @@ Imports System.Net.NetworkInformation
 Public Class Menu
     Dim reg As New Registro()
 
+    Public Event new_server_add(servidor As Servidores)
+
+    Public Event added_sql(SQL As String)
+
+    Private _servidores As New Servidores
+    Private _sqlQuery As String = ""
+
+    Public Property Servidores As Servidores
+        Get
+            Return _servidores
+        End Get
+        Set(value As Servidores)
+            _servidores = value
+
+            Fill_BD_Combo()
+        End Set
+    End Property
+
+    Public Property SqlQuery As String
+        Get
+            Return _sqlQuery
+        End Get
+        Set(value As String)
+            _sqlQuery = value
+        End Set
+    End Property
+
     Private Sub ToolStrip1_ItemClicked(sender As Object, e As ToolStripItemClickedEventArgs) Handles ToolStrip1.ItemClicked
 
         Select Case e.ClickedItem.ToString
@@ -19,13 +46,22 @@ Public Class Menu
                 Dim IndicesSugeridos As New IndicesSugeridos()
                 IndicesSugeridos.Show()
             Case "Fragmentacion"
-                Dim FormFragmentacion As New VistaFragmentacion()
-                FormFragmentacion.Show()
-            Case "AddBaseDatos"
-                Dim AddDBForm As New AddBd()
+                Using FormFragmentacion As New VistaFragmentacion()
+                    FormFragmentacion.ShowDialog()
+                    SqlQuery = FormFragmentacion.SQL
+                    RaiseEvent added_sql(SqlQuery)
+
+                End Using
+            Case "Añadir"
+                Using AddDBForm As New AddBd()
+                    AddDBForm.ShowDialog()
+                    Servidores.ListaServidores.Add(AddDBForm.Servidor)
+                    Fill_BD_Combo()
+                    RaiseEvent new_server_add(Servidores)
+                End Using
 
             Case "Ejecutar"
-                Main.ejecutarSQLTextBox()
+                Main.EjecutarSQLTextBox()
             Case "Guardar"
                 SaveFileDialog1.Filter = "Sql files (*.sql)|*.sql|All files (*.*)|*.*"
                 SaveFileDialog1.ShowDialog()
@@ -46,9 +82,15 @@ Public Class Menu
 
     End Sub
 
-    Public Sub Fill_BD_Combo(listaDatabases As List(Of Database))
-        For Each db In listaDatabases
-            DBSeleccion.Items.Add(db.Servidor.NombreServidor + " / " + db.Nombre)
+    Public Sub Fill_BD_Combo()
+
+        For Each servidor In _servidores.ListaServidores
+            If servidor Is Nothing Then
+                Exit Sub
+            End If
+            For Each db In servidor.ListaDatabases
+                DBSeleccion.Items.Add(db.Servidor.NombreServidor + " / " + db.Nombre)
+            Next
         Next
 
     End Sub
@@ -59,7 +101,8 @@ Public Class Menu
 
         Dim eleccion As String = DBSeleccion.Items(index)
         Dim nombreBd As String = eleccion.Substring(eleccion.LastIndexOf("/") + 1)
-        Login.servidor.ModificarConexionString(nombreBd)
+
+        'Servidor.ModificarConexionString(nombreBd)
     End Sub
 
 End Class

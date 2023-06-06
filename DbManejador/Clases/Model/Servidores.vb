@@ -8,7 +8,6 @@
     Public Sub New()
         Me.ListaServidores = New List(Of Servidor)
     End Sub
-
     Public Property ListaServidores As List(Of Servidor)
         Get
             Return _listaServidores
@@ -31,4 +30,5 @@
     Public Sub Dispose() Implements IDisposable.Dispose
         ListaServidores = Nothing
     End Sub
+
 End Class

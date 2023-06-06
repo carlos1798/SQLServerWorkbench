@@ -109,7 +109,6 @@
     <Compile Include="Clases\Repositorio\SQLKeywordsRepo.vb" />
     <Compile Include="Clases\SQL\ColumnaSQL.vb" />
     <Compile Include="Clases\SQL\DatabaseSQL.vb" />
-    <Compile Include="Clases\SQL\FragmentacionSQL.vb" />
     <Compile Include="Clases\SQL\IndiceSQL.vb" />
     <Compile Include="Clases\SQL\SQLBuilder.vb" />
     <Compile Include="Clases\SQL\RestriccionSQL.vb" />

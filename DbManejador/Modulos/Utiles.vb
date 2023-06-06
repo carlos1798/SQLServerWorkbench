@@ -36,20 +36,30 @@ Public Module Utiles
         Return coordenadas
     End Function
 
-    Public Function get_Coordenadas_Tabla(listaDB As List(Of Database), nombre_tabla As String) As Integer()
-        Dim coordenadas As Integer() = {-1, -1}
-        For Each db In listaDB
-            For Each tabla In db.Tablas
-                If nombre_tabla = tabla.NombreTabla Then
-                    coordenadas(0) = listaDB.IndexOf(db)
-                    coordenadas(1) = db.Tablas.IndexOf(tabla)
-                    Exit For
-                End If
+    Public Function get_Coordenadas_Tabla(servidores As Servidores, nombre_tabla As String, Optional Set_Servidor As Boolean = False) As Integer()
+        Dim coordenadas As Integer() = {-1, -1, -1}
+        For Each servidor In servidores.ListaServidores
+            For Each db In servidor.ListaDatabases
+                For Each tabla In db.Tablas
+                    If nombre_tabla = tabla.NombreTabla Then
+                        coordenadas(0) = servidores.ListaServidores.IndexOf(servidor)
+                        coordenadas(1) = servidor.ListaDatabases.IndexOf(db)
+                        coordenadas(2) = db.Tablas.IndexOf(tabla)
+                        Exit For
+                    End If
+                Next
             Next
-
         Next
+        If Set_Servidor Then
+            servidores.ListaServidores.ElementAt(0).
+                ModificarConexionString(servidores.ListaServidores.ElementAt(0).
+                ListaDatabases.ElementAt(coordenadas(1)).Nombre)
+        End If
 
         Return coordenadas
+    End Function
+    Public Function get_Tabla_Coordenadas(servidores As Servidores, coordenadas() As Integer) As Tabla
+        Return servidores.ListaServidores.ElementAt(0).ListaDatabases.ElementAt(coordenadas(1)).Tablas.ElementAt(coordenadas(2))
     End Function
 
     Public Function get_Tabla_Por_Coordenadas(listabd As List(Of Database), coordenadas As Integer()) As Tabla

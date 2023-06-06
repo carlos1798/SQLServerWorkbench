@@ -4,10 +4,16 @@ Imports System.Xml.Serialization
 
 Public Class Servidor
 
-    Dim _nombreServidor As String
-    Dim _tipoLogin As TipoAutentificacion
-    Dim _usuario As String
-    Dim _contrasena As String
+    Private _nombreServidor As String
+    Private _tipoLogin As TipoAutentificacion
+    Private _usuario As String
+    Private _contrasena As String
+    Private _listaDatabases As List(Of Database)
+    Private _seleccionado As Boolean
+    Public Enum TipoAutentificacion
+        WINDOWS
+        SQLSERVER
+    End Enum
 
 #Region "Getters y setters"
     Public Property NombreServidor As String
@@ -46,14 +52,28 @@ Public Class Servidor
         End Set
     End Property
 
+    Public Property ListaDatabases As List(Of Database)
+        Get
+            Return _listaDatabases
+        End Get
+        Set(value As List(Of Database))
+            _listaDatabases = value
+        End Set
+    End Property
+
+    Public Property Seleccionado As Boolean
+        Get
+            Return _seleccionado
+        End Get
+        Set(value As Boolean)
+            _seleccionado = value
+        End Set
+    End Property
+
     '    Dim nombreTest As String = "DESKTOP-LAV1DTM"
 #End Region
-    Public Enum TipoAutentificacion
-        WINDOWS
-        SQLSERVER
-    End Enum
 
-
+#Region "Constructores"
     Public Sub New(nombreServidor As String, usuario As String, contrasena As String)
         Me.NombreServidor = nombreServidor
         Me.Usuario = usuario
@@ -72,8 +92,8 @@ Public Class Servidor
     Public Sub New()
 
     End Sub
-    'Ejecutar funciones asincronas 
-    '
+
+#End Region
     Public Function CheckExistenciaServidor()
         Dim exito As Boolean = False
         Dim ping As New Ping()
@@ -89,8 +109,6 @@ Public Class Servidor
         Dim conexion As String
         If TipoLogin = TipoAutentificacion.WINDOWS Then
             conexion = $"Data Source={NombreServidor} ;Initial Catalog=master;Integrated Security=True;MultipleActiveResultSets=true"
-
-
         Else
             conexion = $"Server={NombreServidor} ;Database=master;User Id={Usuario};Password={Contrasena};"
         End If
@@ -107,6 +125,5 @@ Public Class Servidor
         End If
         Return conexion
     End Function
-
 
 End Class

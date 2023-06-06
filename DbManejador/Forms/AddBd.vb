@@ -2,29 +2,30 @@
 
 Public Class AddBd
 
-
     Dim nombreServidor As String = ""
     Private ReadOnly tipoautenticacion As TipoAutentificacion
     Dim nombreUsuario As String = ""
     Dim contrasena As String = ""
 
-    'Se almacenaran todos los servidores que se van añadiendo en la sesion
     Private ReadOnly registo As New Registro
     ReadOnly listaservidores = registo.GetServidores()
-    Dim listaDatabases As New List(Of Database)
-    Public servidor As Servidor
+    Private _servidor As Servidor
+
+    Public Property Servidor As Servidor
+        Get
+            Return _servidor
+        End Get
+        Set(value As Servidor)
+            _servidor = value
+        End Set
+    End Property
 
     Private Sub Cancelar_Click(sender As Object, e As EventArgs) Handles Cancelar.Click
         Me.Close()
     End Sub
 
-    'Hacer para que el sevidor devuelva todos los nombre de las db que hay en el servidor
-
     Private Function RecuperarDatosForm() As Servidor
         nombreServidor = nomServidor.Text
-
-
-
         Select Case Autenticacion.SelectedIndex
             Case 0
                 Dim servidor As New Servidor(nombreServidor)
@@ -54,14 +55,13 @@ Public Class AddBd
         End If
     End Sub
 
-
     Private Sub NomServidor_Click(sender As Object, e As EventArgs) Handles nomServidor.Click
-        If Not nomServidor.Items.Count = 0 Then nomServidor.Items.Clear()
+        'If Not nomServidor.Items.Count = 0 Then nomServidor.Items.Clear()
 
-        Me.nomServidor.TabIndex = listaservidores.listaServidores.Count
-        For Each servidor In listaservidores.listaServidores
-            nomServidor.Items.Add(servidor.NombreServidor)
-        Next
+        'Me.nomServidor.TabIndex = listaservidores.listaServidores.Count
+        'For Each servidor In listaservidores.listaServidores
+        '    nomServidor.Items.Add(servidor.NombreServidor)
+        'Next
     End Sub
 
     Private Sub NomServidor_SelectedValueChanged(sender As Object, e As EventArgs) Handles nomServidor.SelectedValueChanged
@@ -90,13 +90,16 @@ Public Class AddBd
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        servidor = RecuperarDatosForm()
-        servidor.ModificarConexionString("master")
+        Servidor = RecuperarDatosForm()
+        Servidor.ModificarConexionString("master")
+
         Try
-            If servidor.CheckExistenciaServidor() Then 'Sabemos que esta en alcance el servidor
-                Main.Show()
-                MessageBox.Show("Conectado")
-                registo.SaveServidor(servidor) 'Lo guardamos
+            If Servidor.CheckExistenciaServidor() Then 'Sabemos que esta en alcance el servidor
+                Using ServidorDAO As New ServidorDAO()
+                    Servidor = ServidorDAO.FindBy(Servidor)
+                End Using
+
+                Me.Close()
             Else
                 MsgBox("No se encuentra el nombre de ese servidor")
             End If

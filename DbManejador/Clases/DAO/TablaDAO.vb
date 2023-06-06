@@ -9,10 +9,6 @@ Public Class TablaDAO
     End Function
 
     Public Function FindAll() As List(Of Tabla) Implements IDAO(Of Tabla).FindAll
-        Throw New NotImplementedException()
-    End Function
-
-    Public Function LightFindAll() As List(Of Tabla)
         Dim listaTablas As New List(Of Tabla)
         Dim SqlQuery As String = "SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES where TABLE_SCHEMA = 'dbo' and TABLE_TYPE = 'BASE TABLE'"
 

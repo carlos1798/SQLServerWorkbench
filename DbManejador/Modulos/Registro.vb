@@ -20,39 +20,39 @@ Public Class Registro
     'End Function
     Public Function GetServidores() As Servidores
 
-        Dim fileData As Servidores
+        '    Dim fileData As Servidores
 
-        Try
-            Dim reader = New XmlSerializer(GetType(Servidores))
-            Using file As New StreamReader(xmlPath)
+        '    Try
+        '    Dim reader = New XmlSerializer(GetType(Servidores))
+        '    Using file As New StreamReader(xmlPath)
 
-                fileData = CType(reader.Deserialize(file), Servidores)
-                Return fileData
-            End Using
+        '    fileData = CType(reader.Deserialize(file), Servidores)
+        '    Return fileData
+        '    End Using
 
 
 
-        Catch ex As Exception
-            fileData = New Servidores()
-            Return fileData
-        End Try
+        '    Catch ex As Exception
+        '    fileData = New Servidores()
+        '    Return fileData
+        '    End Try
         'TODO: List
         'a que devuelva los servidores almacenados
     End Function
     Public Sub SaveServidor(servidor As Servidor)
         'TODO: Para arreglar que salga bien tengo que leer el xml y sobrescribilo 
 
-        Dim listaServidores = GetServidores()
+        'Dim listaServidores = GetServidores()
 
 
-        listaServidores.ListaServidores.Add(servidor)
-        Dim reader = New XmlSerializer(GetType(Servidor))
+        'listaServidores.ListaServidores.Add(servidor)
+        'Dim reader = New XmlSerializer(GetType(Servidor))
 
-        Dim tipoServidor As Type = GetType(Servidores)
-        Dim writer As New XmlSerializer(GetType(Servidores))
-        Using file As New StreamWriter($"{filepath}\DatosServidor.xml")
-            writer.Serialize(file, listaServidores)
-        End Using
+        'Dim tipoServidor As Type = GetType(Servidores)
+        'Dim writer As New XmlSerializer(GetType(Servidores))
+        'Using file As New StreamWriter($"{filepath}\DatosServidor.xml")
+        '    writer.Serialize(file, listaServidores)
+        'End Using
 
     End Sub
 
