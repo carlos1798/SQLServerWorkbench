@@ -36,13 +36,13 @@ Public Module Utiles
         Return coordenadas
     End Function
 
-    Public Function get_Coordenadas_Tabla(nombre_tabla As String, Optional Set_Servidor As Boolean = False) As Integer()
+    Public Function get_Coordenadas_Tabla(servidores As Servidores, nombre_tabla As String, Optional Set_Servidor As Boolean = False) As Integer()
         Dim coordenadas As Integer() = {-1, -1, -1}
-        For Each servidor In Login.servidores.ListaServidores
+        For Each servidor In servidores.ListaServidores
             For Each db In servidor.ListaDatabases
                 For Each tabla In db.Tablas
                     If nombre_tabla = tabla.NombreTabla Then
-                        coordenadas(0) = Login.servidores.ListaServidores.IndexOf(servidor)
+                        coordenadas(0) = servidores.ListaServidores.IndexOf(servidor)
                         coordenadas(1) = servidor.ListaDatabases.IndexOf(db)
                         coordenadas(2) = db.Tablas.IndexOf(tabla)
                         Exit For
@@ -51,13 +51,15 @@ Public Module Utiles
             Next
         Next
         If Set_Servidor Then
-            Login.servidores.ListaServidores.ElementAt(0).ModificarConexionString(Login.servidores.ListaServidores.ElementAt(0).ListaDatabases.ElementAt(coordenadas(1)).Nombre)
+            servidores.ListaServidores.ElementAt(0).
+                ModificarConexionString(servidores.ListaServidores.ElementAt(0).
+                ListaDatabases.ElementAt(coordenadas(1)).Nombre)
         End If
 
         Return coordenadas
     End Function
-    Public Function get_Tabla_Coordenadas(coordenadas() As Integer) As Tabla
-        Return Login.servidores.ListaServidores.ElementAt(0).ListaDatabases.ElementAt(coordenadas(1)).Tablas.ElementAt(coordenadas(2))
+    Public Function get_Tabla_Coordenadas(servidores As Servidores, coordenadas() As Integer) As Tabla
+        Return servidores.ListaServidores.ElementAt(0).ListaDatabases.ElementAt(coordenadas(1)).Tablas.ElementAt(coordenadas(2))
     End Function
 
 End Module

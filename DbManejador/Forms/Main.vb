@@ -5,18 +5,26 @@
     Public lista As New List(Of String)
     Dim tablaSql As New TablaSQL
     Public bdseleccionada As String = ""
+    Private servidores As New Servidores()
     Public servidorSelec As String = ""
-
-    Public Sub New()
-
-        Dim root As New TreeNode(Login.servidor.NombreServidor)
-
-        ' Esta llamada es exigida por el diseñador.
-        InitializeComponent()
+    Private Sub Main_Load(sender As Object, e As EventArgs) Handles Me.Load
+        Using LoginForm As New Login(servidores)
+            LoginForm.ShowDialog()
+            servidores = LoginForm.Servidores
+        End Using
 
         fillTreeNode()
         SplitContainer1.Panel2Collapsed = True
-        Menu1.Fill_BD_Combo()
+
+        Menu1.Servidores = servidores
+
+    End Sub
+
+    Public Sub New()
+
+
+        ' Esta llamada es exigida por el diseñador.
+        InitializeComponent()
 
     End Sub
 
@@ -65,12 +73,13 @@
 
         TreeView1.Nodes.Clear()
 
-        Dim root As New TreeNode(Login.servidor.NombreServidor)
-        TreeView1.Nodes.Add(root)
 
 
-        For Each servidor In Login.servidores.ListaServidores
-            For Each bd In Servidor.ListaDatabases
+
+        For Each servidor In servidores.ListaServidores
+            Dim root As New TreeNode(servidor.NombreServidor)
+            TreeView1.Nodes.Add(root)
+            For Each bd In servidor.ListaDatabases
                 TreeView1.Nodes(TreeView1.Nodes.Count - 1).Nodes.Add(New TreeNode(bd.Nombre))
                 Dim asd As New BDSelector(bd.Nombre, bd.Servidor.NombreServidor, bd)
 
@@ -111,7 +120,7 @@
     Private Sub TreeView1_AfterSelect(sender As Object, e As TreeViewEventArgs) Handles TreeView1.AfterSelect
 
         DataGridView1.Rows.Clear()
-        For Each servidor In Login.servidores.ListaServidores
+        For Each servidor In servidores.ListaServidores.FindAll(Function(x) x IsNot Nothing)
             For Each Database In servidor.ListaDatabases
                 For Each tabla In Database.Tablas
 
@@ -180,7 +189,7 @@
         If e.Button = MouseButtons.Right Then
             TreeView1.SelectedNode = e.Node
 
-            For Each servidor In Login.servidores.ListaServidores
+            For Each servidor In servidores.ListaServidores
                 For Each db In servidor.ListaDatabases
                     If Not TreeView1.SelectedNode.Text = Nothing Then
                         If db.Nombre = TreeView1.SelectedNode.Text Then
@@ -207,8 +216,8 @@
         Dim coordenadas As Integer()
         Dim tabla As Tabla
 
-        coordenadas = get_Coordenadas_Tabla(TreeView1.SelectedNode.Text, True)
-        tabla = get_Tabla_Coordenadas(coordenadas)
+        coordenadas = get_Coordenadas_Tabla(servidores, TreeView1.SelectedNode.Text, True)
+        tabla = get_Tabla_Coordenadas(servidores, coordenadas)
 
         query = tablaSQL.Selecttop100Query(tabla)
         InputText1.RichTextBox1.Text = query
@@ -223,7 +232,7 @@
         Dim coordenadas As Integer()
         Dim tabla As Tabla
 
-        coordenadas = get_Coordenadas_Tabla(TreeView1.SelectedNode.Text)
+        coordenadas = get_Coordenadas_Tabla(servidores, TreeView1.SelectedNode.Text)
 
         tabla = listaDatabases.ElementAt(coordenadas(0)).Tablas.ElementAt(coordenadas(1))
         query = tablaSQL.Crear(tabla)
@@ -236,7 +245,7 @@
         Dim coordenadas As Integer()
         Dim tabla As New Tabla
 
-        coordenadas = get_Coordenadas_Tabla(TreeView1.SelectedNode.Text)
+        coordenadas = get_Coordenadas_Tabla(servidores, TreeView1.SelectedNode.Text)
 
         tabla = listaDatabases.ElementAt(coordenadas(0)).Tablas.ElementAt(coordenadas(1))
         query = tablaSQL.Eliminar(tabla)
@@ -255,6 +264,12 @@
         db = listaDatabases.ElementAt(coordenadas)
         query = dbSQLbuilder.Crear(db)
         InputText1.RichTextBox1.Text = query
+
+    End Sub
+
+    Private Sub Menu1_new_server_add(servidor As Servidores) Handles Menu1.new_server_add
+        servidores = Menu1.Servidores
+        fillTreeNode()
 
     End Sub
 
