@@ -18,6 +18,7 @@ Este gestor de bases de datos cuenta con las siguientes funcionalidades:
 
 
 ![image](https://github.com/carlos1798/SQLServerWorkbench/assets/24571992/186f2534-15bd-46af-817d-999d983fc1c6)
+![image](https://github.com/carlos1798/SQLServerWorkbench/assets/24571992/a6d217d2-f21a-49ec-9662-68ad562cc405)
 
 ## Requisitos
 
