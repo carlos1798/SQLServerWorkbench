@@ -241,6 +241,12 @@
     <EmbeddedResource Include="Forms\Componentes\UserControl2.resx">
       <DependentUpon>UserControl2.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\IndicesDesuso.resx">
+      <DependentUpon>IndicesDesuso.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\IndicesSugeridos.resx">
+      <DependentUpon>IndicesSugeridos.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\VistaFragmentacion.resx">
       <DependentUpon>VistaFragmentacion.vb</DependentUpon>
     </EmbeddedResource>

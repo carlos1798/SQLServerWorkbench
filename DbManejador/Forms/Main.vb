@@ -232,8 +232,7 @@
         Dim tabla As Tabla
 
         coordenadas = get_Coordenadas_Tabla(servidores, TreeView1.SelectedNode.Text)
-
-        tabla = listaDatabases.ElementAt(coordenadas(0)).Tablas.ElementAt(coordenadas(1))
+        tabla = get_Tabla_Coordenadas(servidores, coordenadas)
         query = tablaSQL.Crear(tabla)
         InputText1.RichTextBox1.Text = query
     End Sub
@@ -245,8 +244,7 @@
         Dim tabla As New Tabla
 
         coordenadas = get_Coordenadas_Tabla(servidores, TreeView1.SelectedNode.Text)
-
-        tabla = listaDatabases.ElementAt(coordenadas(0)).Tablas.ElementAt(coordenadas(1))
+        tabla = get_Tabla_Coordenadas(servidores, coordenadas)
         query = tablaSQL.Eliminar(tabla)
         InputText1.RichTextBox1.Text = query
 
@@ -255,20 +253,20 @@
     Private Sub GenerarSQLToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles GenerarSQLToolStripMenuItem1.Click
         Dim db As Database
         Dim query As String
-        Dim coordenadas As Integer
+        Dim coordenadas As Integer()
         Dim dbSQLbuilder As New DatabaseSQL
 
-        coordenadas = get_BD_Index_ListaDb(listaDatabases, TreeView1.SelectedNode.Text)
-
-        db = listaDatabases.ElementAt(coordenadas)
+        coordenadas = get_BD_Index_Servidores(servidores, TreeView1.SelectedNode.Text)
+        db = get_Db_Coordenadas(servidores, coordenadas)
         query = dbSQLbuilder.Crear(db)
         InputText1.RichTextBox1.Text = query
 
     End Sub
 
-    Private Sub Menu1_new_server_add(servidor As Servidores) Handles Menu1.new_server_add
+    Public Sub Menu1_new_server_add(servidor As Servidores) Handles Menu1.new_server_add
         servidores = Menu1.Servidores
         fillTreeNode()
+
     End Sub
 
     Private Sub Menu1_added_sql(SQL As String) Handles Menu1.added_sql

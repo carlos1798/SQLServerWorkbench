@@ -1,4 +1,6 @@
 ﻿Public Class Indice
+    Inherits IndiceSQL
+
     Private _nombreTabla As String
     Private _nombre As String
     Private _columnas As New List(Of Columna)
@@ -9,6 +11,7 @@
     Private _fillFactor As Integer
 
 #Region "Constructores"
+
     Public Sub New(columnas As List(Of Columna))
         _columnas = columnas
     End Sub
@@ -42,9 +45,11 @@
         Me.New(nombre, columnas, unico, tipoIndice, autoCreado)
         _fragmentacion = fragmentacion
     End Sub
+
 #End Region
 
 #Region "Getters y setters"
+
     Public Property Nombre As String
         Get
             Return _nombre
@@ -116,7 +121,7 @@
             _nombreTabla = value
         End Set
     End Property
-#End Region
 
+#End Region
 
 End Class

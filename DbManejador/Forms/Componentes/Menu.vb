@@ -39,12 +39,7 @@ Public Class Menu
                 ComparadorEsquemas.Show()
             Case "Atras"
                 Main.Close()
-            Case "IndexPer"
-                Dim IndicesDesuso As New IndicesDesuso()
-                IndicesDesuso.Show()
-            Case "IndexSug"
-                Dim IndicesSugeridos As New IndicesSugeridos()
-                IndicesSugeridos.Show()
+
             Case "Fragmentacion"
                 Using FormFragmentacion As New VistaFragmentacion()
                     FormFragmentacion.ShowDialog()
@@ -103,6 +98,40 @@ Public Class Menu
         Dim nombreBd As String = eleccion.Substring(eleccion.LastIndexOf("/") + 1)
 
         'Servidor.ModificarConexionString(nombreBd)
+    End Sub
+
+    Private Sub Indices_Click(sender As Object, e As EventArgs) Handles Indices.Click
+        Try
+            Dim coordenadas = get_Coordenadas_Tabla(Servidores, Main.TreeView1.SelectedNode.Text, True)
+            Dim Tabla = get_Tabla_Coordenadas(Servidores, coordenadas)
+
+            Using vistaIndices As New VistaIndices(Tabla)
+                vistaIndices.ShowDialog()
+                SqlQuery = vistaIndices.SQL
+                RaiseEvent added_sql(SqlQuery)
+            End Using
+        Catch ex As Exception
+            MsgBox("Para acceder a esta pantalla selecciona una tabla de la base de datos")
+
+        End Try
+    End Sub
+
+    Private Sub IndexSug_Click(sender As Object, e As EventArgs) Handles IndexSug.Click
+        Using IndicesSugeridos As New IndicesSugeridos()
+            IndicesSugeridos.ShowDialog()
+            SqlQuery = IndicesSugeridos.SQL
+            RaiseEvent added_sql(SqlQuery)
+        End Using
+
+    End Sub
+
+    Private Sub IndexPer_Click(sender As Object, e As EventArgs) Handles IndexPer.Click
+        Using IndicesDesuso As New IndicesDesuso()
+            IndicesDesuso.ShowDialog()
+            SqlQuery = IndicesDesuso.SQL
+            RaiseEvent added_sql(SqlQuery)
+        End Using
+
     End Sub
 
 End Class

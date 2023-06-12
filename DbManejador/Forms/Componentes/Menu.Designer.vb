@@ -24,18 +24,18 @@ Partial Class Menu
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Menu))
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
+        Me.DBSeleccion = New System.Windows.Forms.ToolStripComboBox()
+        Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
         Me.Guardar = New System.Windows.Forms.ToolStripButton()
         Me.Sincronizacion = New System.Windows.Forms.ToolStripButton()
         Me.Fragmentacion = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButton4 = New System.Windows.Forms.ToolStripDropDownButton()
         Me.IndexSug = New System.Windows.Forms.ToolStripMenuItem()
         Me.IndexPer = New System.Windows.Forms.ToolStripMenuItem()
-        Me.IndicesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Indices = New System.Windows.Forms.ToolStripMenuItem()
         Me.AddBaseDatos = New System.Windows.Forms.ToolStripButton()
         Me.Ejecutar = New System.Windows.Forms.ToolStripButton()
         Me.Atras = New System.Windows.Forms.ToolStripButton()
-        Me.DBSeleccion = New System.Windows.Forms.ToolStripComboBox()
-        Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
         Me.ToolStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -52,6 +52,12 @@ Partial Class Menu
         Me.ToolStrip1.Stretch = True
         Me.ToolStrip1.TabIndex = 0
         Me.ToolStrip1.Text = "ToolStrip1"
+        '
+        'DBSeleccion
+        '
+        Me.DBSeleccion.MaxDropDownItems = 20
+        Me.DBSeleccion.Name = "DBSeleccion"
+        Me.DBSeleccion.Size = New System.Drawing.Size(300, 52)
         '
         'Guardar
         '
@@ -96,7 +102,7 @@ Partial Class Menu
         '
         Me.ToolStripButton4.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
         Me.ToolStripButton4.AutoToolTip = False
-        Me.ToolStripButton4.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.IndexSug, Me.IndexPer, Me.IndicesToolStripMenuItem})
+        Me.ToolStripButton4.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.IndexSug, Me.IndexPer, Me.Indices})
         Me.ToolStripButton4.Image = Global.DbManejador.My.Resources.Resources.library
         Me.ToolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripButton4.Margin = New System.Windows.Forms.Padding(0)
@@ -108,20 +114,20 @@ Partial Class Menu
         'IndexSug
         '
         Me.IndexSug.Name = "IndexSug"
-        Me.IndexSug.Size = New System.Drawing.Size(161, 22)
+        Me.IndexSug.Size = New System.Drawing.Size(180, 22)
         Me.IndexSug.Text = "Indices Sugerido"
         '
         'IndexPer
         '
         Me.IndexPer.Name = "IndexPer"
-        Me.IndexPer.Size = New System.Drawing.Size(161, 22)
+        Me.IndexPer.Size = New System.Drawing.Size(180, 22)
         Me.IndexPer.Text = "Indices Perdidos"
         '
-        'IndicesToolStripMenuItem
+        'Indices
         '
-        Me.IndicesToolStripMenuItem.Name = "IndicesToolStripMenuItem"
-        Me.IndicesToolStripMenuItem.Size = New System.Drawing.Size(161, 22)
-        Me.IndicesToolStripMenuItem.Text = "Indices"
+        Me.Indices.Name = "Indices"
+        Me.Indices.Size = New System.Drawing.Size(180, 22)
+        Me.Indices.Text = "Indices"
         '
         'AddBaseDatos
         '
@@ -161,12 +167,6 @@ Partial Class Menu
         Me.Atras.Size = New System.Drawing.Size(70, 49)
         Me.Atras.Text = "Atras"
         '
-        'DBSeleccion
-        '
-        Me.DBSeleccion.MaxDropDownItems = 20
-        Me.DBSeleccion.Name = "DBSeleccion"
-        Me.DBSeleccion.Size = New System.Drawing.Size(300, 52)
-        '
         'Menu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -191,7 +191,7 @@ Partial Class Menu
     Friend WithEvents Atras As ToolStripButton
     Friend WithEvents Sincronizacion As ToolStripButton
     Friend WithEvents SaveFileDialog1 As SaveFileDialog
-    Friend WithEvents IndicesToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents Indices As ToolStripMenuItem
     Friend WithEvents Ejecutar As ToolStripButton
     Friend WithEvents DBSeleccion As ToolStripComboBox
 End Class

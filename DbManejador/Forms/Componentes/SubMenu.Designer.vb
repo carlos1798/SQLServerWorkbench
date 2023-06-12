@@ -23,7 +23,6 @@ Partial Class SubMenu
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
-        Me.Guardar = New System.Windows.Forms.ToolStripButton()
         Me.Atras = New System.Windows.Forms.ToolStripButton()
         Me.ToolStrip1.SuspendLayout()
         Me.SuspendLayout()
@@ -34,26 +33,13 @@ Partial Class SubMenu
         Me.ToolStrip1.CanOverflow = False
         Me.ToolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden
         Me.ToolStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Guardar, Me.Atras})
+        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Atras})
         Me.ToolStrip1.Location = New System.Drawing.Point(0, 0)
         Me.ToolStrip1.Name = "ToolStrip1"
-        Me.ToolStrip1.Size = New System.Drawing.Size(802, 52)
+        Me.ToolStrip1.Size = New System.Drawing.Size(1069, 52)
         Me.ToolStrip1.Stretch = True
         Me.ToolStrip1.TabIndex = 1
         Me.ToolStrip1.Text = "ToolStrip1"
-        '
-        'Guardar
-        '
-        Me.Guardar.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
-        Me.Guardar.AutoToolTip = False
-        Me.Guardar.CheckOnClick = True
-        Me.Guardar.Image = Global.DbManejador.My.Resources.Resources.save
-        Me.Guardar.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.Guardar.Margin = New System.Windows.Forms.Padding(0)
-        Me.Guardar.Name = "Guardar"
-        Me.Guardar.Overflow = System.Windows.Forms.ToolStripItemOverflow.Never
-        Me.Guardar.Size = New System.Drawing.Size(73, 52)
-        Me.Guardar.Text = "Guardar"
         '
         'Atras
         '
@@ -69,11 +55,12 @@ Partial Class SubMenu
         '
         'SubMenu
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.Controls.Add(Me.ToolStrip1)
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "SubMenu"
-        Me.Size = New System.Drawing.Size(802, 50)
+        Me.Size = New System.Drawing.Size(1069, 62)
         Me.ToolStrip1.ResumeLayout(False)
         Me.ToolStrip1.PerformLayout()
         Me.ResumeLayout(False)
@@ -82,6 +69,5 @@ Partial Class SubMenu
     End Sub
 
     Friend WithEvents ToolStrip1 As ToolStrip
-    Friend WithEvents Guardar As ToolStripButton
     Friend WithEvents Atras As ToolStripButton
 End Class
