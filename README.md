@@ -15,10 +15,10 @@ Este gestor de bases de datos cuenta con las siguientes funcionalidades:
 - Incluye una función de ejecucion de Querys desde el propio programa.
 - Permite la geneacion de indices y mantenimiento de bases de datos.
 - (No implementado) La capacidad de encontrar diferencias entre bases de datos y generar el SQL correspondiente para sincornizarlas.
+![image](https://github.com/carlos1798/SQLServerWorkbench/assets/24571992/295a4291-0201-4ae0-9d76-8dfd2a0206f4)
 
 
-![image](https://github.com/carlos1798/SQLServerWorkbench/assets/24571992/186f2534-15bd-46af-817d-999d983fc1c6)
-![image](https://github.com/carlos1798/SQLServerWorkbench/assets/24571992/a6d217d2-f21a-49ec-9662-68ad562cc405)
+
 
 ## Requisitos
 
