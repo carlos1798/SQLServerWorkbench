@@ -17,6 +17,7 @@ Este gestor de bases de datos cuenta con las siguientes funcionalidades:
 - (No implementado) La capacidad de encontrar diferencias entre bases de datos y generar el SQL correspondiente para sincornizarlas.
 ![image](https://github.com/carlos1798/SQLServerWorkbench/assets/24571992/295a4291-0201-4ae0-9d76-8dfd2a0206f4)
 
+![image](https://github.com/carlos1798/SQLServerWorkbench/assets/24571992/9204a6f1-d001-47d2-b83f-2d210584c58f)
 
 
 
