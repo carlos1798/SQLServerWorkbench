@@ -2,7 +2,8 @@
 
 Este proyecto consiste en un gestor de bases de datos desarrollado desde cero en VB.NET. Se trata de un proyecto creado por un desarrollador independiente como parte de su proyecto de fin de ciclo de Grado Superior en Desarrollo de Aplicaciones Multiplataforma (DAM). El objetivo principal de este gestor es proporcionar una interfaz fácil de usar para gestionar diferentes tipos de bases de datos relacionales.
 
-![Login](https://user-images.githubusercontent.com/24571992/226689015-1241d99b-338a-47a4-8746-5c1ed38b93b3.PNG)
+
+![image](https://github.com/carlos1798/SQLServerWorkbench/assets/24571992/da0ba14f-5ba0-413f-9476-f80eda49bddb)
 
 ## Funcionalidades
 
