@@ -128,7 +128,7 @@ Public Class Menu
     Private Sub IndexPer_Click(sender As Object, e As EventArgs) Handles IndexPer.Click
         Using IndicesDesuso As New IndicesDesuso()
             IndicesDesuso.ShowDialog()
-            SqlQuery = IndicesDesuso.SQL
+            SqlQuery = IndicesDesuso.SqlQuery
             RaiseEvent added_sql(SqlQuery)
         End Using
 
