@@ -53,7 +53,7 @@
     End Sub
 
     Public Sub print_sql_editor()
-        InputText1.RichTextBox1.Text = Sqlquery
+        InputText1.RichTextBox1.Text += vbNewLine + Sqlquery
     End Sub
 
     Public Sub Add_Server(servidor As Servidor)

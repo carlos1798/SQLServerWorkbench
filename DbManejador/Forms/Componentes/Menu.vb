@@ -119,7 +119,7 @@ Public Class Menu
     Private Sub IndexSug_Click(sender As Object, e As EventArgs) Handles IndexSug.Click
         Using IndicesSugeridos As New IndicesSugeridos()
             IndicesSugeridos.ShowDialog()
-            SqlQuery = IndicesSugeridos.SQL
+            SqlQuery = IndicesSugeridos.SqlQuery
             RaiseEvent added_sql(SqlQuery)
         End Using
 

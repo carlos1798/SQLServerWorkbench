@@ -120,4 +120,7 @@
   <metadata name="Eliminar.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <data name="Label3.Text" xml:space="preserve">
+    <value>La creación de estos índices puede ayudar a mejorar el rendimiento de las consultas en la base de datos al reducir el tiempo de ejecución y mejorar la eficiencia en las búsquedas. Consulte los detalles a continuación para obtener información técnica adicional, como las columnas de igualdad y desigualdad y el impacto estimado promedio del usuario, para determinar cuál es el mejor índice a crear </value>
+  </data>
 </root>
