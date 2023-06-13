@@ -12,7 +12,7 @@
 
         Me.tabla = tabla
         get_Indices()
-
+        Me._sqlQuery = ""
     End Sub
 
     Public Property SqlQuery As String
