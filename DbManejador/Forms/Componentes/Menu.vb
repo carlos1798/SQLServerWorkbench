@@ -1,5 +1,6 @@
 ﻿Imports System.IO
 Imports System.Net.NetworkInformation
+Imports System.Threading
 
 Public Class Menu
     Dim reg As New Registro()
@@ -56,7 +57,8 @@ Public Class Menu
                 End Using
 
             Case "Ejecutar"
-                Main.EjecutarSQLTextBox()
+                Dim hilo As New Thread(New ThreadStart(AddressOf Main.EjecutarSQLTextBox))
+                hilo.Start()
             Case "Guardar"
                 SaveFileDialog1.Filter = "Sql files (*.sql)|*.sql|All files (*.*)|*.*"
                 SaveFileDialog1.ShowDialog()

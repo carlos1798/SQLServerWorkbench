@@ -138,14 +138,21 @@
     End Sub
 
     Public Sub EjecutarSQLTextBox()
+
         Dim datatable As DataTable
         Dim bs As New BindingSource
         Dim tablasql As New TablaSQL
         Dim esUpdate As Boolean = False
         Dim refresh As Boolean = False
-        Dim query As String = InputText1.RichTextBox1.Text
+        Dim query As String = ""
+        InputText1.Invoke(Sub()
 
-        If Not InputText1.RichTextBox1.Text = Nothing Then
+                              query = InputText1.RichTextBox1.Text
+
+                          End Sub
+            )
+
+        If Not query = Nothing Or query = "" Then
             GC.Collect()
             For Each token In InputText1.tokenes
                 If token.Contenido IsNot Nothing Then
@@ -177,9 +184,17 @@
             End If
 
             ' InputText1.RichTextBox1.Text = query
+            QueryResult.BeginInvoke(Sub()
 
-            QueryResult.DataSource = datatable
-            SplitContainer1.Panel2Collapsed = False
+                                        QueryResult.DataSource = datatable
+                                    End Sub
+            )
+            SplitContainer1.BeginInvoke(Sub()
+
+                                            SplitContainer1.Panel2Collapsed = False
+                                        End Sub
+            )
+
         End If
 
     End Sub
